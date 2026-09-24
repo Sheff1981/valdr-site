@@ -518,7 +518,7 @@ return [
     [
       'heading'=>'For developers and operators',
       'paragraphs'=>[
-        'The active protocol source lives in valdr-core. The Master Specification defines the implementation baseline, while repository code and CI provide evidence for what has actually been built and verified.'
+        'The active protocol source lives in valdr-core. Public documentation follows verified repository code and CI evidence; internal project specifications are not published on the website.'
       ]
     ]
   ]

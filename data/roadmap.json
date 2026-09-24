@@ -1,6 +1,5 @@
 {
   "schema": 2,
-  "source_master_spec": "v0.2.4",
   "source_core_branch": "valdr-v0.2",
   "source_core_commit": "7572fc24432aef4c64504aff22ad47e38035daa4",
   "source_core_commit_date": "2026-09-24T06:12:35Z",
@@ -10,21 +9,19 @@
   "stages": [
     {
       "id": 0,
-      "en_name": "v0.2 branch and specification baseline",
-      "ru_name": "Ветка v0.2 и базовая спецификация",
+      "en_name": "v0.2 development baseline",
+      "ru_name": "Базовая линия разработки v0.2",
       "status": "implemented",
       "en_status_label": "Implemented / verified",
       "ru_status_label": "Реализовано / проверено",
-      "en_note": "Freeze the v0.2 development line so protocol changes are made against an explicit Master Specification rather than ad-hoc edits.",
-      "ru_note": "Зафиксировать линию разработки v0.2, чтобы изменения протокола шли по явному Master TZ, а не через случайные правки.",
+      "en_note": "Freeze the v0.2 development line so protocol changes are made against an explicit internal baseline rather than ad-hoc edits.",
+      "ru_note": "Зафиксировать линию разработки v0.2, чтобы изменения протокола шли по внутренней утверждённой базе, а не через случайные правки.",
       "en_details": [
         "Active branch: valdr-v0.2",
-        "Current Master Specification: v0.2.4",
         "Legacy Devnet v0.1 remains frozen for regression checks"
       ],
       "ru_details": [
         "Активная ветка: valdr-v0.2",
-        "Текущий Master TZ: v0.2.4",
         "Legacy Devnet v0.1 остаётся замороженным для regression-проверок"
       ]
     },

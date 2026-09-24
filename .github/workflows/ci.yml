@@ -29,3 +29,10 @@ jobs:
       - name: Print server log on failure
         if: failure()
         run: cat /tmp/valdr-site.log || true
+
+      - name: Guard private specification references
+        run: |
+          if grep -RIE --exclude-dir=.git --include='*.php' --include='*.html' --include='*.md' --include='*.json' 'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec' .; then
+            echo 'Private specification reference found in website repository.' >&2
+            exit 1
+          fi

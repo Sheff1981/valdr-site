@@ -13,18 +13,17 @@ $pageKey='roadmap'; $pagePath='/roadmap'; require dirname(__DIR__).'/includes/bo
     <h2><?= $lang==='ru'?'Как строится VALDR — шаг за шагом.':'How VALDR is being built — step by step.' ?></h2>
   </div>
   <p><?= $lang==='ru'
-    ?'Эта страница берёт этапы не из рекламного плана, а из рабочего репозитория VALDR Core: актуального Master TZ, README, кода ветки valdr-v0.2 и зелёного CI. Когда в Core появляется и проверяется новый этап, Roadmap сайта должен обновляться вместе с ним.'
-    :'This page follows the working VALDR Core repository rather than a marketing schedule: the current Master Specification, README, code on valdr-v0.2 and green CI. When a new Core milestone is implemented and verified, the website roadmap should be updated with it.' ?></p>
+    ?'Эта страница берёт этапы не из рекламного плана, а из фактического состояния VALDR Core: кода ветки valdr-v0.2 и зелёного CI. Когда в Core появляется и проверяется новый этап, Roadmap сайта должен обновляться вместе с ним.'
+    :'This page follows the verified state of VALDR Core rather than a marketing schedule: code on valdr-v0.2 and green CI. When a new Core milestone is implemented and verified, the website roadmap should be updated with it.' ?></p>
 
   <div class="roadmap-source">
-    <div><span>Master TZ</span><b><?= h($roadmap['source_master_spec']??'—') ?></b></div>
+    <div><span>Network line</span><b>VALDR v0.2</b></div>
     <div><span>Branch</span><b><?= h($roadmap['source_core_branch']??'—') ?></b></div>
     <div><span>Core commit</span><b class="mono"><?= h(substr($roadmap['source_core_commit']??'',0,12)) ?></b></div>
     <div><span>CI</span><b><?= h(strtoupper($roadmap['source_ci_status']??'unknown')) ?></b></div>
   </div>
   <div class="split-actions">
     <a class="button primary" href="<?= h(VALDR_CORE_BRANCH_URL) ?>" rel="noopener noreferrer"><?= $lang==='ru'?'Открыть VALDR Core':'Open VALDR Core' ?></a>
-    <a class="button" href="<?= h(VALDR_SOURCE_URL . '/blob/valdr-v0.2/docs/VALDR_Master_TZ_v0.2.4.md') ?>" rel="noopener noreferrer">Master TZ v0.2.4</a>
   </div>
 </section>
 
@@ -63,7 +62,7 @@ $pageKey='roadmap'; $pagePath='/roadmap'; require dirname(__DIR__).'/includes/bo
   </div>
 
   <p class="source-note"><?= $lang==='ru'
-    ?'Источник статусов: VALDR_Master_TZ_v0.2.4.md + README.md + фактический код и commits ветки valdr-v0.2 + GitHub Actions CI. При расхождении сайт не объявляет этап завершённым только потому, что код уже появился.'
-    :'Status sources: VALDR_Master_TZ_v0.2.4.md + README.md + actual code and commits on valdr-v0.2 + GitHub Actions CI. If those sources are temporarily out of sync, the website does not mark a stage complete merely because code exists.' ?></p>
+    ?'Публичные статусы формируются из фактического кода ветки valdr-v0.2 и GitHub Actions CI. Внутренняя проектная документация на сайте не публикуется.'
+    :'Public status is derived from actual code on valdr-v0.2 and GitHub Actions CI. Internal project documentation is not published on the website.' ?></p>
 </section>
 <?php require dirname(__DIR__).'/includes/footer.php'; ?>

@@ -4,7 +4,6 @@
   "current_release": null,
   "development": {
     "line": "VALDR v0.2 / Desktop development",
-    "master_spec": "v0.2.4",
     "branch": "valdr-v0.2",
     "commit": "7572fc24432aef4c64504aff22ad47e38035daa4",
     "commit_date": "2026-09-24T06:12:35Z",

@@ -92,10 +92,7 @@ GitHub Actions runs syntax, content, route, asset and security-header checks.
 
 ## Source of truth
 
-Website factual content must be checked against:
-1. latest `docs/VALDR_Master_TZ_v0.2.x.md` in `Sheff1981/valdr-core` branch `valdr-v0.2`;
-2. actual repository implementation;
-3. current CI/runtime evidence.
+Website factual content must be checked against verified `valdr-core` implementation status and current CI/runtime evidence. Internal project specifications are not published from this repository.
 
 ## License
 

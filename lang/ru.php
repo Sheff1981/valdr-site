@@ -518,7 +518,7 @@ return [
     [
       'heading'=>'Для developers и operators',
       'paragraphs'=>[
-        'Активный protocol source находится в valdr-core. Master Specification задаёт implementation baseline, а repository code и CI дают evidence того, что действительно реализовано и проверено.'
+        'Активный protocol source находится в valdr-core. Публичная документация следует проверенному repository code и CI; внутренняя проектная спецификация на сайте не публикуется.'
       ]
     ]
   ]
