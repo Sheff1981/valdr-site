@@ -1,141 +1,601 @@
 <?php
 return [
-'a11y'=>['skip'=>'Skip to content','primary_nav'=>'Primary navigation','menu'=>'Menu'],
-'nav'=>['home'=>'Home','about'=>'About','story'=>'Story','technology'=>'Technology','download'=>'Download','verify'=>'Verify','mining'=>'Mining','node'=>'Run a Node','wallet'=>'Wallet','explorer'=>'Explorer','security'=>'Security','roadmap'=>'Roadmap','community'=>'Community','faq'=>'FAQ','docs'=>'Documentation','releases'=>'Releases','more'=>'More'],
-'status'=>['testnet'=>'VALDR TESTNET','mainnet_not_launched'=>'Mainnet is not launched'],
-'buttons'=>['download'=>'Download VALDR','explore'=>'Explore Network','story'=>'Read the Story','source'=>'View Source','verify'=>'Verify Downloads','docs'=>'Read Documentation'],
-'footer'=>['line'=>'NOT A TOKEN. A CHAIN.','testnet_notice'=>'VALDR is currently in Testnet development. Testnet VDR has no promised monetary value.','project'=>'Project','resources'=>'Resources','source'=>'Source','no_investment'=>'No ICO, presale, exchange listing or investment promise.'],
+'a11y'=>[
+  'skip'=>'Skip to content',
+  'primary_nav'=>'Primary navigation',
+  'menu'=>'Menu',
+  'on_this_page'=>'On this page'
+],
+'nav'=>[
+  'home'=>'Home',
+  'about'=>'About',
+  'story'=>'Story',
+  'technology'=>'Technology',
+  'download'=>'Download',
+  'verify'=>'Verify',
+  'mining'=>'Mining',
+  'node'=>'Node',
+  'wallet'=>'Wallet',
+  'explorer'=>'Explorer',
+  'security'=>'Security',
+  'roadmap'=>'Roadmap',
+  'community'=>'Community',
+  'faq'=>'FAQ',
+  'docs'=>'Docs',
+  'releases'=>'Releases',
+  'more'=>'More'
+],
+'status'=>[
+  'testnet'=>'VALDR TESTNET',
+  'testnet_note'=>'Independent Proof-of-Work network'
+],
+'buttons'=>[
+  'download'=>'Download VALDR',
+  'explore'=>'Explore Network',
+  'story'=>'Read the Story',
+  'source'=>'View Source',
+  'verify'=>'Verify Downloads',
+  'docs'=>'Read Documentation',
+  'mining'=>'Start Mining',
+  'node'=>'Run a Node'
+],
+'footer'=>[
+  'line'=>'NOT A TOKEN. A CHAIN.',
+  'testnet_notice'=>'VALDR is being built and tested on its own Proof-of-Work Testnet.',
+  'get_started'=>'Get started',
+  'network'=>'Network',
+  'resources'=>'Resources',
+  'project'=>'Project',
+  'bottom'=>'Independent blockchain · Proof of Work · Open development'
+],
+'home_features'=>[
+  ['glyph'=>'◇','title'=>'Own Blockchain','text'=>'A native VDR network with its own consensus and chain state.'],
+  ['glyph'=>'⚒','title'=>'Proof of Work','text'=>'Miners build blocks and nodes verify every rule independently.'],
+  ['glyph'=>'</>','title'=>'Open Source','text'=>'Protocol software is developed transparently in source control.'],
+  ['glyph'=>'◎','title'=>'Full Node','text'=>'Run the network on your own computer or server.'],
+  ['glyph'=>'▣','title'=>'Encrypted Wallet','text'=>'Keys stay local and wallet data is encrypted at rest.'],
+  ['glyph'=>'⌘','title'=>'Open Network','text'=>'Peer-to-peer synchronization without a parent blockchain.']
+],
+'home'=>[
+  'what_label'=>'What is VALDR',
+  'what_title'=>'A real cryptocurrency. A real blockchain.',
+  'what_text'=>'VALDR (VDR) is an independent Proof-of-Work cryptocurrency built around its own blockchain, native coin, UTXO transaction model, full nodes, miner, wallet and peer-to-peer network. Consensus does not run on Ethereum, BNB Chain, Solana or another host chain.',
+  'learn_more'=>'Learn more about VALDR',
+  'protocol'=>[
+    'Independent blockchain written in Go',
+    'Proof of Work',
+    'UTXO transaction model',
+    'P2P v2 networking',
+    'Encrypted wallet',
+    'Transaction fees',
+    'Full synchronization',
+    'Chain reorganization',
+    'Read-only Explorer service'
+  ],
+  'desktop_mock'=>'Local wallet · local node · network sync',
+  'desktop_title'=>'Run your own node. Use VALDR Desktop.',
+  'desktop_text'=>'VALDR Desktop is the planned everyday interface for the network: create or open an encrypted wallet, run a local outbound-only node, synchronize, send and receive VDR, and inspect network status from one application.',
+  'release_preparing'=>'Testnet package in preparation',
+  'all_releases'=>'View releases',
+  'story_title'=>'From an idea to a blockchain.',
+  'story_text'=>'VALDR started with a simple question: what if we build our own coin instead of issuing another token on an existing chain? An early Bitcoin Core experiment led to a separate Go implementation focused on a native PoW network.',
+  'timeline'=>[
+    ['title'=>'Idea','text'=>'Build a native coin'],
+    ['title'=>'Bitcoin Core experiment','text'=>'Learn and test'],
+    ['title'=>'Own Go blockchain','text'=>'Independent implementation'],
+    ['title'=>'Devnet v0.1','text'=>'Working core network'],
+    ['title'=>'Hardened v0.2','text'=>'Storage, P2P, reorg, wallet'],
+    ['title'=>'Testnet','text'=>'Current network line'],
+    ['title'=>'VALDR Desktop','text'=>'User application'],
+    ['title'=>'Mainnet','text'=>'Later protocol stage']
+  ],
+  'philosophy_label'=>'Our philosophy',
+  'philosophy_title'=>'Not power over others. Power over your own.',
+  'philosophy_text'=>'Your keys. Your wallet. Your node. Your choice. VALDR is built around direct ownership, independent verification and software that can run on ordinary computers without depending on a parent chain.',
+  'mining_title'=>'Forge the chain.',
+  'mining_text'=>'Mining already exists in the current Testnet software stack. The VALDR miner produces candidate blocks, performs Proof of Work and submits them to a node for full consensus validation.',
+  'node_title'=>'Verify the network yourself.',
+  'node_text'=>'A full node keeps its own validated chain state, checks blocks and transactions, talks directly to peers and resumes synchronization after downtime.',
+  'roadmap_title'=>'From protocol to product.',
+  'roadmap_link'=>'View the full roadmap'
+],
 'pages'=>[
 'home'=>[
- 'title'=>'VALDR','meta_title'=>'VALDR (VDR) — Independent Proof-of-Work Blockchain','meta_description'=>'VALDR is an independent Proof-of-Work cryptocurrency running on its own blockchain. Testnet development is in progress.','kicker'=>'Independent blockchain','lead'=>'Own blockchain. Proof of Work. Open network.'
+  'title'=>'VALDR',
+  'meta_title'=>'VALDR (VDR) — Independent Proof-of-Work Blockchain',
+  'meta_description'=>'VALDR is an independent Proof-of-Work cryptocurrency with its own blockchain, native VDR coin, node, wallet and miner.',
+  'kicker'=>'Independent. Open. Proof of Work.',
+  'lead'=>'VALDR is an independent Proof-of-Work cryptocurrency running on its own blockchain. Native VDR. Own node. Own wallet. Own network.'
 ],
 'about'=>[
- 'title'=>'What is VALDR?','meta_title'=>'What is VALDR (VDR)?','meta_description'=>'VALDR is an independent Proof-of-Work cryptocurrency with its own Go blockchain, UTXO model, P2P network and native VDR coin.','kicker'=>'About VALDR','lead'=>'VALDR is an independent Proof-of-Work cryptocurrency running on its own blockchain.',
- 'sections'=>[
-  ['heading'=>'A chain, not a token','paragraphs'=>['VDR is the native coin of the VALDR blockchain. Consensus, transactions, mining and ownership do not depend on Ethereum, BNB Chain, Solana or another network.'],'bullets'=>['Own Go blockchain implementation','Proof of Work','UTXO transaction model','Independent P2P nodes','Native VDR addresses and coin']],
-  ['heading'=>'What exists today','paragraphs'=>['The v0.2 line has implemented and CI-verified the hardened node, storage v2, P2P v2, chainwork/reorganization, fees, mempool policy, full synchronization, wallet encryption, Explorer service and Testnet runtime/Linux/Docker infrastructure. VALDR Desktop is in active development. Public Testnet and Mainnet have not been launched.']],
-  ['heading'=>'Project philosophy','paragraphs'=>['Not power over others. Control over your own. Your keys. Your coin. Your node. Your choice. The Nordic identity is a modern visual and philosophical foundation, not a claim of invented ancient history.']]
- ]
+  'title'=>'What is VALDR?',
+  'meta_title'=>'What is VALDR (VDR)?',
+  'meta_description'=>'Learn how VALDR works as an independent Proof-of-Work cryptocurrency with its own blockchain and native VDR coin.',
+  'kicker'=>'Independent by design',
+  'lead'=>'VALDR is a native cryptocurrency network: its chain, consensus, transactions, mining and ownership are enforced by VALDR software itself.',
+  'sections'=>[
+    [
+      'heading'=>'A native coin on a native chain',
+      'paragraphs'=>[
+        'VDR is created, transferred and validated inside the VALDR blockchain. There is no smart-contract token layer underneath it and no parent network required to process VALDR transactions.',
+        'Every full node applies the same protocol rules to blocks, transactions, Proof of Work, fees and chain selection.'
+      ],
+      'bullets'=>[
+        'Own blockchain implementation in Go',
+        'Native VDR coin and VDR1 addresses',
+        'Proof-of-Work consensus',
+        'UTXO-based transactions',
+        'Independent peer-to-peer networking'
+      ]
+    ],
+    [
+      'heading'=>'Built for direct verification',
+      'paragraphs'=>[
+        'A user can rely on a local VALDR node instead of asking a third-party server what the network state is. The node stores validated chain state, checks incoming data against consensus rules and keeps itself synchronized with peers.',
+        'The project is designed so the desktop application uses the existing node, wallet and RPC architecture rather than creating a second blockchain implementation.'
+      ]
+    ],
+    [
+      'heading'=>'Own keys. Own node. Own choice.',
+      'paragraphs'=>[
+        'The brand language is Nordic, but the idea is modern: control over your own software and keys. The website does not invent mythology or claim an ancient origin for VALDR.'
+      ]
+    ]
+  ]
 ],
 'story'=>[
- 'title'=>'The VALDR Story','meta_title'=>'The Story of VALDR','meta_description'=>'How VALDR moved from a simple idea and a Bitcoin Core experiment to an independent Go Proof-of-Work blockchain.','kicker'=>'From idea to chain','lead'=>'VALDR began with a simple question: what if we build our own coin — not another token on somebody else’s network?',
- 'sections'=>[
-  ['heading'=>'The idea','paragraphs'=>['The first reference point was Bitcoin: a network where ownership and transaction validity are enforced by the protocol itself. An early Bitcoin Core experiment helped clarify the direction, but the goal became a standalone VALDR implementation.']],
-  ['heading'=>'A separate Go blockchain','paragraphs'=>['The active project moved to Go and kept the core principles of a Bitcoin-like monetary network: UTXO accounting, Proof of Work, independent nodes, signed transactions and a native coin. The archived Bitcoin Core experiment remains history, not the active architecture.']],
-  ['heading'=>'Build before market','paragraphs'=>['VALDR is developed in a strict sequence: specification → implementation → build → test → verification → next stage. AI tools are used as a technical development partner. VALDR did not begin with an ICO, presale or pre-sold token. The network is being built before any market discussion.']],
-  ['heading'=>'Timeline','cards'=>[
-   ['title'=>'Idea','text'=>'Create a native coin and an independent blockchain.'],
-   ['title'=>'Bitcoin Core experiment','text'=>'Early technical experiment, later archived.'],
-   ['title'=>'Own Go blockchain','text'=>'Standalone VALDR implementation becomes the active architecture.'],
-   ['title'=>'Devnet v0.1','text'=>'Working three-node Devnet with wallet, miner, P2P, RPC/CLI and persistence.'],
-   ['title'=>'Hardened v0.2','text'=>'Stages 0–11 implemented and CI-verified.'],
-   ['title'=>'VALDR Desktop','text'=>'In development on the v0.2 branch.'],
-   ['title'=>'Public Testnet','text'=>'Planned; not launched.'],
-   ['title'=>'Future Mainnet','text'=>'Not launched; requires a separately approved specification.']]
+  'title'=>'The VALDR Story',
+  'meta_title'=>'The Story of VALDR',
+  'meta_description'=>'How VALDR moved from a simple coin idea and a Bitcoin Core experiment to an independent Go Proof-of-Work blockchain.',
+  'kicker'=>'From idea to chain',
+  'lead'=>'VALDR began with a simple idea: create a real coin by building the network underneath it.',
+  'sections'=>[
+    [
+      'heading'=>'The first question',
+      'paragraphs'=>[
+        'The project started with a practical question: instead of issuing a token on an existing blockchain, could we build the blockchain itself?',
+        'Bitcoin became the first technical reference because it demonstrated the core model: independent nodes, Proof of Work, UTXO accounting and a native coin.'
+      ]
+    ],
+    [
+      'heading'=>'The Bitcoin Core experiment',
+      'paragraphs'=>[
+        'An early experiment used Bitcoin Core as a learning path. It helped define what the project needed and what it did not need. The active architecture then moved toward a separate VALDR implementation rather than remaining a rebranded fork.'
+      ]
+    ],
+    [
+      'heading'=>'A separate implementation in Go',
+      'paragraphs'=>[
+        'VALDR Core became its own Go codebase with a node, blockchain state, wallet, miner, P2P protocol, storage, RPC/CLI and Explorer service. The protocol has been hardened through staged specifications and automated verification.'
+      ]
+    ],
+    [
+      'heading'=>'One stage at a time',
+      'paragraphs'=>[
+        'The development rule is simple: specification → implementation → build → test → verification → next stage. AI tools are used as a technical partner during development, while protocol behavior is fixed and tested in the repository.',
+        'The goal is to make the network real first: software that starts, synchronizes, mines, stores state, signs transactions and survives restart before later product stages are treated as complete.'
+      ]
+    ]
   ]
- ]
 ],
 'technology'=>[
- 'title'=>'Technology','meta_title'=>'VALDR Technology','meta_description'=>'Confirmed VALDR v0.2 technical architecture: Go, SHA-256 Proof of Work, UTXO, P2P v2, chainwork, reorg, encrypted wallet and Testnet.','kicker'=>'Protocol','lead'=>'Only confirmed characteristics from the active VALDR Master Specification and repository are listed here.',
- 'sections'=>[
-  ['heading'=>'Core protocol','cards'=>[
-   ['title'=>'Independent chain','text'=>'Single canonical Go blockchain implementation.'],['title'=>'Proof of Work','text'=>'SHA-256 block hashing with network-profile difficulty rules.'],['title'=>'UTXO','text'=>'Inputs spend confirmed unspent outputs; value is conserved and fees are implicit.'],['title'=>'Chainwork + reorg','text'=>'The active branch is selected by cumulative chainwork with atomic undo/reconnect handling.'],['title'=>'P2P v2','text'=>'Network-separated framing, version negotiation, checksums, limits and abuse protections.'],['title'=>'Full sync','text'=>'Headers-first synchronization with validation before block-body download.']]],
-  ['heading'=>'Testnet profile','bullets'=>['Chain ID: valdr-testnet-1','Target block interval: 60 seconds','P2P: v2','P2P port: 17333','RPC: 17332, localhost by default','Address prefix: VDR1','Maximum canonical block size: 1,000,000 bytes','Current Testnet subsidy: 50 Testnet VDR for protocol testing only']],
-  ['heading'=>'Wallet and services','bullets'=>['Encrypted wallet v2; no plaintext private key in new wallet files','scrypt-derived key + AES-256-GCM','Read-only reorg-aware Explorer service','RPC localhost by default','BadgerDB-backed Storage v2','Docker and Linux service deployment for infrastructure']]
- ]
+  'title'=>'Technology',
+  'meta_title'=>'VALDR Technology',
+  'meta_description'=>'VALDR protocol architecture: Go, Proof of Work, UTXO, P2P v2, chainwork, reorganization, fees, encrypted wallet and Testnet.',
+  'kicker'=>'Protocol',
+  'lead'=>'VALDR uses a single native chain and a deliberately compact protocol stack.',
+  'sections'=>[
+    [
+      'heading'=>'Blockchain and consensus',
+      'paragraphs'=>[
+        'VALDR blocks are validated by a canonical Go implementation. The v0.2 protocol uses explicit 256-bit Proof-of-Work targets, SHA-256 block hashing and cumulative chainwork for fork choice.'
+      ],
+      'cards'=>[
+        ['title'=>'Proof of Work','text'=>'Miners search for a valid header while nodes independently enforce the target and all block rules.'],
+        ['title'=>'Chainwork','text'=>'The valid branch with the greatest cumulative work becomes the active chain.'],
+        ['title'=>'Reorganization','text'=>'Side branches are retained and a heavier valid branch can replace the active tip through undo and reconnect.'],
+        ['title'=>'Timestamp rules','text'=>'Median-time-past and future-time limits are checked as part of block acceptance.']
+      ]
+    ],
+    [
+      'heading'=>'Transactions and UTXO',
+      'paragraphs'=>[
+        'Transactions spend existing unspent outputs and create new outputs. On v0.2 networks, transaction signatures and transaction IDs are bound to the active Chain ID to prevent cross-network replay.'
+      ],
+      'bullets'=>[
+        'Native UTXO ledger',
+        'Network-bound v2 transactions',
+        'Implicit transaction fees',
+        'Consensus transaction and block size limits',
+        'Deterministic mempool and miner ordering'
+      ]
+    ],
+    [
+      'heading'=>'P2P and synchronization',
+      'paragraphs'=>[
+        'VALDR nodes communicate over P2P v2, negotiate compatible protocol versions, exchange inventory and synchronize headers before requesting block bodies. Nodes validate headers before downloading the corresponding blocks.'
+      ],
+      'bullets'=>[
+        'Chain-specific network framing',
+        'Handshake and version negotiation',
+        'Headers-first full synchronization',
+        'Peer discovery and seed bootstrap support',
+        'Rate limits, message caps and temporary bans'
+      ]
+    ],
+    [
+      'heading'=>'Storage, wallet and services',
+      'bullets'=>[
+        'BadgerDB-backed Storage v2',
+        'Encrypted wallet v2 using scrypt-derived keys and AES-256-GCM',
+        'Localhost RPC by default',
+        'Read-only, reorg-aware Explorer service',
+        'Docker and Linux service deployment for infrastructure'
+      ]
+    ]
+  ]
 ],
 'mining'=>[
- 'title'=>'Mining','meta_title'=>'Mining VALDR Testnet','meta_description'=>'How VALDR Proof-of-Work mining works, the roles of node and miner, and the current Testnet limitations.','kicker'=>'Proof of Work','lead'=>'VALDR uses Proof of Work. Mining proposes blocks; every node independently validates the result.',
- 'notice'=>['type'=>'warning','title'=>'Testnet only','text'=>'Testnet VDR has no promised monetary value. Current Testnet reward parameters are protocol-testing parameters, not a promise of Mainnet economics.'],
- 'sections'=>[
-  ['heading'=>'What mining does','paragraphs'=>['A miner builds a candidate block from valid transactions, performs Proof-of-Work hashing and submits the block to a VALDR node. The node verifies the block under consensus rules before it becomes part of the active chain.']],
-  ['heading'=>'Home mining','paragraphs'=>['The official software includes a miner for Devnet/Testnet testing. Desktop mining is intended to remain explicit and opt-in; it must never start silently in a browser or on a user’s computer.']],
-  ['heading'=>'Node, miner and hardware','cards'=>[['title'=>'Node','text'=>'Validates chain rules, stores chain state, synchronizes peers and serves local RPC.'],['title'=>'Miner','text'=>'Requests/builds work, hashes candidate headers and submits valid blocks.'],['title'=>'CPU / ASIC considerations','text'=>'The current project is validating protocol behavior. No profitability or future hardware economics are promised.']]]
- ]
+  'title'=>'Mining',
+  'meta_title'=>'Mine VALDR on Testnet',
+  'meta_description'=>'How VALDR Proof-of-Work mining works and how the current Testnet miner interacts with a full node.',
+  'kicker'=>'Forge the chain',
+  'lead'=>'VALDR uses Proof of Work. The miner creates candidate blocks; the node decides whether those blocks are valid.',
+  'notice'=>[
+    'type'=>'warning',
+    'title'=>'Current mining is Testnet mining',
+    'text'=>'The miner and Testnet runtime are implemented in the current software stack. Testnet VDR is used for network and protocol testing and has no promised monetary value.'
+  ],
+  'sections'=>[
+    [
+      'heading'=>'Mining already exists in the software stack',
+      'paragraphs'=>[
+        'The current VALDR Testnet build contains valdr-miner alongside valdrd, valdr-cli and valdr-explorer. Automated runtime tests mine real Testnet blocks and verify that those blocks synchronize across multiple nodes.',
+        'Mining is therefore not a browser feature or a marketing simulation. It is part of the blockchain runtime.'
+      ]
+    ],
+    [
+      'heading'=>'What happens when a block is mined',
+      'paragraphs'=>[
+        'The miner builds a candidate block from the active chain state and selected mempool transactions, includes the protocol subsidy and transaction fees, and searches for a header hash that satisfies the current target.',
+        'A found block is submitted to the node. The node then verifies Proof of Work, timestamps, transactions, UTXO spending, fees, size limits and network identity before accepting it.'
+      ]
+    ],
+    [
+      'heading'=>'Home mining and node mining',
+      'cards'=>[
+        ['title'=>'Local Testnet','text'=>'Run a node and miner on your own machine to participate in protocol testing.'],
+        ['title'=>'Full-node mining','text'=>'The miner relies on a real node for active chain state and final block validation.'],
+        ['title'=>'Explicit operation','text'=>'Mining is an intentional user action. The website never mines in the browser and the desktop application must not start mining silently.']
+      ]
+    ],
+    [
+      'heading'=>'Hardware',
+      'paragraphs'=>[
+        'VALDR currently documents the protocol and software path rather than promising a particular hardware return. CPU, GPU or specialized-hardware economics can only be evaluated from the real network conditions that exist at the time.'
+      ]
+    ]
+  ]
 ],
 'node'=>[
- 'title'=>'Run a Node','meta_title'=>'Run a VALDR Node','meta_description'=>'Understand VALDR nodes, outbound-only Desktop mode, public full nodes and the current Testnet infrastructure status.','kicker'=>'Verify the network yourself','lead'=>'A node verifies blocks and transactions independently instead of trusting a third-party copy of the chain.',
- 'notice'=>['type'=>'info','title'=>'Current status','text'=>'Node/Testnet runtime software is implemented and CI-verified. VALDR Desktop is still in development; public Testnet infrastructure has not been launched.'],
- 'sections'=>[
-  ['heading'=>'What is a node?','paragraphs'=>['A VALDR node stores validated blockchain state, checks Proof of Work and transaction rules, synchronizes with peers and relays accepted data. If your computer is offline, it simply stops participating; when restarted it resumes synchronization from persisted state.']],
-  ['heading'=>'Simple user','paragraphs'=>['VALDR Desktop is being built to launch a local outbound-only node automatically. This mode is designed for ordinary home networks: no router port forwarding and no public inbound P2P port are required.']],
-  ['heading'=>'Advanced and server operators','cards'=>[['title'=>'Advanced desktop','text'=>'An explicit advanced option is planned for publicly reachable full-node operation.'],['title'=>'Linux server','text'=>'Stage 11 includes Linux/Docker deployment and localhost-only RPC defaults for node infrastructure.'],['title'=>'Public node','text'=>'Public nodes require deliberate P2P exposure, monitoring and security hardening. They are not enabled by default.']]]
- ]
+  'title'=>'Run a Node',
+  'meta_title'=>'Run a VALDR Full Node',
+  'meta_description'=>'Learn what a VALDR node does, how it verifies the blockchain and how home and public-node modes differ.',
+  'kicker'=>'Verify the network yourself',
+  'lead'=>'Running a VALDR node means keeping your own validated view of the blockchain instead of relying on somebody else’s server.',
+  'sections'=>[
+    [
+      'heading'=>'What a node actually does',
+      'paragraphs'=>[
+        'A VALDR node connects to peers, downloads chain data, verifies blocks and transactions against consensus rules, stores validated state and relays accepted network data.',
+        'Your node does not ask another website which chain is valid. It evaluates Proof of Work, chainwork, timestamps, transactions and UTXO changes locally.'
+      ]
+    ],
+    [
+      'heading'=>'What happens when your computer is offline',
+      'paragraphs'=>[
+        'Nothing special happens to the rest of the network. Your node simply stops participating while the machine is offline. When it starts again, it resumes from its persisted database and synchronizes the missing chain data.'
+      ]
+    ],
+    [
+      'heading'=>'Desktop user',
+      'paragraphs'=>[
+        'The planned VALDR Desktop experience is built around an outbound-only local node. That mode is intended for ordinary home networks: the application connects outward to peers and does not require the user to expose an inbound P2P port.'
+      ]
+    ],
+    [
+      'heading'=>'Public full node',
+      'paragraphs'=>[
+        'Server operators can run a publicly reachable node with explicit P2P exposure. The Linux reference deployment uses an unprivileged service account, persistent data directories, localhost RPC, firewall guidance and a separate read-only Explorer.'
+      ]
+    ]
+  ]
 ],
 'wallet'=>[
- 'title'=>'Wallet','meta_title'=>'VALDR Wallet Security','meta_description'=>'VALDR wallet basics: VDR addresses, private keys, encrypted wallet files, backup, send and receive.','kicker'=>'Your keys stay local','lead'=>'A wallet controls the private key used to authorize spending. The official website never needs that key.',
- 'notice'=>['type'=>'danger','title'=>'Never enter a private key here','text'=>'This website is not a custodial wallet and does not collect private keys, wallet passphrases or wallet passwords.'],
- 'sections'=>[
-  ['heading'=>'Core concepts','cards'=>[['title'=>'VDR address','text'=>'A public destination used to receive VDR. Current addresses use the VDR1 prefix.'],['title'=>'Private key','text'=>'The secret authority to sign spending transactions. Keep it private and offline-backed-up where appropriate.'],['title'=>'Encrypted wallet','text'=>'Wallet v2 encrypts private-key material locally using a passphrase-derived key and authenticated encryption.']]],
-  ['heading'=>'Send and receive','paragraphs'=>['Sending creates and signs a transaction locally, then broadcasts it through the node. Receiving only requires sharing your public VDR address. Transactions are intended to be treated as irreversible once confirmed.']],
-  ['heading'=>'Backup','paragraphs'=>['A wallet backup protects against device loss or storage failure. Keep backups separate from the computer running the node, and never upload private-key material to this website.']]
- ]
-],
-'security'=>[
- 'title'=>'Security','meta_title'=>'VALDR Security','meta_description'=>'VALDR website and wallet security principles, download verification, localhost RPC and non-custodial design.','kicker'=>'Verify, do not trust','lead'=>'Security is a boundary condition for VALDR, not a marketing feature.',
- 'sections'=>[
-  ['heading'=>'Website boundaries','bullets'=>['No private-key or wallet-password forms','No browser cryptomining','No analytics or hidden trackers by default','No remote arbitrary JavaScript','No automatic executable downloads','Content Security Policy and restrictive browser headers']],
-  ['heading'=>'Node and wallet boundaries','bullets'=>['RPC binds to localhost by default','Private keys and passphrases never cross P2P or node RPC','Encrypted wallet v2 stores no plaintext private key in new wallet files','Desktop core assets are intended to be locally bundled','Public-node mode is explicit, not default']],
-  ['heading'=>'Downloads','paragraphs'=>['Installers will only be published when real release artifacts, hashes and signing metadata exist. Until then, the website deliberately shows no executable download links.']]
- ]
-],
-'verify'=>[
- 'title'=>'Verify Downloads','meta_title'=>'Verify VALDR Downloads','meta_description'=>'How to verify future VALDR release files with SHA-256 and a signed release manifest. No fake hashes are published.','kicker'=>'Release integrity','lead'=>'Verification helps detect corrupted or replaced release files before you run them.',
- 'notice'=>['type'=>'info','title'=>'No verified installer release yet','text'=>'There is currently no official VALDR Desktop installer release manifest, so this page does not publish placeholder hashes or signatures.'],
- 'sections'=>[
-  ['heading'=>'Verification model','bullets'=>['Download the release file only from the official release location','Download the signed release manifest','Verify the manifest signature against the published release key','Compute SHA-256 of your downloaded file','Compare every character of the computed hash with the signed manifest']],
-  ['heading'=>'Windows','code'=>'certUtil -hashfile <VALDR-release-file.exe> SHA256'],
-  ['heading'=>'macOS','code'=>'shasum -a 256 <VALDR-release-file.dmg>'],
-  ['heading'=>'Linux','code'=>'sha256sum <VALDR-release-file.tar.gz>'],
-  ['heading'=>'Do not skip the signature step','paragraphs'=>['A matching hash proves file identity against a manifest. A trusted signature is what ties that manifest to the project release process. Exact commands and release-key fingerprints will be published only when the real signing pipeline exists.']]
- ]
-],
-'faq'=>[
- 'title'=>'FAQ','meta_title'=>'VALDR FAQ','meta_description'=>'Frequently asked questions about VALDR, Testnet, mining, wallets, nodes and Mainnet status.','kicker'=>'Questions','lead'=>'Short answers based on the current v0.2 project state.',
- 'sections'=>[
-  ['heading'=>'Is VALDR an Ethereum, BNB Chain or Solana token?','paragraphs'=>['No. VALDR is its own blockchain and VDR is its native coin.']],
-  ['heading'=>'Is Mainnet live?','paragraphs'=>['No. Mainnet has not been launched and its final monetary specification has not been approved.']],
-  ['heading'=>'Can I buy or trade VDR?','paragraphs'=>['The official project has no ICO, presale or exchange listing at this stage. Testnet VDR has no promised monetary value.']],
-  ['heading'=>'Can I run a node at home?','paragraphs'=>['Yes in principle. The Desktop design targets an outbound-only local node for ordinary computers, while public inbound node operation is an advanced mode. Desktop itself is still in development.']],
-  ['heading'=>'Does the website hold my keys?','paragraphs'=>['No. The website is non-custodial and must never request or store private keys, passphrases or wallet passwords.']],
-  ['heading'=>'Where are downloads?','paragraphs'=>['There are no verified public Desktop installers yet. Download buttons remain disabled until genuine signed release artifacts exist.']]
- ]
-],
-'docs'=>[
- 'title'=>'Documentation','meta_title'=>'VALDR Documentation','meta_description'=>'Official VALDR documentation entry points for users, node operators, developers and release verification.','kicker'=>'Documentation','lead'=>'The active technical source of truth is the v0.2 branch and its latest Master Specification.',
- 'sections'=>[
-  ['heading'=>'User documentation','cards'=>[['title'=>'Wallet','text'=>'Keys, addresses, backup, send and receive.'],['title'=>'Run a Node','text'=>'Node roles, home operation and server operation.'],['title'=>'Mining','text'=>'Proof of Work and current Testnet limitations.'],['title'=>'Verify Downloads','text'=>'Release hash/signature verification process.']]],
-  ['heading'=>'Developer / operator source','paragraphs'=>['The canonical implementation lives in Sheff1981/valdr-core, branch valdr-v0.2. The latest Master Specification at the time this site was prepared is v0.2.4. Website content must be refreshed whenever verified product status changes.']]
- ]
+  'title'=>'Wallet',
+  'meta_title'=>'VALDR Wallet',
+  'meta_description'=>'How VALDR wallets, VDR addresses, encrypted key storage, backups, send and receive work.',
+  'kicker'=>'Your keys stay local',
+  'lead'=>'A VALDR wallet holds the key material that authorizes spending. The website never needs your private key.',
+  'notice'=>[
+    'type'=>'danger',
+    'title'=>'Never send a private key or wallet password to a website',
+    'text'=>'The official VALDR website is not a custodial wallet and contains no form for private keys, passphrases or wallet passwords.'
+  ],
+  'sections'=>[
+    [
+      'heading'=>'Wallet, address and private key',
+      'cards'=>[
+        ['title'=>'Wallet','text'=>'Local software that manages addresses, encrypted key material and signed transactions.'],
+        ['title'=>'VDR address','text'=>'A public destination used to receive VDR. Current network profiles use the VDR1 prefix.'],
+        ['title'=>'Private key','text'=>'The secret signing authority for spending. Whoever controls it can authorize transactions.']
+      ]
+    ],
+    [
+      'heading'=>'Encrypted wallet storage',
+      'paragraphs'=>[
+        'Wallet v2 does not store the private key in plaintext. A key derived from the user passphrase protects the private-key payload with authenticated encryption, while public metadata remains readable for normal wallet listing.'
+      ]
+    ],
+    [
+      'heading'=>'Send and receive',
+      'paragraphs'=>[
+        'To receive VDR, share a public VDR address. To send, the wallet unlocks key material locally, creates and signs a network-bound transaction and hands the signed transaction to the node for broadcast.',
+        'Private keys are not sent over P2P and do not belong in node RPC payloads.'
+      ]
+    ],
+    [
+      'heading'=>'Backup and recovery',
+      'paragraphs'=>[
+        'Keep a wallet backup somewhere separate from the machine that runs the node. Treat backup material and private keys as secrets. A lost private key cannot be recreated by the website or by a network operator.'
+      ]
+    ]
+  ]
 ],
 'explorer'=>[
- 'title'=>'Explorer','meta_title'=>'VALDR Testnet Explorer','meta_description'=>'VALDR Explorer status. The website is not the block explorer; a separate read-only Testnet Explorer endpoint will be linked when public.','kicker'=>'Network visibility','lead'=>'VALDR Explorer is a separate read-only service. This website does not duplicate it.',
- 'notice'=>['type'=>'info','title'=>'Testnet Explorer — coming soon','text'=>'The Explorer software is implemented and CI-verified, but no official public Explorer endpoint has been published yet.'],
- 'sections'=>[
-  ['heading'=>'What the Explorer provides','bullets'=>['Latest blocks and block details','Transaction lookup','Address balance/history/UTXO view','Mempool and network status','Difficulty and recent block timing','Reorg-aware indexing']],
-  ['heading'=>'Read-only by design','paragraphs'=>['The Explorer has no private keys, signing controls, mining controls or privileged node operations. The node remains the source of truth.']]
- ]
+  'title'=>'Explorer',
+  'meta_title'=>'VALDR Explorer',
+  'meta_description'=>'VALDR Explorer provides read-only views of blocks, transactions, addresses, mempool and network status.',
+  'kicker'=>'See the chain',
+  'lead'=>'VALDR Explorer is a separate read-only service built on public blockchain data.',
+  'sections'=>[
+    [
+      'heading'=>'Search the network',
+      'paragraphs'=>[
+        'The Explorer software can search by block height or hash, transaction ID and VDR address. It also exposes recent blocks, mempool state, peer count, chainwork, target information and recent block intervals.'
+      ]
+    ],
+    [
+      'heading'=>'Reorg-aware indexing',
+      'paragraphs'=>[
+        'The Explorer keeps its own index and follows the node’s active chain. If the active branch reorganizes, the index rolls back to the common ancestor and rebuilds forward on the new active branch.'
+      ]
+    ],
+    [
+      'heading'=>'Read-only by design',
+      'paragraphs'=>[
+        'Explorer has no signing controls, private keys or mining privileges. It reads public chain data from node RPC and can be rebuilt without changing consensus state.'
+      ]
+    ]
+  ]
 ],
-'community'=>[
- 'title'=>'Community','meta_title'=>'VALDR Community','meta_description'=>'Official VALDR community channels will be listed here when they exist. No placeholder social links are invented.','kicker'=>'Community','lead'=>'Official channels are added only after they are created and verified.',
- 'sections'=>[
-  ['heading'=>'Current channels','cards'=>[['title'=>'GitHub','text'=>'Development source is maintained under Sheff1981 on GitHub.'],['title'=>'Telegram','text'=>'Coming soon.'],['title'=>'VK','text'=>'Coming soon.'],['title'=>'X','text'=>'Coming soon.'],['title'=>'Reddit','text'=>'Coming soon.'],['title'=>'Discord','text'=>'Coming soon.']]],
-  ['heading'=>'Avoid impersonation','paragraphs'=>['Until an official channel is linked from this page, do not assume that an account using the VALDR name represents the project.']]
- ]
-],
-'releases'=>[
- 'title'=>'Releases','meta_title'=>'VALDR Releases','meta_description'=>'Official VALDR releases and release verification status. No installer artifacts have been published yet.','kicker'=>'Release channel','lead'=>'Only verified artifacts belong here.',
- 'notice'=>['type'=>'info','title'=>'No public installer release yet','text'=>'The GitHub repository currently has no published Releases. Cross-platform installers and the release-signing pipeline are a later v0.2 stage.'],
- 'sections'=>[
-  ['heading'=>'Release policy','bullets'=>['No release is listed without a real artifact','Every artifact must have SHA-256','Release manifest must be signed','Release notes must identify commit and network','CI/runtime verification must be green before a release is marked ready']],
-  ['heading'=>'Development source','paragraphs'=>['Current development happens on valdr-v0.2. Development commits are not equivalent to published installer releases.']]
- ]
-],
-'download'=>[
- 'title'=>'Download VALDR','meta_title'=>'Download VALDR Testnet','meta_description'=>'VALDR Testnet download page. Verified installers will appear only after the cross-platform release and signing pipeline is complete.','kicker'=>'Official software','lead'=>'Download only verified VALDR software. No public Desktop installer has been released yet.'
+'security'=>[
+  'title'=>'Security',
+  'meta_title'=>'VALDR Security',
+  'meta_description'=>'Security principles for VALDR wallets, nodes, downloads and the official website.',
+  'kicker'=>'Verify what you run',
+  'lead'=>'Keys stay local, downloads are verifiable and network services are separated by role.',
+  'sections'=>[
+    [
+      'heading'=>'Protect your keys',
+      'bullets'=>[
+        'Never share a private key, wallet passphrase or wallet password',
+        'Keep backups separate from the primary device',
+        'Check destination addresses before signing a transaction',
+        'Treat unexpected support requests for key material as fraudulent'
+      ]
+    ],
+    [
+      'heading'=>'Website boundaries',
+      'bullets'=>[
+        'No custodial wallet',
+        'No private-key forms',
+        'No browser cryptomining',
+        'No hidden trackers by default',
+        'No automatic executable downloads',
+        'Restrictive Content Security Policy and browser headers'
+      ]
+    ],
+    [
+      'heading'=>'Node boundaries',
+      'bullets'=>[
+        'RPC binds to localhost by default',
+        'Private keys never cross P2P',
+        'Explorer is read-only and separate from consensus storage',
+        'Public inbound P2P mode is explicit operator configuration'
+      ]
+    ],
+    [
+      'heading'=>'Verify software before running it',
+      'paragraphs'=>[
+        'A release page should tell you exactly which file you are downloading, which version and commit it belongs to, its SHA-256 checksum and the status of the signed release manifest. VALDR will only populate those fields from real release artifacts.'
+      ]
+    ]
+  ]
 ],
 'roadmap'=>[
- 'title'=>'Roadmap','meta_title'=>'VALDR Roadmap','meta_description'=>'VALDR factual development roadmap: implemented, in development, planned and not launched.','kicker'=>'Verified progress','lead'=>'A stage is marked complete only after implementation and verification evidence, not merely because code exists.'
+  'title'=>'Roadmap',
+  'meta_title'=>'VALDR Roadmap',
+  'meta_description'=>'VALDR development roadmap from verified core protocol stages through Desktop, release packaging, public Testnet and future Mainnet work.',
+  'kicker'=>'From code to network',
+  'lead'=>'VALDR development moves through explicit implementation and verification gates. The roadmap separates code that exists from stages that are fully completed.'
+],
+'community'=>[
+  'title'=>'Community',
+  'meta_title'=>'VALDR Community',
+  'meta_description'=>'Official VALDR community and development channels.',
+  'kicker'=>'Build the network together',
+  'lead'=>'Development starts in source code. Community channels are added here only after they become official.',
+  'sections'=>[
+    [
+      'heading'=>'Official development',
+      'paragraphs'=>[
+        'VALDR Core and the official website source are maintained in the Sheff1981 GitHub account. Technical changes are tracked through commits and CI.'
+      ],
+      'cards'=>[
+        ['title'=>'GitHub','text'=>'Protocol and website development source.'],
+        ['title'=>'Telegram','text'=>'Official channel will be linked here when created.'],
+        ['title'=>'VK','text'=>'Official channel will be linked here when created.'],
+        ['title'=>'X','text'=>'Official channel will be linked here when created.'],
+        ['title'=>'Reddit','text'=>'Official channel will be linked here when created.'],
+        ['title'=>'Discord','text'=>'Official channel will be linked here when created.']
+      ]
+    ],
+    [
+      'heading'=>'Verify the channel',
+      'paragraphs'=>[
+        'A social account is not official merely because it uses the VALDR name or artwork. Use links published on this website or in the official source repositories.'
+      ]
+    ]
+  ]
+],
+'faq'=>[
+  'title'=>'FAQ',
+  'meta_title'=>'VALDR FAQ',
+  'meta_description'=>'Answers about VALDR blockchain, mining, nodes, wallets, downloads and Testnet.',
+  'kicker'=>'Common questions',
+  'lead'=>'Short answers about the network and software.',
+  'sections'=>[
+    [
+      'heading'=>'Is VALDR a token on another blockchain?',
+      'paragraphs'=>['No. VALDR has its own blockchain and VDR is the native coin of that chain.']
+    ],
+    [
+      'heading'=>'Can VALDR be mined?',
+      'paragraphs'=>['Yes. The current Testnet software stack includes valdr-miner and automated runtime tests mine real Testnet blocks. Mining is performed against a VALDR node, which independently validates every submitted block.']
+    ],
+    [
+      'heading'=>'What does a full node do?',
+      'paragraphs'=>['It keeps its own validated chain state, checks protocol rules locally, synchronizes with peers and relays accepted data.']
+    ],
+    [
+      'heading'=>'Does the website hold my wallet keys?',
+      'paragraphs'=>['No. The website is informational and non-custodial. Private keys and wallet passwords belong only in local wallet software.']
+    ],
+    [
+      'heading'=>'Where do I download VALDR?',
+      'paragraphs'=>['The Download page is the official release entry point. Platform buttons activate only when a verified artifact exists in the release manifest.']
+    ],
+    [
+      'heading'=>'What is VALDR Desktop?',
+      'paragraphs'=>['It is the planned desktop interface that combines the local node and encrypted wallet experience for ordinary users without duplicating consensus logic.']
+    ]
+  ]
+],
+'docs'=>[
+  'title'=>'Documentation',
+  'meta_title'=>'VALDR Documentation',
+  'meta_description'=>'VALDR documentation for users, miners, node operators and developers.',
+  'kicker'=>'Learn the network',
+  'lead'=>'Start with the task you want to perform, then go deeper into the protocol when needed.',
+  'sections'=>[
+    [
+      'heading'=>'For users',
+      'cards'=>[
+        ['title'=>'Wallet','text'=>'Addresses, local keys, encrypted storage, send, receive and backup.'],
+        ['title'=>'Download','text'=>'Platform packages, release metadata and verification.'],
+        ['title'=>'Security','text'=>'Key handling, website boundaries and download safety.']
+      ]
+    ],
+    [
+      'heading'=>'For network participants',
+      'cards'=>[
+        ['title'=>'Mining','text'=>'Proof of Work, candidate blocks and the current Testnet miner.'],
+        ['title'=>'Run a Node','text'=>'Local node behavior, synchronization and server operation.'],
+        ['title'=>'Explorer','text'=>'Read-only chain, transaction and address inspection.']
+      ]
+    ],
+    [
+      'heading'=>'For developers and operators',
+      'paragraphs'=>[
+        'The active protocol source lives in valdr-core. The Master Specification defines the implementation baseline, while repository code and CI provide evidence for what has actually been built and verified.'
+      ]
+    ]
+  ]
+],
+'verify'=>[
+  'title'=>'Verify Downloads',
+  'meta_title'=>'Verify VALDR Downloads',
+  'meta_description'=>'Verify VALDR release files using SHA-256 and the signed release manifest.',
+  'kicker'=>'Release integrity',
+  'lead'=>'Do not rely on a filename alone. Verify the artifact you are about to run.',
+  'sections'=>[
+    [
+      'heading'=>'The verification chain',
+      'paragraphs'=>[
+        'A secure release process has two parts: confirm the file hash, then confirm that the hash list is authenticated by the project release signature.'
+      ],
+      'bullets'=>[
+        'Download the package from the official release location',
+        'Obtain the release manifest and signature',
+        'Verify the manifest signature',
+        'Compute SHA-256 for the package',
+        'Compare the computed value with the signed manifest'
+      ]
+    ],
+    [
+      'heading'=>'Windows',
+      'code'=>'certUtil -hashfile <VALDR-release-file.exe> SHA256'
+    ],
+    [
+      'heading'=>'macOS',
+      'code'=>'shasum -a 256 <VALDR-release-file.dmg>'
+    ],
+    [
+      'heading'=>'Linux',
+      'code'=>'sha256sum <VALDR-release-file.tar.gz>'
+    ],
+    [
+      'heading'=>'Why the signature matters',
+      'paragraphs'=>[
+        'A matching checksum proves that your file matches a specific manifest entry. Verifying the signature proves that the manifest itself belongs to the release process you intended to trust.'
+      ]
+    ]
+  ]
+],
+'releases'=>[
+  'title'=>'Releases',
+  'meta_title'=>'VALDR Releases',
+  'meta_description'=>'VALDR software releases, release notes and verification metadata.',
+  'kicker'=>'Official software',
+  'lead'=>'Every published package belongs to a specific version, source commit and network profile.',
+  'sections'=>[
+    [
+      'heading'=>'What a VALDR release contains',
+      'bullets'=>[
+        'Version and release date',
+        'Source commit',
+        'Operating system and architecture',
+        'Exact filename and size',
+        'SHA-256 checksum',
+        'Signed release-manifest status',
+        'Release notes'
+      ]
+    ],
+    [
+      'heading'=>'Development is not the same as a release',
+      'paragraphs'=>[
+        'A commit can be useful and CI-verified without being a packaged desktop release. The release page only activates installer links after the release artifacts and verification metadata exist.'
+      ]
+    ]
+  ]
+],
+'download'=>[
+  'title'=>'Download VALDR',
+  'meta_title'=>'Download VALDR Testnet',
+  'meta_description'=>'Download official VALDR Testnet software for Windows, macOS and Linux when verified packages are published.',
+  'kicker'=>'Official software',
+  'lead'=>'Choose your platform, verify the release, then run VALDR on your own machine.'
 ]
 ]
 ];

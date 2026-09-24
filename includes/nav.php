@@ -2,21 +2,21 @@
 $nav = [
     '/' => $t['nav']['home'],
     '/about' => $t['nav']['about'],
-    '/technology' => $t['nav']['technology'],
     '/download' => $t['nav']['download'],
-    '/node' => $t['nav']['node'],
+    '/technology' => $t['nav']['technology'],
     '/mining' => $t['nav']['mining'],
+    '/node' => $t['nav']['node'],
     '/wallet' => $t['nav']['wallet'],
+    '/explorer' => $t['nav']['explorer'],
     '/roadmap' => $t['nav']['roadmap'],
+    '/community' => $t['nav']['community'],
 ];
 $more = [
     '/story' => $t['nav']['story'],
-    '/explorer' => $t['nav']['explorer'],
     '/security' => $t['nav']['security'],
     '/verify' => $t['nav']['verify'],
     '/releases' => $t['nav']['releases'],
     '/docs' => $t['nav']['docs'],
-    '/community' => $t['nav']['community'],
     '/faq' => $t['nav']['faq'],
 ];
 ?>
@@ -29,7 +29,7 @@ $more = [
       <a href="<?= h(route_url($path, $lang)) ?>"<?= $currentPath === $path ? ' aria-current="page"' : '' ?>><?= h($label) ?></a>
     <?php endforeach; ?>
     <details class="nav-more"<?= array_key_exists($currentPath, $more) ? ' open' : '' ?>>
-      <summary><?= h($t['nav']['more']) ?></summary>
+      <summary><?= h($t['nav']['more']) ?>⌄</summary>
       <div class="nav-more-menu">
         <?php foreach ($more as $path => $label): ?>
           <a href="<?= h(route_url($path, $lang)) ?>"<?= $currentPath === $path ? ' aria-current="page"' : '' ?>><?= h($label) ?></a>

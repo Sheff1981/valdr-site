@@ -4,7 +4,6 @@ $pageTitle = $page['meta_title'] ?? $page['title'];
 $pageDescription = $page['meta_description'] ?? $page['lead'];
 $currentPath = $pagePath ?? '/';
 $canonical = canonical_url($currentPath);
-$altLang = $lang === 'en' ? 'ru' : 'en';
 ?>
 <!doctype html>
 <html lang="<?= h($lang) ?>">
@@ -12,7 +11,7 @@ $altLang = $lang === 'en' ? 'ru' : 'en';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#0b0b0d">
+  <meta name="theme-color" content="#090b0d">
   <title><?= h($pageTitle) ?></title>
   <meta name="description" content="<?= h($pageDescription) ?>">
   <link rel="canonical" href="<?= h($canonical) ?>">
@@ -35,13 +34,19 @@ $altLang = $lang === 'en' ? 'ru' : 'en';
 </head>
 <body>
 <a class="skip-link" href="#content"><?= h($t['a11y']['skip']) ?></a>
-<div class="testnet-ribbon"><span><?= h($t['status']['testnet']) ?></span><small><?= h($t['status']['mainnet_not_launched']) ?></small></div>
+<div class="testnet-ribbon"><span><?= h($t['status']['testnet']) ?></span><small><?= h($t['status']['testnet_note']) ?></small></div>
 <header class="site-header">
   <a class="brand" href="<?= h(route_url('/', $lang)) ?>" aria-label="VALDR">
-    <img src="/assets/img/valdr-mark.svg" alt="" width="34" height="34">
+    <img src="/assets/img/valdr-mark.svg" alt="" width="36" height="36">
     <span><strong>VALDR</strong><small>VDR</small></span>
   </a>
   <?php require __DIR__ . '/nav.php'; ?>
-  <a class="lang-switch" href="<?= h(route_url($currentPath, $altLang)) ?>" hreflang="<?= h($altLang) ?>"><?= $lang === 'en' ? 'RU' : 'EN' ?></a>
+  <details class="lang-menu">
+    <summary><?= $lang === 'en' ? 'EN' : 'RU' ?>⌄</summary>
+    <div>
+      <a href="<?= h(site_path($currentPath) . '?lang=en') ?>" hreflang="en"<?= $lang==='en'?' aria-current="true"':'' ?>>English</a>
+      <a href="<?= h(site_path($currentPath) . '?lang=ru') ?>" hreflang="ru"<?= $lang==='ru'?' aria-current="true"':'' ?>>Русский</a>
+    </div>
+  </details>
 </header>
 <main id="content">

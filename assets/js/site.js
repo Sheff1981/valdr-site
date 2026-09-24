@@ -9,7 +9,7 @@
     });
   }
   document.addEventListener('click', (event) => {
-    document.querySelectorAll('.nav-more[open]').forEach((details) => {
+    document.querySelectorAll('.nav-more[open], .lang-menu[open]').forEach((details) => {
       if (!details.contains(event.target)) details.removeAttribute('open');
     });
   });
