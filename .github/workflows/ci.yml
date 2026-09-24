@@ -22,7 +22,7 @@ jobs:
         run: php scripts/http-smoke.php http://127.0.0.1:8080
       - name: Guard against fake download artifacts
         run: |
-          if grep -RIE 'href=["'\'''][^"'\''']+\.(exe|msi|dmg)(["'\''']|\?)' --include='*.php' --include='*.html' .; then
+          if grep -RIE --include='*.php' --include='*.html' 'href="[^"]+\.(exe|msi|dmg)(\?[^"]*)?"' .; then
             echo 'Executable link found before verified release data gate.' >&2
             exit 1
           fi
