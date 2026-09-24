@@ -1,27 +1,56 @@
 {
-  "schema": 1,
+  "schema": 2,
   "source_master_spec": "v0.2.4",
+  "source_core_branch": "valdr-v0.2",
+  "source_core_commit": "7572fc24432aef4c64504aff22ad47e38035daa4",
+  "source_core_commit_date": "2026-09-24T06:12:35Z",
+  "source_ci_run_id": 35963401393,
+  "source_ci_status": "success",
   "verified_at": "2026-09-24T06:26:24Z",
   "stages": [
     {
       "id": 0,
-      "en_name": "v0.2 branch/spec freeze",
-      "ru_name": "Фиксация ветки/спецификации v0.2",
+      "en_name": "v0.2 branch and specification baseline",
+      "ru_name": "Ветка v0.2 и базовая спецификация",
       "status": "implemented",
-      "en_status_label": "Implemented / CI-verified",
-      "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_status_label": "Implemented / verified",
+      "ru_status_label": "Реализовано / проверено",
+      "en_note": "Freeze the v0.2 development line so protocol changes are made against an explicit Master Specification rather than ad-hoc edits.",
+      "ru_note": "Зафиксировать линию разработки v0.2, чтобы изменения протокола шли по явному Master TZ, а не через случайные правки.",
+      "en_details": [
+        "Active branch: valdr-v0.2",
+        "Current Master Specification: v0.2.4",
+        "Legacy Devnet v0.1 remains frozen for regression checks"
+      ],
+      "ru_details": [
+        "Активная ветка: valdr-v0.2",
+        "Текущий Master TZ: v0.2.4",
+        "Legacy Devnet v0.1 остаётся замороженным для regression-проверок"
+      ]
     },
     {
       "id": 1,
       "en_name": "Storage v2 + migration",
-      "ru_name": "Storage v2 + migration",
+      "ru_name": "Storage v2 + миграция",
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Replace the early flat persistence model with indexed, atomic blockchain storage and a verified migration path.",
+      "ru_note": "Заменить раннее плоское хранение на индексированное атомарное blockchain storage и проверяемую миграцию.",
+      "en_details": [
+        "BadgerDB storage schema v2",
+        "Atomic block, height, tx, UTXO, undo and metadata indexes",
+        "Database identity bound to network and Genesis",
+        "UTXO-set integrity hash and verify-db",
+        "Explicit one-way migration from v0.1"
+      ],
+      "ru_details": [
+        "BadgerDB storage schema v2",
+        "Атомарные индексы block, height, tx, UTXO, undo и metadata",
+        "База привязана к network и Genesis",
+        "UTXO-set integrity hash и verify-db",
+        "Явная односторонняя миграция из v0.1"
+      ]
     },
     {
       "id": 2,
@@ -30,28 +59,70 @@
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Separate Devnet/Testnet identities and introduce the second-generation VALDR wire protocol.",
+      "ru_note": "Разделить идентичности Devnet/Testnet и внедрить вторую версию сетевого протокола VALDR.",
+      "en_details": [
+        "Separate legacy, devnet2 and testnet profiles",
+        "Network magic and protocol versioning",
+        "Checksummed bounded P2P framing",
+        "hello / hello_ack handshake",
+        "Wrong-network rejection and peer discovery"
+      ],
+      "ru_details": [
+        "Отдельные legacy, devnet2 и testnet profiles",
+        "Network magic и versioning протокола",
+        "P2P framing с checksum и лимитами",
+        "Handshake hello / hello_ack",
+        "Wrong-network rejection и peer discovery"
+      ]
     },
     {
       "id": 3,
-      "en_name": "Chainwork + reorg/undo",
-      "ru_name": "Chainwork + reorg/undo",
+      "en_name": "Chainwork + reorganization",
+      "ru_name": "Chainwork + reorganization",
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Move from a simple height-oriented chain to real cumulative-work fork choice with reversible state transitions.",
+      "ru_note": "Перейти от простой цепи по высоте к выбору ветки по cumulative work с обратимыми изменениями состояния.",
+      "en_details": [
+        "Cumulative chainwork fork choice",
+        "Persistent competing side branches",
+        "Common-ancestor discovery",
+        "UTXO undo data",
+        "Atomic disconnect / reconnect reorganization"
+      ],
+      "ru_details": [
+        "Выбор ветки по cumulative chainwork",
+        "Сохранение конкурирующих side branches",
+        "Поиск common ancestor",
+        "UTXO undo data",
+        "Атомарный disconnect / reconnect при reorg"
+      ]
     },
     {
       "id": 4,
-      "en_name": "Difficulty v2 + timestamps",
-      "ru_name": "Difficulty v2 + timestamps",
+      "en_name": "Difficulty v2 + timestamp rules",
+      "ru_name": "Difficulty v2 + timestamp rules",
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Make Proof-of-Work target transitions and block-time validation deterministic across nodes.",
+      "ru_note": "Сделать изменение Proof-of-Work target и проверку времени блока детерминированными на всех нодах.",
+      "en_details": [
+        "60-second target block interval",
+        "60-block retarget window",
+        "Exact integer target arithmetic",
+        "Median-Time-Past validation",
+        "Testnet minimum-difficulty escape and recovery"
+      ],
+      "ru_details": [
+        "Целевой интервал блока 60 секунд",
+        "Retarget каждые 60 блоков",
+        "Точная integer-арифметика target",
+        "Median-Time-Past validation",
+        "Testnet min-difficulty escape и recovery"
+      ]
     },
     {
       "id": 5,
@@ -60,8 +131,22 @@
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Add real transaction fees and hard consensus limits for transaction and block size.",
+      "ru_note": "Добавить реальные transaction fees и жёсткие consensus limits для размера транзакций и блоков.",
+      "en_details": [
+        "Implicit fee = inputs minus outputs",
+        "Miner claims subsidy plus selected fees",
+        "100,000-byte transaction limit",
+        "1,000,000-byte block limit",
+        "Oversized data rejected before acceptance"
+      ],
+      "ru_details": [
+        "Implicit fee = inputs минус outputs",
+        "Miner получает subsidy плюс выбранные fees",
+        "Лимит transaction: 100 000 bytes",
+        "Лимит block: 1 000 000 bytes",
+        "Oversized data отклоняется до принятия"
+      ]
     },
     {
       "id": 6,
@@ -70,38 +155,94 @@
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Turn the pending-transaction pool into bounded policy-controlled state and make block template selection deterministic.",
+      "ru_note": "Сделать pending transaction pool ограниченным policy-state и детерминировать выбор транзакций майнером.",
+      "en_details": [
+        "64 MiB bounded mempool",
+        "72-hour expiry",
+        "Minimum Testnet relay fee",
+        "Double-spend and RBF policy",
+        "Fee-rate based eviction and mining order"
+      ],
+      "ru_details": [
+        "Mempool ограничен 64 MiB",
+        "Expiry 72 часа",
+        "Минимальная Testnet relay fee",
+        "Double-spend и RBF policy",
+        "Eviction и mining order по fee rate"
+      ]
     },
     {
       "id": 7,
-      "en_name": "Headers-first full sync",
-      "ru_name": "Headers-first full sync",
+      "en_name": "Headers-first full synchronization",
+      "ru_name": "Headers-first full synchronization",
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Let a fresh or restarted node catch up safely by validating headers before downloading block bodies.",
+      "ru_note": "Научить новую или перезапущенную ноду безопасно догонять сеть, проверяя headers до загрузки тел блоков.",
+      "en_details": [
+        "Block locators and headers-first sync",
+        "Up to 2,000 headers per batch",
+        "Header validation before body download",
+        "Bounded outstanding block requests",
+        "Restart resume and heavier-branch reorg sync"
+      ],
+      "ru_details": [
+        "Block locators и headers-first sync",
+        "До 2 000 headers в batch",
+        "Проверка header до загрузки block body",
+        "Ограниченное число outstanding block requests",
+        "Resume после restart и reorg на более тяжёлую ветку"
+      ]
     },
     {
       "id": 8,
-      "en_name": "Seeds + P2P protection software",
-      "ru_name": "Seeds + P2P protection software",
+      "en_name": "Seeds + P2P protection",
+      "ru_name": "Seeds + P2P protection",
       "status": "implemented",
-      "en_status_label": "Implemented / CI-verified",
-      "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_status_label": "Software implemented / CI-verified",
+      "ru_status_label": "ПО реализовано / CI-verified",
+      "en_note": "Add bootstrap support and harden the P2P layer against malformed, abusive or excessive traffic.",
+      "ru_note": "Добавить bootstrap и усилить P2P-слой против malformed, abusive и excessive traffic.",
+      "en_details": [
+        "Compiled seed-list support and operator overrides",
+        "Outbound peer target",
+        "Handshake and idle timeouts",
+        "Inbound and per-IP caps",
+        "Frame/message/rate limits and temporary bans"
+      ],
+      "ru_details": [
+        "Compiled seed-list и operator overrides",
+        "Target для outbound peers",
+        "Handshake и idle timeouts",
+        "Inbound и per-IP caps",
+        "Frame/message/rate limits и temporary bans"
+      ]
     },
     {
       "id": 9,
-      "en_name": "Wallet encryption v2",
-      "ru_name": "Wallet encryption v2",
+      "en_name": "Encrypted wallet v2",
+      "ru_name": "Encrypted wallet v2",
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Move wallet private-key storage from plaintext legacy files to authenticated encryption.",
+      "ru_note": "Перевести хранение private key из plaintext legacy wallet в authenticated encryption.",
+      "en_details": [
+        "scrypt-derived 256-bit key",
+        "AES-256-GCM encrypted private-key payload",
+        "No plaintext private key in new wallet files",
+        "Hidden terminal / password-fd passphrase input",
+        "Legacy wallet migration and signing gate"
+      ],
+      "ru_details": [
+        "256-bit key через scrypt",
+        "AES-256-GCM encryption private-key payload",
+        "В новых wallet-файлах нет plaintext private key",
+        "Passphrase через hidden terminal / password-fd",
+        "Migration legacy wallet и signing gate"
+      ]
     },
     {
       "id": 10,
@@ -110,8 +251,22 @@
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Build a separate read-only service for blocks, transactions, addresses and network status without giving it consensus authority.",
+      "ru_note": "Создать отдельный read-only service для блоков, транзакций, адресов и network status без consensus-прав.",
+      "en_details": [
+        "Block / transaction / VDR-address search",
+        "REST API and HTML views",
+        "Persistent Explorer-owned index",
+        "Reorg rollback and rebuild",
+        "No signing, mining or privileged RPC controls"
+      ],
+      "ru_details": [
+        "Поиск block / transaction / VDR address",
+        "REST API и HTML views",
+        "Собственный persistent index Explorer",
+        "Rollback и rebuild при reorg",
+        "Нет signing, mining или privileged RPC controls"
+      ]
     },
     {
       "id": 11,
@@ -120,48 +275,128 @@
       "status": "implemented",
       "en_status_label": "Implemented / CI-verified",
       "ru_status_label": "Реализовано / CI-verified",
-      "en_note": "Completed under v0.2.4 status table.",
-      "ru_note": "Завершено по таблице статусов v0.2.4."
+      "en_note": "Turn the protocol into a repeatable Testnet runtime that can be deployed, restarted, mined and verified on real infrastructure.",
+      "ru_note": "Превратить протокол в повторяемый Testnet runtime, который можно deploy, restart, mine и verify на реальной инфраструктуре.",
+      "en_details": [
+        "Frozen valdr-testnet-1 Genesis",
+        "Testnet P2P 17333 and localhost RPC 17332",
+        "Docker image with node, CLI, miner and Explorer",
+        "Three-node container Testnet",
+        "Linux systemd deployment, backup, restore and verify procedures",
+        "CI mines a real Testnet block and synchronizes it across nodes"
+      ],
+      "ru_details": [
+        "Frozen Genesis valdr-testnet-1",
+        "Testnet P2P 17333 и localhost RPC 17332",
+        "Docker image с node, CLI, miner и Explorer",
+        "Three-node container Testnet",
+        "Linux systemd deployment, backup, restore и verify procedures",
+        "CI майнит реальный Testnet block и синхронизирует его между nodes"
+      ]
     },
     {
       "id": 12,
       "en_name": "VALDR Desktop",
       "ru_name": "VALDR Desktop",
       "status": "in_development",
-      "en_status_label": "In development",
-      "ru_status_label": "В разработке",
-      "en_note": "Code exists in apps/valdr-desktop. Current branch HEAD 7572fc2 is CI-verified successfully, while Stage 12 remains in development and is not declared complete.",
-      "ru_note": "Код уже есть в apps/valdr-desktop. Текущий HEAD ветки 7572fc2 успешно прошёл CI, но Stage 12 остаётся в разработке и не объявлен завершённым."
+      "en_status_label": "In active development",
+      "ru_status_label": "Активно разрабатывается",
+      "en_note": "Desktop work is already present and CI-green in valdr-v0.2. The website treats the stage as in development until the product gate is formally completed.",
+      "ru_note": "Desktop-код уже есть в valdr-v0.2 и проходит CI. Сайт помечает этап как «в разработке», пока product gate официально не завершён.",
+      "en_details": [
+        "Wails v2 application shell and original VALDR visual system",
+        "Managed canonical valdrd backend with outbound-only P2P mode",
+        "Cross-platform data paths and graceful managed shutdown",
+        "Encrypted wallet bridge, balance, Send and Receive flows",
+        "Fee preview and fee-aware Testnet send",
+        "Encrypted wallet backup and restore",
+        "Pending / confirmed reorg-safe transaction history",
+        "Read-only sync progress from peer heights",
+        "Blocking first-run Testnet wallet setup flow"
+      ],
+      "ru_details": [
+        "Wails v2 application shell и собственная VALDR visual system",
+        "Managed canonical valdrd backend с outbound-only P2P mode",
+        "Cross-platform data paths и graceful managed shutdown",
+        "Encrypted wallet bridge, balance, Send и Receive",
+        "Fee preview и fee-aware Testnet send",
+        "Encrypted wallet backup и restore",
+        "Pending / confirmed reorg-safe transaction history",
+        "Read-only sync progress по peer heights",
+        "Blocking first-run Testnet wallet setup flow"
+      ]
     },
     {
       "id": 13,
       "en_name": "Cross-platform installers + release pipeline",
       "ru_name": "Cross-platform installers + release pipeline",
       "status": "planned",
-      "en_status_label": "Planned / not complete",
-      "ru_status_label": "Запланировано / не завершено",
-      "en_note": "Not completed. No public installer release or public Testnet launch is claimed.",
-      "ru_note": "Не завершено. Публичный installer release или запуск Public Testnet не заявляются."
+      "en_status_label": "Planned",
+      "ru_status_label": "Запланировано",
+      "en_note": "Package VALDR Desktop for normal users and connect every artifact to a verifiable release pipeline.",
+      "ru_note": "Упаковать VALDR Desktop для обычного пользователя и связать каждый artifact с проверяемым release pipeline.",
+      "en_details": [
+        "Windows package",
+        "macOS package",
+        "Linux package",
+        "SHA-256 artifact metadata",
+        "Signed release manifest",
+        "Release notes bound to source commit"
+      ],
+      "ru_details": [
+        "Windows package",
+        "macOS package",
+        "Linux package",
+        "SHA-256 metadata artifacts",
+        "Signed release manifest",
+        "Release notes с привязкой к source commit"
+      ]
     },
     {
       "id": 14,
       "en_name": "Private / Public Testnet",
       "ru_name": "Private / Public Testnet",
       "status": "planned",
-      "en_status_label": "Planned / not complete",
-      "ru_status_label": "Запланировано / не завершено",
-      "en_note": "Not completed. No public installer release or public Testnet launch is claimed.",
-      "ru_note": "Не завершено. Публичный installer release или запуск Public Testnet не заявляются."
+      "en_status_label": "Planned",
+      "ru_status_label": "Запланировано",
+      "en_note": "Move from local/container Testnet validation to stable public infrastructure with real seed nodes and soak gates.",
+      "ru_note": "Перейти от local/container Testnet к стабильной публичной инфраструктуре с реальными seed nodes и soak gates.",
+      "en_details": [
+        "At least 3 stable public full nodes",
+        "At least 2 independent regions/providers",
+        "Real compiled Testnet seed endpoints",
+        "Minimum 24-hour private soak",
+        "7-day public stability gate"
+      ],
+      "ru_details": [
+        "Минимум 3 стабильные public full nodes",
+        "Минимум 2 независимых региона/provider",
+        "Реальные compiled Testnet seed endpoints",
+        "Минимум 24 часа private soak",
+        "7-day public stability gate"
+      ]
     },
     {
       "id": 15,
-      "en_name": "Mainnet specification draft",
-      "ru_name": "Draft спецификации Mainnet",
+      "en_name": "Mainnet specification",
+      "ru_name": "Спецификация Mainnet",
       "status": "not_launched",
-      "en_status_label": "Planned / no launch",
-      "ru_status_label": "Запланировано / без запуска",
-      "en_note": "Specification draft only. Mainnet does not exist yet.",
-      "ru_note": "Только draft будущей спецификации. Mainnet ещё не существует."
+      "en_status_label": "Future stage",
+      "ru_status_label": "Будущий этап",
+      "en_note": "Define Mainnet separately only after the Testnet product and operational gates provide enough evidence for final network parameters.",
+      "ru_note": "Определять Mainnet отдельно только после того, как Testnet product и operational gates дадут достаточно данных для финальных network parameters.",
+      "en_details": [
+        "Separate approved Mainnet specification",
+        "Final Mainnet network profile and Genesis",
+        "Final monetary and launch parameters",
+        "Launch only after its own verification gates"
+      ],
+      "ru_details": [
+        "Отдельно утверждённый Mainnet TZ",
+        "Финальный Mainnet network profile и Genesis",
+        "Финальные monetary и launch parameters",
+        "Запуск только после собственных verification gates"
+      ]
     }
   ]
 }
