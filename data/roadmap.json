@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "source_master_spec": "v0.2.4",
+  "verified_at": "2026-09-24T06:26:24Z",
+  "stages": [
+    {
+      "id": 0,
+      "en_name": "v0.2 branch/spec freeze",
+      "ru_name": "Фиксация ветки/спецификации v0.2",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 1,
+      "en_name": "Storage v2 + migration",
+      "ru_name": "Storage v2 + migration",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 2,
+      "en_name": "Network profiles + P2P v2",
+      "ru_name": "Network profiles + P2P v2",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 3,
+      "en_name": "Chainwork + reorg/undo",
+      "ru_name": "Chainwork + reorg/undo",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 4,
+      "en_name": "Difficulty v2 + timestamps",
+      "ru_name": "Difficulty v2 + timestamps",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 5,
+      "en_name": "Fees + consensus size limits",
+      "ru_name": "Комиссии + consensus size limits",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 6,
+      "en_name": "Mempool policy + miner ordering",
+      "ru_name": "Mempool policy + miner ordering",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 7,
+      "en_name": "Headers-first full sync",
+      "ru_name": "Headers-first full sync",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 8,
+      "en_name": "Seeds + P2P protection software",
+      "ru_name": "Seeds + P2P protection software",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 9,
+      "en_name": "Wallet encryption v2",
+      "ru_name": "Wallet encryption v2",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 10,
+      "en_name": "Explorer + reorg-safe index",
+      "ru_name": "Explorer + reorg-safe index",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 11,
+      "en_name": "Testnet runtime + Docker + Linux",
+      "ru_name": "Testnet runtime + Docker + Linux",
+      "status": "implemented",
+      "en_status_label": "Implemented / CI-verified",
+      "ru_status_label": "Реализовано / CI-verified",
+      "en_note": "Completed under v0.2.4 status table.",
+      "ru_note": "Завершено по таблице статусов v0.2.4."
+    },
+    {
+      "id": 12,
+      "en_name": "VALDR Desktop",
+      "ru_name": "VALDR Desktop",
+      "status": "in_development",
+      "en_status_label": "In development",
+      "ru_status_label": "В разработке",
+      "en_note": "Code exists in apps/valdr-desktop. Current branch HEAD 7572fc2 is CI-verified successfully, while Stage 12 remains in development and is not declared complete.",
+      "ru_note": "Код уже есть в apps/valdr-desktop. Текущий HEAD ветки 7572fc2 успешно прошёл CI, но Stage 12 остаётся в разработке и не объявлен завершённым."
+    },
+    {
+      "id": 13,
+      "en_name": "Cross-platform installers + release pipeline",
+      "ru_name": "Cross-platform installers + release pipeline",
+      "status": "planned",
+      "en_status_label": "Planned / not complete",
+      "ru_status_label": "Запланировано / не завершено",
+      "en_note": "Not completed. No public installer release or public Testnet launch is claimed.",
+      "ru_note": "Не завершено. Публичный installer release или запуск Public Testnet не заявляются."
+    },
+    {
+      "id": 14,
+      "en_name": "Private / Public Testnet",
+      "ru_name": "Private / Public Testnet",
+      "status": "planned",
+      "en_status_label": "Planned / not complete",
+      "ru_status_label": "Запланировано / не завершено",
+      "en_note": "Not completed. No public installer release or public Testnet launch is claimed.",
+      "ru_note": "Не завершено. Публичный installer release или запуск Public Testnet не заявляются."
+    },
+    {
+      "id": 15,
+      "en_name": "Mainnet specification draft",
+      "ru_name": "Draft спецификации Mainnet",
+      "status": "not_launched",
+      "en_status_label": "Planned / no launch",
+      "ru_status_label": "Запланировано / без запуска",
+      "en_note": "Specification draft only. Mainnet does not exist yet.",
+      "ru_note": "Только draft будущей спецификации. Mainnet ещё не существует."
+    }
+  ]
+}

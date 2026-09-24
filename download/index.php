@@ -1,0 +1,11 @@
+<?php
+$pageKey='download'; $pagePath='/download'; require dirname(__DIR__).'/includes/bootstrap.php'; require dirname(__DIR__).'/includes/header.php'; $rel=json_data('releases.json');
+?>
+<section class="page-hero compact"><div class="eyebrow"><?= h($t['pages']['download']['kicker']) ?></div><h1><?= h($t['pages']['download']['title']) ?></h1><p><?= h($t['pages']['download']['lead']) ?></p></section>
+<section class="section narrow"><div class="release-meta"><div><span><?= $lang==='ru'?'Текущая линия':'Current line' ?></span><b><?= h($rel['development']['line']) ?></b></div><div><span><?= $lang==='ru'?'Сеть':'Network' ?></span><b>TESTNET</b></div><div><span>Git commit</span><b class="mono"><?= h(substr($rel['development']['commit'],0,12)) ?></b></div><div><span>CI</span><b><?= h($rel['development']['ci_status']) ?></b></div></div></section>
+<section class="section narrow"><div class="notice warning"><strong><?= $lang==='ru'?'Verified installers ещё не опубликованы':'Verified installers are not published yet' ?></strong><p><?= $lang==='ru'?'В valdr-core нет опубликованных GitHub Releases. Stage 13 (cross-platform installers + signing pipeline) ещё не завершён.':'valdr-core currently has no published GitHub Releases. Stage 13 (cross-platform installers + signing pipeline) is not complete.' ?></p></div>
+<div class="download-grid">
+<?php foreach(['Windows 10/11 — AMD64','macOS — Apple Silicon / Intel','Linux — AMD64 / ARM64'] as $os): ?><article class="download-card"><span class="os-mark"></span><h2><?= h($os) ?></h2><p><?= $lang==='ru'?'Coming with the next verified Testnet release.':'Coming with the next verified Testnet release.' ?></p><dl><dt>Filename</dt><dd>—</dd><dt>Size</dt><dd>—</dd><dt>SHA-256</dt><dd>—</dd></dl><button disabled><?= $lang==='ru'?'Недоступно':'Not available' ?></button></article><?php endforeach; ?>
+</div></section>
+<section class="section narrow split-actions"><a class="button" href="<?= h(route_url('/verify',$lang)) ?>"><?= h($t['buttons']['verify']) ?></a><a class="button" href="<?= h(route_url('/releases',$lang)) ?>"><?= $lang==='ru'?'Релизы':'Release notes' ?></a><a class="button ghost" href="<?= h(VALDR_CORE_BRANCH_URL) ?>" rel="noopener noreferrer"><?= $lang==='ru'?'Исходный код':'Source code' ?></a></section>
+<?php require dirname(__DIR__).'/includes/footer.php'; ?>
