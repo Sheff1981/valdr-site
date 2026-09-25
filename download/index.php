@@ -68,10 +68,13 @@ $formatBytes=static function(int $bytes):string{
   </div>
   <?php endif; ?>
 
-  <div class="download-grid">
+  <div class="download-grid" data-platform-suggest>
   <?php foreach($platforms as $osKey=>$platform): $items=$byOS[$osKey]; ?>
-    <article class="download-card">
-      <span class="os-mark"></span>
+    <article class="download-card" data-os="<?= h($osKey) ?>">
+      <div class="download-card-head">
+        <span class="os-mark"></span>
+        <span class="platform-recommended" hidden><?= $lang==='ru'?'Рекомендуется для этого устройства':'Recommended for this device' ?></span>
+      </div>
       <h2><?= h($platform[0]) ?></h2>
       <p><?= h($platform[1]) ?></p>
 
@@ -105,6 +108,13 @@ $formatBytes=static function(int $bytes):string{
       <?php endif; ?>
     </article>
   <?php endforeach; ?>
+  </div>
+
+  <div class="notice download-requirements">
+    <strong><?= $lang==='ru'?'VALDR Desktop запускает локальный узел':'VALDR Desktop runs a local node' ?></strong>
+    <p><?= $lang==='ru'
+      ?'Первичная синхронизация использует сеть и дисковое пространство, а объём blockchain со временем растёт. На первом запуске можно выбрать node-data directory. Точные minimum OS и release requirements публикуются вместе с конкретным Testnet release.'
+      :'Initial synchronization uses network bandwidth and disk space, and blockchain storage grows over time. The first-run flow lets you choose the node-data directory. Exact minimum OS and release requirements are published with each concrete Testnet release.' ?></p>
   </div>
 </section>
 
