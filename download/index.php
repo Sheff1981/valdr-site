@@ -13,15 +13,16 @@ $pageKey='download'; $pagePath='/download'; require dirname(__DIR__).'/includes/
     <div><span><?= $lang==='ru'?'Сеть':'Network' ?></span><b>TESTNET</b></div>
     <div><span>Git commit</span><b class="mono"><?= h(substr($rel['development']['commit'],0,12)) ?></b></div>
     <div><span>CI</span><b><?= h($rel['development']['ci_status']) ?></b></div>
+    <div><span><?= $lang==='ru'?'Проверка':'Verification' ?></span><b><?= h($rel['verification']['method'] ?? 'SHA-256') ?></b></div>
   </div>
 </section>
 
 <section class="section narrow">
   <div class="notice">
-    <strong><?= $lang==='ru'?'Testnet packages готовятся':'Testnet packages are being prepared' ?></strong>
+    <strong><?= $lang==='ru'?'Development packages проверены, публичный Testnet release ещё не опубликован':'Development packages are verified; the public Testnet release is not published yet' ?></strong>
     <p><?= $lang==='ru'
-      ?'Platform cards уже готовы к реальному release manifest. Кнопка активируется только когда для package существуют настоящий filename, size, SHA-256 и verification data.'
-      :'The platform cards are already wired for a real release manifest. A button activates only when a package has a real filename, size, SHA-256 checksum and verification data.' ?></p>
+      ?'Windows, macOS и Linux packages уже проходят CI, SHA-256 и GitHub/Sigstore provenance verification. Download-кнопки останутся выключенными до появления финального release candidate в официальном release storage.'
+      :'Windows, macOS and Linux packages already pass CI, SHA-256 and GitHub/Sigstore provenance verification. Download buttons remain disabled until a final release candidate exists in official release storage.' ?></p>
   </div>
 
   <div class="download-grid">
@@ -48,8 +49,8 @@ $pageKey='download'; $pagePath='/download'; require dirname(__DIR__).'/includes/
 <section class="section narrow">
   <div class="section-heading"><span>VERIFY</span><h2><?= $lang==='ru'?'Проверяй package перед запуском.':'Verify the package before you run it.' ?></h2></div>
   <p><?= $lang==='ru'
-    ?'VALDR release flow строится вокруг SHA-256 и signed manifest. Hash подтверждает конкретный artifact, а подпись подтверждает сам manifest.'
-    :'The VALDR release flow is built around SHA-256 and a signed manifest. The hash identifies the artifact; the signature authenticates the manifest.' ?></p>
+    ?'VALDR release flow использует две независимые проверки: SHA-256 и GitHub/Sigstore keyless provenance. Hash проверяет конкретный artifact, а provenance связывает его с публичным valdr-core repository, workflow и точным source commit.'
+    :'VALDR uses two independent release checks: SHA-256 and GitHub/Sigstore keyless provenance. The hash checks the exact artifact; provenance binds it to the public valdr-core repository, workflow and exact source commit.' ?></p>
   <div class="split-actions">
     <a class="button primary" href="<?= h(route_url('/verify',$lang)) ?>"><?= h($t['buttons']['verify']) ?></a>
     <a class="button" href="<?= h(route_url('/releases',$lang)) ?>"><?= $lang==='ru'?'Релизы':'Release notes' ?></a>

@@ -5,13 +5,26 @@
   "development": {
     "line": "VALDR v0.2 / Desktop development",
     "branch": "valdr-v0.2",
-    "commit": "7572fc24432aef4c64504aff22ad47e38035daa4",
-    "commit_date": "2026-09-24T06:12:35Z",
-    "ci_status": "success (verified 2026-09-24T06:26:24Z)",
+    "commit": "b58692ddbbf89ba51a89d27ac20490e086dc57dc",
+    "commit_date": "2026-09-25T13:45:27Z",
+    "ci_status": "success (verified 2026-09-25T13:51:13Z)",
     "release_date": null,
-    "ci_run_id": 35963401393,
-    "verified_at": "2026-09-24T06:26:24Z"
+    "ci_run_id": 36143000084,
+    "verified_at": "2026-09-25T13:51:13Z",
+    "stage12_manual_windows_qa": "pending",
+    "stage13_status": "in_progress",
+    "package_matrix_verified": true,
+    "provenance_verified": true
+  },
+  "verification": {
+    "method": "sha256+github-sigstore-keyless",
+    "repository": "Sheff1981/valdr-core",
+    "signer_workflow": "Sheff1981/valdr-core/.github/workflows/valdr-v02-ci.yml",
+    "provenance": "GitHub Artifact Attestations / Sigstore keyless OIDC",
+    "windows_vendor_signing": "optional-not-available",
+    "macos_vendor_signing": "optional-not-available",
+    "public_release_ready": false
   },
   "artifacts": [],
-  "message": "Coming with the next verified Testnet release"
+  "message": "Verified development packages exist, but public Testnet downloads are not published yet."
 }

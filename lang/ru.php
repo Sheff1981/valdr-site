@@ -526,39 +526,49 @@ return [
 'verify'=>[
   'title'=>'Проверка загрузок',
   'meta_title'=>'Проверить загрузки VALDR',
-  'meta_description'=>'Проверка VALDR release files через SHA-256 и signed release manifest.',
+  'meta_description'=>'Проверка VALDR release files через SHA-256 и GitHub/Sigstore keyless provenance.',
   'kicker'=>'Целостность релиза',
-  'lead'=>'Не доверяй одному имени файла. Проверяй artifact перед запуском.',
+  'lead'=>'Не доверяй одному имени файла. Перед запуском проверяй artifact, repository identity и точный source commit.',
   'sections'=>[
     [
       'heading'=>'Цепочка проверки',
       'paragraphs'=>[
-        'Надёжный release process состоит из двух частей: сначала подтверждаем hash файла, затем подтверждаем, что список hashes подписан официальным release key.'
+        'VALDR использует две независимые проверки: SHA-256 подтверждает точные bytes файла, а GitHub/Sigstore provenance подтверждает, что artifact создан ожидаемым valdr-core workflow из ожидаемого source commit.'
       ],
       'bullets'=>[
-        'Скачать package из официального release location',
-        'Получить release manifest и signature',
-        'Проверить подпись manifest',
-        'Посчитать SHA-256 package',
-        'Сравнить computed value с signed manifest'
+        'Скачать package, release-manifest.json и SHA256SUMS из официального release location',
+        'Проверить SHA-256 package',
+        'Получить точный source commit из release-manifest.json',
+        'Проверить GitHub Artifact Attestation против Sheff1981/valdr-core и VALDR release workflow',
+        'Не запускать файл, если hash, repository, workflow или source commit отличаются'
       ]
     ],
     [
-      'heading'=>'Windows',
-      'code'=>'certUtil -hashfile <VALDR-release-file.exe> SHA256'
+      'heading'=>'Windows SHA-256',
+      'code'=>'Get-FileHash .\\VALDR-Desktop-<version>-windows-x64-setup.exe -Algorithm SHA256'
     ],
     [
-      'heading'=>'macOS',
-      'code'=>'shasum -a 256 <VALDR-release-file.dmg>'
+      'heading'=>'macOS SHA-256',
+      'code'=>'shasum -a 256 VALDR-Desktop-<version>-macos-arm64.dmg'
     ],
     [
-      'heading'=>'Linux',
-      'code'=>'sha256sum <VALDR-release-file.tar.gz>'
+      'heading'=>'Linux SHA-256',
+      'code'=>'sha256sum VALDR-Desktop-<version>-linux-x64.AppImage'
     ],
     [
-      'heading'=>'Почему важна подпись',
+      'heading'=>'GitHub / Sigstore provenance',
+      'code'=>'gh attestation verify <VALDR-release-file> \\\n  --repo Sheff1981/valdr-core \\\n  --signer-workflow Sheff1981/valdr-core/.github/workflows/valdr-v02-ci.yml \\\n  --source-digest <40-character-release-commit>'
+    ],
+    [
+      'heading'=>'Что provenance доказывает, а что нет',
       'paragraphs'=>[
-        'Совпавший checksum подтверждает, что файл соответствует конкретной записи manifest. Проверка signature подтверждает, что сам manifest принадлежит тому release process, которому ты намерен доверять.'
+        'Совпавший checksum подтверждает, что скачанные bytes соответствуют опубликованным release metadata. Успешная provenance-проверка связывает эти bytes с ожидаемым публичным repository, workflow и source commit. Это не security audit и не одобрение со стороны Microsoft, Apple, GitHub или Sigstore.'
+      ]
+    ],
+    [
+      'heading'=>'Packages без подписи операционной системы',
+      'paragraphs'=>[
+        'Windows Authenticode и Apple Developer ID/notarization для VALDR Testnet являются дополнительным усилением, а не обязательным условием. Если они недоступны, release metadata прямо это показывает. Не отключай защиту операционной системы глобально: сначала проверь package и используй только обычное per-application разрешение, если решишь его запускать.'
       ]
     ]
   ]
@@ -566,7 +576,7 @@ return [
 'releases'=>[
   'title'=>'Релизы',
   'meta_title'=>'Релизы VALDR',
-  'meta_description'=>'VALDR software releases, release notes и verification metadata.',
+  'meta_description'=>'VALDR software releases, release notes и криптографические verification metadata.',
   'kicker'=>'Официальное ПО',
   'lead'=>'Каждый опубликованный package относится к конкретной version, source commit и network profile.',
   'sections'=>[
@@ -574,18 +584,19 @@ return [
       'heading'=>'Что содержит VALDR release',
       'bullets'=>[
         'Version и release date',
-        'Source commit',
+        'Точный source commit',
         'Operating system и architecture',
         'Exact filename и size',
         'SHA-256 checksum',
-        'Signed release-manifest status',
+        'GitHub/Sigstore provenance status',
+        'Честный Windows/macOS vendor-signing status',
         'Release notes'
       ]
     ],
     [
-      'heading'=>'Development commit не равен release',
+      'heading'=>'Development package не равен release',
       'paragraphs'=>[
-        'Commit может быть полезным и CI-verified, но ещё не быть packaged desktop release. Release page включает installer links только после появления artifacts и verification metadata.'
+        'Development packages могут быть собраны CI, проверены по checksum и provenance-attested, но ещё не являться публичным Testnet release. Installer links активируются только после появления замороженного release candidate в официальном release storage и прохождения всех publication gates.'
       ]
     ]
   ]

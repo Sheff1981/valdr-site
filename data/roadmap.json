@@ -327,50 +327,50 @@
       "id": 13,
       "en_name": "Cross-platform installers + release pipeline",
       "ru_name": "Cross-platform installers + release pipeline",
-      "status": "planned",
-      "en_status_label": "Planned",
-      "ru_status_label": "Запланировано",
-      "en_note": "Package VALDR Desktop for normal users and connect every artifact to a verifiable release pipeline.",
-      "ru_note": "Упаковать VALDR Desktop для обычного пользователя и связать каждый artifact с проверяемым release pipeline.",
+      "status": "in_development",
+      "en_status_label": "In active development",
+      "ru_status_label": "Активно разрабатывается",
+      "en_note": "Windows, macOS and Linux development packages are CI-green. SHA-256, canonical release metadata and GitHub/Sigstore keyless provenance are verified; public Testnet publication is still gated.",
+      "ru_note": "Development packages для Windows, macOS и Linux проходят CI. SHA-256, canonical release metadata и GitHub/Sigstore keyless provenance проверены; публичный Testnet release ещё закрыт gate-ами.",
       "en_details": [
-        "Windows package",
-        "macOS package",
-        "Linux package",
-        "SHA-256 artifact metadata",
-        "Signed release manifest",
-        "Release notes bound to source commit"
+        "Windows installer and portable package built and clean-tested",
+        "macOS ARM64 and Intel DMGs built and clean-launched",
+        "Linux AppImage and .deb built and clean-tested",
+        "Canonical SHA-256 release manifest bound to exact source commit",
+        "GitHub/Sigstore keyless provenance attestation and clean verification",
+        "Public release candidate, download publication and manual Windows acceptance still pending"
       ],
       "ru_details": [
-        "Windows package",
-        "macOS package",
-        "Linux package",
-        "SHA-256 metadata artifacts",
-        "Signed release manifest",
-        "Release notes с привязкой к source commit"
+        "Windows installer и portable package собраны и clean-tested",
+        "macOS ARM64 и Intel DMG собраны и clean-launched",
+        "Linux AppImage и .deb собраны и clean-tested",
+        "Canonical SHA-256 release manifest привязан к точному source commit",
+        "GitHub/Sigstore keyless provenance attestation и clean verification",
+        "Public release candidate, публикация downloads и ручная Windows-приёмка ещё pending"
       ]
     },
     {
       "id": 14,
-      "en_name": "Private / Public Testnet",
-      "ru_name": "Private / Public Testnet",
+      "en_name": "Distributed user-run Testnet",
+      "ru_name": "Распределённый пользовательский Testnet",
       "status": "planned",
       "en_status_label": "Planned",
       "ru_status_label": "Запланировано",
-      "en_note": "Move from local/container Testnet validation to stable public infrastructure with real seed nodes and soak gates.",
-      "ru_note": "Перейти от local/container Testnet к стабильной публичной инфраструктуре с реальными seed nodes и soak gates.",
+      "en_note": "Roll out Testnet through independently operated user nodes after Desktop and release gates are green; no project-owned paid server is mandatory.",
+      "ru_note": "После закрытия Desktop и release gates развернуть Testnet через независимо запущенные пользовательские nodes; обязательный платный сервер проекта не требуется.",
       "en_details": [
-        "At least 3 stable public full nodes",
-        "At least 2 independent regions/providers",
-        "Real compiled Testnet seed endpoints",
-        "Minimum 24-hour private soak",
-        "7-day public stability gate"
+        "At least 3 independently operated Testnet nodes/clients on the same chain",
+        "At least one real reachable bootstrap path for a cold client",
+        "Learned peer cache and peer exchange reduce dependence on any single bootstrap source",
+        "Minimum 24-hour multi-user/private soak before wider rollout",
+        "At least 7 days without consensus split or manual database repair"
       ],
       "ru_details": [
-        "Минимум 3 стабильные public full nodes",
-        "Минимум 2 независимых региона/provider",
-        "Реальные compiled Testnet seed endpoints",
-        "Минимум 24 часа private soak",
-        "7-day public stability gate"
+        "Минимум 3 независимо запущенных Testnet nodes/clients на одной chain",
+        "Минимум один реальный reachable bootstrap path для cold client",
+        "Learned peer cache и peer exchange уменьшают зависимость от одного bootstrap source",
+        "Минимум 24 часа multi-user/private soak перед более широким rollout",
+        "Минимум 7 дней без consensus split и ручного ремонта database"
       ]
     },
     {

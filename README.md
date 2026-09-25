@@ -35,7 +35,7 @@ Open `http://127.0.0.1:8080/`.
 
 `data/releases.json` is the only website release-data source.
 
-Do **not** create a download entry until the artifact actually exists in the official release storage and its SHA-256/signing status is known.
+Do **not** create a download entry until the artifact actually exists in the official release storage and its SHA-256/provenance status is known.
 
 For a real release, record:
 - version;
@@ -45,7 +45,8 @@ For a real release, record:
 - filename;
 - file size;
 - SHA-256;
-- signed-manifest verification status;
+- GitHub/Sigstore provenance verification status;
+- truthful Windows/macOS vendor-signing/notarization status;
 - official release URL.
 
 Large installers do not belong in this repository.

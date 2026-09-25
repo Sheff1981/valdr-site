@@ -146,3 +146,27 @@ Long educational pages use an “On this page” side rail with anchor links.
 - downloads driven only by verified release data;
 - release artifact metadata: version, source commit, network, OS, architecture, filename, size, SHA-256, signed-manifest status;
 - Content Security Policy and restrictive response headers remain mandatory.
+
+
+## 25 September 2026 — release provenance update
+
+The public download/verification model was re-reviewed after the current valdr-core release pipeline added keyless artifact provenance.
+
+Additional official references reviewed:
+- GitHub Artifact Attestations documentation;
+- GitHub CLI attestation verification documentation;
+- Sigstore keyless signing documentation.
+
+VALDR website adopts:
+- SHA-256 plus GitHub/Sigstore keyless provenance as the mandatory Testnet verification chain;
+- verification pinned to the public `Sheff1981/valdr-core` repository, expected workflow and exact source commit;
+- explicit disclosure when Windows Authenticode or Apple Developer ID/notarization is unavailable;
+- no executable link until a frozen release candidate exists in official release storage.
+
+VALDR website rejects:
+- calling provenance a Microsoft/Apple/GitHub/Sigstore security audit or endorsement;
+- fake or borrowed platform-signing identities;
+- instructions that disable operating-system security globally;
+- exposing transient development CI artifacts as official public downloads.
+
+The current website therefore shows verified development status but keeps public installer buttons disabled until the release candidate and publication gates are complete.
