@@ -24,7 +24,23 @@ $copy = $isRu ? [
   'future_text'=>'После Desktop и release gates — распределённый пользовательский Testnet. Mainnet остаётся отдельным будущим этапом и не включается до отдельной спецификации и собственных проверок.',
   'status_done'=>'РЕАЛИЗОВАНО',
   'status_now'=>'СЕЙЧАС',
-  'status_future'=>'ДАЛЬШЕ'
+  'status_future'=>'ДАЛЬШЕ',
+  'makers_label'=>'КТО СТРОИТ VALDR',
+  'makers_title'=>'Один обычный человек и ChatGPT.',
+  'makers_text'=>'У VALDR нет истории о большой команде, венчурном фонде или готовой корпорации. Проект начался с одного человека без профессионального прошлого в разработке блокчейнов — и ChatGPT как AI-инструмента для исследования, проектирования, написания кода, проверки идей и документации. Это не попытка скрыть происхождение проекта, а наоборот — одна из главных частей его истории.',
+  'makers_human_title'=>'Человек',
+  'makers_human_text'=>'Идея, название, направление проекта, решения о том, что строить дальше, и ответственность за проект остаются у человека. Цель проста по формулировке и сложна по исполнению: попробовать довести собственную монету и собственную сеть до реально работающего состояния.',
+  'makers_ai_title'=>'ChatGPT',
+  'makers_ai_text'=>'ChatGPT помогает как технический партнёр-инструмент: разбирать архитектуру, составлять ТЗ, писать и проверять код, находить ошибки, готовить тесты, документацию и сайт. ChatGPT не владеет VALDR, не управляет сетью и не гарантирует результат.',
+  'makers_question'=>'Главный эксперимент',
+  'makers_question_text'=>'Может ли обычный человек, используя современный AI как рабочий инструмент, шаг за шагом построить собственный блокчейн и довести его до настоящей пользовательской сети? VALDR — попытка ответить на этот вопрос не словами, а работающим кодом.',
+  'name_label'=>'ПОЧЕМУ VALDR',
+  'name_title'=>'Название просто появилось — и осталось.',
+  'name_text'=>'У названия VALDR нет придуманной задним числом легенды. Оно просто пришло в голову и закрепилось. Смысл проекту должно дать не объяснение названия, а то, сможет ли сеть действительно работать.',
+  'thanks_label'=>'ЕСЛИ ВАМ НЕ БЕЗРАЗЛИЧНО',
+  'thanks_title'=>'Спасибо за любую честную помощь.',
+  'thanks_text'=>'Сейчас проекту важнее всего тестирование, независимые ноды, техническая проверка, сообщения об ошибках, документация, переводы и здравые замечания. Если VALDR когда-нибудь дойдёт до отдельного Mainnet и следующих этапов экосистемы, вопросы распространения и возможных листингов будут решаться отдельно. Никаких обещаний цены, доходности или листинга проект не даёт.',
+  'thanks_end'=>'Если вы помогаете VALDR стать лучше — огромное человеческое спасибо.'
 ] : [
   'eyebrow'=>'THE VALDR STORY',
   'title'=>'From one question to an independent chain.',
@@ -44,7 +60,23 @@ $copy = $isRu ? [
   'future_text'=>'After Desktop and release gates comes a distributed user-run Testnet. Mainnet remains a separate future stage and stays disabled until its own specification and verification gates exist.',
   'status_done'=>'IMPLEMENTED',
   'status_now'=>'NOW',
-  'status_future'=>'NEXT'
+  'status_future'=>'NEXT',
+  'makers_label'=>'WHO IS BUILDING VALDR',
+  'makers_title'=>'One ordinary person and ChatGPT.',
+  'makers_text'=>'VALDR does not have a founding story about a large engineering team, a venture fund or an established corporation. The project began with one person without a professional blockchain-development background, using ChatGPT as an AI tool for research, design, code, verification and documentation. That origin is not something to hide. It is one of the central parts of the project story.',
+  'makers_human_title'=>'The human',
+  'makers_human_text'=>'The idea, the name, the direction of the project, the decisions about what to build next, and responsibility for the project remain human. The goal is easy to say and difficult to execute: try to turn an independent coin and network into software that genuinely works.',
+  'makers_ai_title'=>'ChatGPT',
+  'makers_ai_text'=>'ChatGPT helps as a technical partner-tool: working through architecture, drafting specifications, writing and reviewing code, finding defects, preparing tests, documentation and the website. ChatGPT does not own VALDR, control the network or guarantee the outcome.',
+  'makers_question'=>'The core experiment',
+  'makers_question_text'=>'Can an ordinary person, using modern AI as a working tool, build an independent blockchain step by step and carry it all the way to a real user-run network? VALDR is an attempt to answer that question with working code rather than claims.',
+  'name_label'=>'WHY VALDR',
+  'name_title'=>'The name simply appeared — and stayed.',
+  'name_text'=>'There is no retrofitted mythology behind the name VALDR. It came to mind and stuck. The project should earn meaning from whether the network actually works, not from an invented origin story.',
+  'thanks_label'=>'IF YOU CARE ABOUT THE EXPERIMENT',
+  'thanks_title'=>'Thank you for any honest help.',
+  'thanks_text'=>'Right now the most useful help is testing, independently run nodes, technical review, bug reports, documentation, translations and clear criticism. If VALDR eventually reaches a separately approved Mainnet and later ecosystem stages, distribution and any possible exchange-listing questions will be handled separately. The project makes no promises about price, returns or listings.',
+  'thanks_end'=>'If you help VALDR become better, thank you — sincerely.'
 ];
 
 $milestones = $isRu ? [
@@ -166,6 +198,40 @@ $capabilities = $isRu ? [
   <p class="big-copy"><?= h($copy['intro_text']) ?></p>
 </section>
 
+<section class="story-makers">
+  <div class="story-makers-head">
+    <span><?= h($copy['makers_label']) ?></span>
+    <h2><?= h($copy['makers_title']) ?></h2>
+    <p><?= h($copy['makers_text']) ?></p>
+  </div>
+  <div class="story-makers-grid">
+    <article class="story-maker-card">
+      <div class="story-maker-symbol" aria-hidden="true">01</div>
+      <h3><?= h($copy['makers_human_title']) ?></h3>
+      <p><?= h($copy['makers_human_text']) ?></p>
+    </article>
+    <div class="story-makers-link" aria-hidden="true"><span>+</span><i></i></div>
+    <article class="story-maker-card">
+      <div class="story-maker-symbol ai" aria-hidden="true">AI</div>
+      <h3><?= h($copy['makers_ai_title']) ?></h3>
+      <p><?= h($copy['makers_ai_text']) ?></p>
+    </article>
+  </div>
+  <div class="story-experiment">
+    <span><?= h($copy['makers_question']) ?></span>
+    <p><?= h($copy['makers_question_text']) ?></p>
+  </div>
+</section>
+
+<section class="story-origin-note">
+  <div>
+    <span><?= h($copy['name_label']) ?></span>
+    <h2><?= h($copy['name_title']) ?></h2>
+    <p><?= h($copy['name_text']) ?></p>
+  </div>
+  <div class="story-origin-mark" aria-hidden="true">VALDR</div>
+</section>
+
 <section class="story-capabilities-wrap">
   <div class="story-capabilities-head">
     <span><?= h($copy['today']) ?></span>
@@ -240,6 +306,19 @@ $capabilities = $isRu ? [
         <span>cmd/valdrd</span><span>core/blockchain</span><span>wallet</span><span>p2p</span><span>storage</span><span>explorer</span>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="story-thanks">
+  <div class="story-thanks-copy">
+    <span><?= h($copy['thanks_label']) ?></span>
+    <h2><?= h($copy['thanks_title']) ?></h2>
+    <p><?= h($copy['thanks_text']) ?></p>
+    <strong><?= h($copy['thanks_end']) ?></strong>
+  </div>
+  <div class="story-thanks-actions">
+    <a class="button primary" href="<?= h(route_url('/community',$lang)) ?>"><?= h($isRu ? 'Сообщество VALDR' : 'VALDR Community') ?></a>
+    <a class="button ghost" href="<?= h(VALDR_SOURCE_URL) ?>" target="_blank" rel="noopener noreferrer">GitHub</a>
   </div>
 </section>
 
