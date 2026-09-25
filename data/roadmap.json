@@ -1,11 +1,11 @@
 {
   "schema": 2,
   "source_core_branch": "valdr-v0.2",
-  "source_core_commit": "44069f4eb33af43c22f8981c772b2484b1b08ef1",
-  "source_core_commit_date": "2026-09-25T17:07:02Z",
-  "source_ci_run_id": 36165082888,
+  "source_core_commit": "c651253408e11bdaa858097e979dafb6858c444e",
+  "source_core_commit_date": "2026-09-25T18:11:34Z",
+  "source_ci_run_id": 36171851482,
   "source_ci_status": "success",
-  "verified_at": "2026-09-25T17:13:21Z",
+  "verified_at": "2026-09-25T18:18:27Z",
   "stages": [
     {
       "id": 0,
@@ -298,8 +298,8 @@
       "status": "in_development",
       "en_status_label": "Implementation present / manual Windows acceptance pending",
       "ru_status_label": "Реализация есть / ручная Windows-приёмка pending",
-      "en_note": "Desktop implementation and cross-platform CI are present. Stage 12 remains open until the required manual Windows acceptance evidence is completed.",
-      "ru_note": "Desktop-реализация и cross-platform CI уже есть. Stage 12 остаётся открытым до обязательной ручной Windows-приёмки.",
+      "en_note": "Desktop implementation and cross-platform CI are present. A current Windows manual QA candidate is pinned and hash-verified; Stage 12 remains open until the required human-visible Windows acceptance is completed.",
+      "ru_note": "Desktop-реализация и cross-platform CI уже есть. Текущий Windows manual QA candidate зафиксирован и проверен по hash; Stage 12 остаётся открытым до обязательной ручной Windows-приёмки.",
       "en_details": [
         "Wails v2 application shell and original VALDR visual system",
         "Managed canonical valdrd backend with outbound-only P2P mode",
@@ -330,8 +330,8 @@
       "status": "in_development",
       "en_status_label": "Pipeline green / public release still gated",
       "ru_status_label": "Pipeline green / публичный release ещё закрыт gate",
-      "en_note": "Cross-platform development packages, canonical SHA-256 metadata and GitHub/Sigstore keyless provenance are CI-verified. Public Testnet publication remains blocked until Stage 12 acceptance is green and a release candidate is deliberately frozen.",
-      "ru_note": "Cross-platform development packages, canonical SHA-256 metadata и GitHub/Sigstore keyless provenance проходят CI. Публичная публикация Testnet остаётся закрыта до завершения Stage 12 и явной заморозки release candidate.",
+      "en_note": "Cross-platform development packages, canonical SHA-256 metadata, clean provenance verification and exact-run non-public handoff are CI-green on run #352. Public Testnet publication remains blocked until Stage 12 acceptance is green and a release candidate is deliberately frozen.",
+      "ru_note": "Cross-platform development packages, canonical SHA-256 metadata, clean provenance verification и exact-run non-public handoff проходят CI #352. Публичная публикация Testnet остаётся закрыта до завершения Stage 12 и явной заморозки release candidate.",
       "en_details": [
         "Windows installer and portable package built and clean-tested",
         "macOS ARM64 and Intel DMGs built and clean-launched",
