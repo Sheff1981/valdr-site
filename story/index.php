@@ -8,7 +8,7 @@ $isRu = $lang === 'ru';
 $copy = $isRu ? [
   'eyebrow'=>'ИСТОРИЯ VALDR',
   'title'=>'От вопроса к собственной цепи.',
-  'lead'=>'VALDR начался не с логотипа и не с токена. Сначала появился вопрос: можно ли построить собственную криптовалюту вместе с сетью, которая сама хранит состояние, проверяет транзакции и создаёт блоки?',
+  'lead'=>'VALDR начался не с готового продукта и не с большой команды. Сначала появился вопрос: можно ли построить собственную криптовалюту вместе с сетью, которая сама хранит состояние, проверяет транзакции и создаёт блоки?',
   'intro_title'=>'Сначала — сеть. Потом — всё остальное.',
   'intro_text'=>'Поэтому VALDR развивается в порядке, который редко заметен пользователю сайта: протокол, node, wallet, miner, storage, P2P, синхронизация, Explorer, Desktop и только затем публичный Testnet. Такой порядок делает историю проекта технической, но её можно читать и без знания блокчейн-терминов.',
   'plain'=>'Простыми словами',
@@ -44,7 +44,7 @@ $copy = $isRu ? [
 ] : [
   'eyebrow'=>'THE VALDR STORY',
   'title'=>'From one question to an independent chain.',
-  'lead'=>'VALDR did not begin with a logo or a token contract. It began with a question: can we build a cryptocurrency together with the network that stores its own state, validates its own transactions and produces its own blocks?',
+  'lead'=>'VALDR did not begin as a finished product or with a large engineering team. It began with a question: can we build a cryptocurrency together with the network that stores its own state, validates its own transactions and produces its own blocks?',
   'intro_title'=>'Build the network first. Everything else comes after.',
   'intro_text'=>'That is why VALDR develops in an order most website visitors never see: protocol, node, wallet, miner, storage, P2P, synchronization, Explorer, Desktop, and only then a wider public Testnet. The story is technical underneath, but it should still be understandable without blockchain expertise.',
   'plain'=>'In plain language',
@@ -82,12 +82,12 @@ $copy = $isRu ? [
 $milestones = $isRu ? [
   [
     'mark'=>'01','title'=>'Идея','status'=>$copy['status_done'],
-    'plain'=>'Не выпускать ещё один токен в чужой сети, а попробовать построить собственную монету вместе с собственным блокчейном.',
+    'plain'=>'Попробовать построить собственную монету вместе с собственным блокчейном и независимой сетью.',
     'tech'=>'Архитектурная цель: native VDR, собственный chain state, UTXO, Proof of Work и независимые full nodes.'
   ],
   [
-    'mark'=>'02','title'=>'Эксперимент с Bitcoin Core','status'=>$copy['status_done'],
-    'plain'=>'Bitcoin стал первым техническим ориентиром: не для копирования внешнего вида, а чтобы понять, как ведёт себя настоящая независимая сеть.',
+    'mark'=>'02','title'=>'Ранние исследования протокола','status'=>$copy['status_done'],
+    'plain'=>'Ранние open-source реализации блокчейнов стали техническими ориентирами для изучения того, как ведёт себя независимая сеть.',
     'tech'=>'Изучались базовые модели UTXO, full-node validation, peer-to-peer networking и Proof of Work. Активная реализация VALDR затем ушла в отдельную Go-кодовую базу.'
   ],
   [
@@ -122,8 +122,8 @@ $milestones = $isRu ? [
     'tech'=>'Architectural goal: native VDR, its own chain state, UTXO accounting, Proof of Work and independently validating full nodes.'
   ],
   [
-    'mark'=>'02','title'=>'The Bitcoin Core experiment','status'=>$copy['status_done'],
-    'plain'=>'Bitcoin became the first technical reference—not as a visual template to clone, but as a way to understand how an independent cryptocurrency network behaves.',
+    'mark'=>'02','title'=>'Early protocol research','status'=>$copy['status_done'],
+    'plain'=>'Established open-source blockchain implementations became early technical references for understanding how an independent cryptocurrency network behaves.',
     'tech'=>'The project studied UTXO, full-node validation, peer-to-peer networking and Proof of Work. The active VALDR implementation then moved into its own Go codebase.'
   ],
   [
