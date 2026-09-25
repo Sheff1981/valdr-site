@@ -131,7 +131,7 @@ Long educational pages use an “On this page” side rail with anchor links.
 - full Russian translation is selectable from the top language control;
 - obsidian/black base with restrained metal-gold accents;
 - strong Nordic geometry, not fantasy/cartoon Vikings;
-- “NOT A TOKEN. A CHAIN.” remains the primary line;
+- public positioning uses “INDEPENDENT CHAIN. NATIVE VDR.” and describes VALDR through its own properties rather than competitor comparisons;
 - public content focuses on chain, mining, node, wallet, explorer, source and story;
 - no invented exchange, price, installer, hash, signature, explorer endpoint or social link;
 - TESTNET remains explicit until protocol status changes;
