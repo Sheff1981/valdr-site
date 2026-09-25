@@ -5,12 +5,12 @@
   "development": {
     "line": "VALDR v0.2 / Desktop development",
     "branch": "valdr-v0.2",
-    "commit": "5b30f98b34b73eab0668f95a494b5ffd75c2ddf2",
-    "commit_date": "2026-09-25T16:26:23Z",
-    "ci_status": "success (run 36160765319)",
+    "commit": "44069f4eb33af43c22f8981c772b2484b1b08ef1",
+    "commit_date": "2026-09-25T17:07:02Z",
+    "ci_status": "success (run 36165082888)",
     "release_date": null,
-    "ci_run_id": 36160765319,
-    "verified_at": "2026-09-25T16:30:00Z",
+    "ci_run_id": 36165082888,
+    "verified_at": "2026-09-25T17:13:21Z",
     "stage12_manual_windows_qa": "pending",
     "stage13_status": "pipeline_green_public_release_gated",
     "package_matrix_verified": true,
@@ -26,5 +26,5 @@
     "public_release_ready": false
   },
   "artifacts": [],
-  "message": "Development packages and provenance verification are green. Public Testnet downloads remain gated by Stage 12 manual Windows acceptance and an explicit frozen release candidate."
+  "message": "Development packages, clean verification and exact-run non-public release handoff are green. Public Testnet downloads remain gated by Stage 12 manual Windows acceptance, an explicit frozen release candidate, executing website CI and final RC verification."
 }
