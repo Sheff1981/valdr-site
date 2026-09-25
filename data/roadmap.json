@@ -1,11 +1,11 @@
 {
   "schema": 2,
   "source_core_branch": "valdr-v0.2",
-  "source_core_commit": "5b30f98b34b73eab0668f95a494b5ffd75c2ddf2",
-  "source_core_commit_date": "2026-09-25T16:26:23Z",
-  "source_ci_run_id": 36160765319,
+  "source_core_commit": "44069f4eb33af43c22f8981c772b2484b1b08ef1",
+  "source_core_commit_date": "2026-09-25T17:07:02Z",
+  "source_ci_run_id": 36165082888,
   "source_ci_status": "success",
-  "verified_at": "2026-09-25T16:30:00Z",
+  "verified_at": "2026-09-25T17:13:21Z",
   "stages": [
     {
       "id": 0,
@@ -337,7 +337,7 @@
         "macOS ARM64 and Intel DMGs built and clean-launched",
         "Linux AppImage and .deb built and clean-tested",
         "Canonical SHA-256 release manifest bound to exact source commit",
-        "GitHub/Sigstore keyless provenance attestation and clean verification",
+        "GitHub/Sigstore keyless provenance, clean verification and exact-run non-public handoff are CI-verified",
         "Public release candidate, download publication and manual Windows acceptance still pending"
       ],
       "ru_details": [
@@ -345,7 +345,7 @@
         "macOS ARM64 и Intel DMG собраны и clean-launched",
         "Linux AppImage и .deb собраны и clean-tested",
         "Canonical SHA-256 release manifest привязан к точному source commit",
-        "GitHub/Sigstore keyless provenance attestation и clean verification",
+        "GitHub/Sigstore keyless provenance, clean verification и exact-run non-public handoff проходят CI",
         "Public release candidate, публикация downloads и ручная Windows-приёмка ещё pending"
       ]
     },
