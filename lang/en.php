@@ -40,7 +40,7 @@ return [
   'node'=>'Run a Node'
 ],
 'footer'=>[
-  'line'=>'NOT A TOKEN. A CHAIN.',
+  'line'=>'INDEPENDENT CHAIN. NATIVE VDR.',
   'testnet_notice'=>'VALDR is being built and tested on its own Proof-of-Work Testnet.',
   'get_started'=>'Get started',
   'network'=>'Network',
@@ -58,8 +58,8 @@ return [
 ],
 'home'=>[
   'what_label'=>'What is VALDR',
-  'what_title'=>'A real cryptocurrency. A real blockchain.',
-  'what_text'=>'VALDR (VDR) is an independent Proof-of-Work cryptocurrency built around its own blockchain, native coin, UTXO transaction model, full nodes, miner, wallet and peer-to-peer network. Consensus does not run on Ethereum, BNB Chain, Solana or another host chain.',
+  'what_title'=>'An independent cryptocurrency. An independent blockchain.',
+  'what_text'=>'VALDR (VDR) is an independent Proof-of-Work cryptocurrency with its own blockchain, native coin, UTXO transaction model, full nodes, miner, wallet and peer-to-peer network. Consensus, transactions, mining and ownership are handled within the VALDR network itself.',
   'learn_more'=>'Learn more about VALDR',
   'protocol'=>[
     'Independent blockchain written in Go',
@@ -78,10 +78,10 @@ return [
   'release_preparing'=>'Testnet package in preparation',
   'all_releases'=>'View releases',
   'story_title'=>'From an idea to a blockchain.',
-  'story_text'=>'VALDR started with a simple question: what if we build our own coin instead of issuing another token on an existing chain? An early Bitcoin Core experiment led to a separate Go implementation focused on a native PoW network.',
+  'story_text'=>'VALDR started with a simple question: can an independent coin and network be built from the ground up? That question led to a separate Go implementation focused on a native Proof-of-Work network.',
   'timeline'=>[
     ['title'=>'Idea','text'=>'Build a native coin'],
-    ['title'=>'Bitcoin Core experiment','text'=>'Learn and test'],
+    ['title'=>'Protocol research','text'=>'Learn and test'],
     ['title'=>'Own Go blockchain','text'=>'Independent implementation'],
     ['title'=>'Devnet v0.1','text'=>'Working core network'],
     ['title'=>'Hardened v0.2','text'=>'Storage, P2P, reorg, wallet'],
@@ -115,9 +115,9 @@ return [
   'lead'=>'VALDR is a native cryptocurrency network: its chain, consensus, transactions, mining and ownership are enforced by VALDR software itself.',
   'sections'=>[
     [
-      'heading'=>'A native coin on a native chain',
+      'heading'=>'A native coin on its own chain',
       'paragraphs'=>[
-        'VDR is created, transferred and validated inside the VALDR blockchain. There is no smart-contract token layer underneath it and no parent network required to process VALDR transactions.',
+        'VDR is created, transferred and validated directly by the VALDR protocol. The VALDR network processes its own transactions and maintains its own chain state.',
         'Every full node applies the same protocol rules to blocks, transactions, Proof of Work, fees and chain selection.'
       ],
       'bullets'=>[
@@ -146,21 +146,21 @@ return [
 'story'=>[
   'title'=>'The VALDR Story',
   'meta_title'=>'The Story of VALDR',
-  'meta_description'=>'How VALDR moved from a simple coin idea and a Bitcoin Core experiment to an independent Go Proof-of-Work blockchain.',
+  'meta_description'=>'How VALDR moved from a simple coin idea and early protocol research to an independent Go Proof-of-Work blockchain.',
   'kicker'=>'From idea to chain',
   'lead'=>'VALDR began with a simple idea: create a real coin by building the network underneath it.',
   'sections'=>[
     [
       'heading'=>'The first question',
       'paragraphs'=>[
-        'The project started with a practical question: instead of issuing a token on an existing blockchain, could we build the blockchain itself?',
-        'Bitcoin became the first technical reference because it demonstrated the core model: independent nodes, Proof of Work, UTXO accounting and a native coin.'
+        'The project started with a practical question: could an independent coin and the blockchain underneath it be built from the ground up?',
+        'Existing open-source blockchain software became an early technical reference for studying independent nodes, Proof of Work, UTXO accounting and native-coin operation.'
       ]
     ],
     [
-      'heading'=>'The Bitcoin Core experiment',
+      'heading'=>'Early protocol research',
       'paragraphs'=>[
-        'An early experiment used Bitcoin Core as a learning path. It helped define what the project needed and what it did not need. The active architecture then moved toward a separate VALDR implementation rather than remaining a rebranded fork.'
+        'Early experiments with established open-source blockchain software served as a learning path. They helped define what VALDR needed and what it did not need. The active architecture then moved into a separate implementation with its own codebase and network identity.'
       ]
     ],
     [
