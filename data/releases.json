@@ -5,23 +5,23 @@
   "development": {
     "line": "VALDR v0.2 / Desktop development",
     "branch": "valdr-v0.2",
-    "commit": "c651253408e11bdaa858097e979dafb6858c444e",
-    "commit_date": "2026-09-25T18:11:34Z",
-    "ci_status": "success (run 36171851482)",
+    "commit": "ea74320f9950dad733e4f95c0d24e9b008e2d221",
+    "commit_date": "2026-09-25T20:01:00Z",
+    "ci_status": "success (run 36183171614)",
     "release_date": null,
-    "ci_run_id": 36171851482,
-    "verified_at": "2026-09-25T18:18:27Z",
+    "ci_run_id": 36183171614,
+    "verified_at": "2026-09-25T20:07:20Z",
     "stage12_manual_windows_qa": "pending_current_candidate",
     "stage13_status": "pipeline_green_public_release_gated",
     "package_matrix_verified": true,
     "provenance_verified": true,
     "windows_manual_qa_candidate": {
       "artifact_name": "valdr-stage13-windows-development",
-      "artifact_id": 10876873833,
+      "artifact_id": 10885735468,
       "version": "0.2.0-dev",
-      "source_commit": "44069f4eb33af43c22f8981c772b2484b1b08ef1",
-      "installer_sha256": "3c364b96373a014ea241c84982f7ff13ec9c5a7cd423ca31dd58a3648b7bba7f",
-      "portable_sha256": "f4693ebc7976972a72734b5b5616f306a01a9da7790369439792b55053afc9ad"
+      "source_commit": "ea74320f9950dad733e4f95c0d24e9b008e2d221",
+      "installer_sha256": "f20d90211ab5e4e19633ae7563652bcdbfb9f04851f53a18031e705a5a68c365",
+      "portable_sha256": "6cd8b93c14e4ecb3233161f20e581b1cf195ed8c7b3c5b9024d19b8c257cfdba"
     }
   },
   "verification": {
@@ -34,5 +34,5 @@
     "public_release_ready": false
   },
   "artifacts": [],
-  "message": "Core CI #352 is green. The current Windows manual QA candidate is pinned and hash-verified; public Testnet downloads remain gated by Stage 12 manual Windows acceptance, an explicit frozen release candidate, executing website CI and final RC verification."
+  "message": "Core CI #356 is green. The current Windows manual QA candidate is pinned and hash-verified; public Testnet downloads remain gated by Stage 12 manual Windows acceptance, an explicit frozen release candidate, executing website CI and final RC verification."
 }
