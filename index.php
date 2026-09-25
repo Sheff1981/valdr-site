@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#080a0c">
-<title>VALDR — NOT A TOKEN. A CHAIN.</title>
+<title>VALDR — Independent Proof-of-Work Blockchain</title>
 <meta name="description" content="VALDR is an independent Proof-of-Work cryptocurrency running on its own blockchain.">
 <style>
 :root{
@@ -236,7 +236,7 @@ img{max-width:100%;display:block}
   <div class="hero-copy">
     <div class="kicker" data-en="OPEN SOURCE · PEER-TO-PEER · PROOF OF WORK" data-ru="ОТКРЫТЫЙ КОД · PEER-TO-PEER · PROOF OF WORK">OPEN SOURCE · PEER-TO-PEER · PROOF OF WORK</div>
     <h1>VALDR</h1>
-    <div class="hero-tagline">NOT A TOKEN.<br>A CHAIN.</div>
+    <div class="hero-tagline">INDEPENDENT CHAIN.<br>NATIVE VDR.</div>
     <p class="hero-lead"
       data-en="VALDR is an independent peer-to-peer cryptocurrency with its own Proof-of-Work blockchain and native coin VDR. Testnet is the current network stage; Mainnet is not launched."
       data-ru="VALDR — независимая peer-to-peer криптовалюта с собственным Proof-of-Work блокчейном и native-монетой VDR. Текущий этап сети — Testnet; Mainnet ещё не запущен.">
@@ -319,15 +319,15 @@ img{max-width:100%;display:block}
   <div class="story-copy">
     <div class="eyebrow" data-en="OUR STORY" data-ru="НАША ИСТОРИЯ">OUR STORY</div>
     <h2 class="section-title" data-en="From an idea to a blockchain." data-ru="От идеи к собственному блокчейну.">From an idea to a blockchain.</h2>
-    <p data-en="VALDR started with a simple idea: build a real, independent coin rather than another token on an existing network. Early Bitcoin Core experiments led to a separate Go blockchain implementation developed step by step."
-       data-ru="VALDR начался с простой идеи: построить настоящую независимую монету, а не ещё один токен в существующей сети. Ранние эксперименты с Bitcoin Core привели к отдельной реализации блокчейна на Go.">
-       VALDR started with a simple idea: build a real, independent coin rather than another token on an existing network. Early Bitcoin Core experiments led to a separate Go blockchain implementation developed step by step.
+    <p data-en="VALDR started with a simple question: can an independent coin and network be built from the ground up? That question became a separate Go blockchain implementation developed step by step."
+       data-ru="VALDR начался с простого вопроса: можно ли с нуля построить собственную монету и независимую сеть? Этот вопрос постепенно превратился в отдельную реализацию блокчейна VALDR на Go.">
+       VALDR started with a simple question: can an independent coin and network be built from the ground up? That question became a separate Go blockchain implementation developed step by step.
     </p>
     <a class="link-button" href="<?= h(route_url('/roadmap',$lang)) ?>"><span data-en="Read the full story" data-ru="Читать историю">Read the full story</span><span>→</span></a>
   </div>
   <div class="timeline anchor" id="roadmap">
     <div class="timeline-item"><div class="ti">☼</div><b data-en="Idea" data-ru="Идея">Idea</b><small data-en="A simple question" data-ru="Простой вопрос">A simple question</small></div>
-    <div class="timeline-item"><div class="ti">◇</div><b>Bitcoin Core<br>experiment</b><small data-en="Learning and research" data-ru="Изучение и исследования">Learning and research</small></div>
+    <div class="timeline-item"><div class="ti">◇</div><b data-en="Protocol research" data-ru="Исследование протокола">Protocol research</b><small data-en="Learning and experiments" data-ru="Изучение и эксперименты">Learning and experiments</small></div>
     <div class="timeline-item"><div class="ti">&lt;/&gt;</div><b data-en="Own Go blockchain" data-ru="Свой Go-блокчейн">Own Go blockchain</b><small data-en="Independent implementation" data-ru="Независимая реализация">Independent implementation</small></div>
     <div class="timeline-item"><div class="ti">⌘</div><b>Devnet<br>v0.1</b><small data-en="Core network" data-ru="Рабочее ядро">Core network</small></div>
     <div class="timeline-item"><div class="ti">▱</div><b>Testnet<br>v0.2</b><small data-en="Expanded network" data-ru="Расширенная сеть">Expanded network</small></div>
