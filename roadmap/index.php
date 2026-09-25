@@ -55,10 +55,10 @@ $pageKey='roadmap'; $pagePath='/roadmap'; require dirname(__DIR__).'/includes/bo
 
   <div class="current-work">
     <span><?= $lang==='ru'?'ТЕКУЩАЯ РАБОТА':'CURRENT WORK' ?></span>
-    <h2>Stage 12 — VALDR Desktop</h2>
+    <h2>Stages 12–13 — Desktop + release acceptance</h2>
     <p><?= $lang==='ru'
-      ?'В текущей ветке уже есть Wails Desktop shell, managed valdrd, outbound-only P2P, encrypted wallet bridge, Send/Receive, fee preview, backup/restore, transaction history, sync progress и first-run Testnet setup. Этап остаётся «в разработке», пока не пройдёт полный product gate.'
-      :'The current branch already contains the Wails Desktop shell, managed valdrd, outbound-only P2P, encrypted wallet bridge, Send/Receive, fee preview, backup/restore, transaction history, sync progress and first-run Testnet setup. The stage remains “in development” until the full product gate is completed.' ?></p>
+      ?'Desktop implementation и cross-platform development packaging уже есть. Core CI подтверждает package assembly, SHA-256/provenance clean verification и exact-run non-public handoff. Открыты manual Windows acceptance, frozen release candidate, исполняющийся website CI и финальная RC verification.'
+      :'Desktop implementation and cross-platform development packaging are present. Core CI confirms package assembly, SHA-256/provenance clean verification and the exact-run non-public handoff. Manual Windows acceptance, a frozen release candidate, executing website CI and final RC verification remain open.' ?></p>
   </div>
 
   <p class="source-note"><?= $lang==='ru'
