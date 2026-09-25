@@ -1,5 +1,39 @@
 <?php
 $pageKey='download'; $pagePath='/download'; require dirname(__DIR__).'/includes/bootstrap.php'; require dirname(__DIR__).'/includes/header.php'; $rel=json_data('releases.json');
+
+$current=is_array($rel['current_release']??null)?$rel['current_release']:null;
+$artifacts=is_array($rel['artifacts']??null)?$rel['artifacts']:[];
+$verification=is_array($rel['verification']??null)?$rel['verification']:[];
+$releaseReady=$current!==null && ($verification['public_release_ready']??false)===true && count($artifacts)>0;
+
+$displayCommit=$releaseReady?(string)($current['commit']??''):(string)($rel['development']['commit']??'');
+$displayLine=$releaseReady
+  ?('VALDR Desktop '.(string)($current['version']??''))
+  :(string)($rel['development']['line']??'VALDR v0.2 / Desktop development');
+$displayStatus=$releaseReady
+  ?($lang==='ru'?'Опубликован Testnet release':'Published Testnet release')
+  :(string)($rel['development']['ci_status']??'development');
+$displayNetwork=strtoupper((string)($current['network']??$rel['network_status']??'TESTNET'));
+
+$platforms=[
+  'windows'=>['Windows','Windows 10/11'],
+  'macos'=>['macOS','macOS'],
+  'linux'=>['Linux','Linux']
+];
+$byOS=['windows'=>[],'macos'=>[],'linux'=>[]];
+if($releaseReady){
+  foreach($artifacts as $artifact){
+    if(!is_array($artifact))continue;
+    $os=(string)($artifact['os']??'');
+    if(isset($byOS[$os]))$byOS[$os][]=$artifact;
+  }
+}
+$formatBytes=static function(int $bytes):string{
+  if($bytes<=0)return '—';
+  $units=['B','KiB','MiB','GiB']; $value=(float)$bytes; $unit=0;
+  while($value>=1024 && $unit<count($units)-1){$value/=1024;$unit++;}
+  return ($unit===0?(string)$bytes:number_format($value,2,'.','')).' '.$units[$unit];
+};
 ?>
 <section class="page-hero compact">
   <div class="eyebrow"><?= h($t['pages']['download']['kicker']) ?></div>
@@ -9,38 +43,66 @@ $pageKey='download'; $pagePath='/download'; require dirname(__DIR__).'/includes/
 
 <section class="section narrow">
   <div class="release-meta">
-    <div><span><?= $lang==='ru'?'Development line':'Development line' ?></span><b><?= h($rel['development']['line']) ?></b></div>
-    <div><span><?= $lang==='ru'?'Сеть':'Network' ?></span><b>TESTNET</b></div>
-    <div><span>Git commit</span><b class="mono"><?= h(substr($rel['development']['commit'],0,12)) ?></b></div>
-    <div><span>CI</span><b><?= h($rel['development']['ci_status']) ?></b></div>
-    <div><span><?= $lang==='ru'?'Проверка':'Verification' ?></span><b><?= h($rel['verification']['method'] ?? 'SHA-256') ?></b></div>
+    <div><span><?= $releaseReady?($lang==='ru'?'Release':'Release'):($lang==='ru'?'Development line':'Development line') ?></span><b><?= h($displayLine) ?></b></div>
+    <div><span><?= $lang==='ru'?'Сеть':'Network' ?></span><b><?= h($displayNetwork) ?></b></div>
+    <div><span>Git commit</span><b class="mono"><?= h($displayCommit!==''?substr($displayCommit,0,12):'—') ?></b></div>
+    <div><span><?= $releaseReady?'Status':'CI' ?></span><b><?= h($displayStatus) ?></b></div>
+    <div><span><?= $lang==='ru'?'Проверка':'Verification' ?></span><b><?= h((string)($verification['method']??'SHA-256')) ?></b></div>
   </div>
 </section>
 
 <section class="section narrow">
+  <?php if($releaseReady): ?>
+  <div class="notice">
+    <strong><?= $lang==='ru'?'Testnet release опубликован и доступен для проверки':'The Testnet release is published and ready for verification' ?></strong>
+    <p><?= $lang==='ru'
+      ?'Перед запуском проверь SHA-256 и GitHub/Sigstore provenance против официального valdr-core repository, workflow и точного source commit.'
+      :'Before running a package, verify SHA-256 and GitHub/Sigstore provenance against the official valdr-core repository, workflow and exact source commit.' ?></p>
+  </div>
+  <?php else: ?>
   <div class="notice">
     <strong><?= $lang==='ru'?'Development packages проверены, публичный Testnet release ещё не опубликован':'Development packages are verified; the public Testnet release is not published yet' ?></strong>
     <p><?= $lang==='ru'
       ?'Windows, macOS и Linux packages уже проходят CI, SHA-256 и GitHub/Sigstore provenance verification. Download-кнопки останутся выключенными до появления финального release candidate в официальном release storage.'
       :'Windows, macOS and Linux packages already pass CI, SHA-256 and GitHub/Sigstore provenance verification. Download buttons remain disabled until a final release candidate exists in official release storage.' ?></p>
   </div>
+  <?php endif; ?>
 
   <div class="download-grid">
-  <?php foreach([
-    ['Windows','AMD64','Windows 10/11'],
-    ['macOS','Apple Silicon / Intel','macOS'],
-    ['Linux','AMD64 / ARM64','Linux']
-  ] as $os): ?>
+  <?php foreach($platforms as $osKey=>$platform): $items=$byOS[$osKey]; ?>
     <article class="download-card">
       <span class="os-mark"></span>
-      <h2><?= h($os[0]) ?></h2>
-      <p><?= h($os[2]) ?> · <?= h($os[1]) ?></p>
-      <dl>
-        <dt><?= $lang==='ru'?'Файл':'Filename' ?></dt><dd>—</dd>
-        <dt><?= $lang==='ru'?'Размер':'Size' ?></dt><dd>—</dd>
-        <dt>SHA-256</dt><dd>—</dd>
-      </dl>
-      <button disabled><?= $lang==='ru'?'Release в подготовке':'Release in preparation' ?></button>
+      <h2><?= h($platform[0]) ?></h2>
+      <p><?= h($platform[1]) ?></p>
+
+      <?php if($releaseReady && $items): ?>
+        <?php foreach($items as $artifact):
+          $url=(string)($artifact['url']??'');
+          $safeURL=filter_var($url,FILTER_VALIDATE_URL)!==false && parse_url($url,PHP_URL_SCHEME)==='https';
+        ?>
+          <div class="artifact-entry">
+            <dl>
+              <dt><?= $lang==='ru'?'Файл':'Filename' ?></dt><dd class="mono artifact-name"><?= h((string)($artifact['filename']??'—')) ?></dd>
+              <dt><?= $lang==='ru'?'Архитектура':'Architecture' ?></dt><dd><?= h((string)($artifact['arch']??'—')) ?></dd>
+              <dt><?= $lang==='ru'?'Размер':'Size' ?></dt><dd><?= h($formatBytes((int)($artifact['size_bytes']??0))) ?></dd>
+              <dt>SHA-256</dt><dd class="mono artifact-hash"><?= h((string)($artifact['sha256']??'—')) ?></dd>
+              <dt><?= $lang==='ru'?'Подпись ОС':'OS signing' ?></dt><dd><?= h((string)($artifact['signing_status']??'—')) ?></dd>
+            </dl>
+            <?php if($safeURL): ?>
+              <a class="button primary download-link" href="<?= h($url) ?>" rel="noopener noreferrer"><?= $lang==='ru'?'Скачать':'Download' ?> · <?= h((string)($artifact['arch']??'')) ?></a>
+            <?php else: ?>
+              <button disabled><?= $lang==='ru'?'URL не подтверждён':'URL not verified' ?></button>
+            <?php endif; ?>
+          </div>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <dl>
+          <dt><?= $lang==='ru'?'Файл':'Filename' ?></dt><dd>—</dd>
+          <dt><?= $lang==='ru'?'Размер':'Size' ?></dt><dd>—</dd>
+          <dt>SHA-256</dt><dd>—</dd>
+        </dl>
+        <button disabled><?= $lang==='ru'?'Release в подготовке':'Release in preparation' ?></button>
+      <?php endif; ?>
     </article>
   <?php endforeach; ?>
   </div>

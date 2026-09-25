@@ -37,17 +37,20 @@ Open `http://127.0.0.1:8080/`.
 
 Do **not** create a download entry until the artifact actually exists in the official release storage and its SHA-256/provenance status is known.
 
-For a real release, record:
+For a real release, set `current_release` and record per-artifact metadata:
 - version;
-- source commit;
-- release date;
+- exact 40-character source commit;
+- release date and network;
 - OS / architecture;
 - filename;
-- file size;
+- positive `size_bytes`;
 - SHA-256;
+- minimum supported OS;
 - GitHub/Sigstore provenance verification status;
 - truthful Windows/macOS vendor-signing/notarization status;
-- official release URL.
+- official HTTPS release URL.
+
+`public_release_ready` may become `true` only when `current_release` exists and every listed artifact has complete verified metadata. While `current_release=null`, `artifacts` must remain empty and the Download page keeps all executable buttons disabled.
 
 Large installers do not belong in this repository.
 
