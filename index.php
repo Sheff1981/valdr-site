@@ -87,13 +87,19 @@ img{max-width:100%;display:block}
 .btn-stack{display:flex;flex-direction:column;line-height:1.1}
 .hero-art-spacer{min-height:580px}
 .feature-strip{
-  max-width:var(--max);margin:auto;display:grid;grid-template-columns:repeat(6,1fr);
+  max-width:var(--max);margin:auto;display:grid;grid-template-columns:repeat(3,1fr);
   background:#070a0c;border-bottom:1px solid #262829
 }
-.feature{
-  min-height:152px;padding:24px 15px;text-align:center;border-right:1px solid #252728;
-  display:flex;flex-direction:column;align-items:center;justify-content:center
+.overview-intro{
+  grid-column:1/-1;padding:22px 20px 7px;text-align:center;color:#8f8b83;
+  font-size:10px;font-weight:700;letter-spacing:.20em;text-transform:uppercase
 }
+.feature{
+  min-height:156px;padding:25px 18px;text-align:center;border-right:1px solid #252728;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-decoration:none;color:inherit;transition:background .18s ease,border-color .18s ease
+}
+.feature:hover{background:#0c1013;border-color:#4a3a24}
 .feature:last-child{border-right:0}
 .feature-icon{width:42px;height:42px;margin-bottom:7px;color:var(--gold2)}
 .feature h3{margin:4px 0 5px;font-size:13px}
@@ -194,7 +200,7 @@ img{max-width:100%;display:block}
     background-size:auto 100%,cover;background-position:left top,center bottom
   }
   .hero h1{font-size:72px}.hero-tagline{font-size:35px}.hero-lead{font-size:14px}.hero-actions{gap:8px}.btn{min-height:46px;padding:0 13px;font-size:11px}
-  .feature-strip{grid-template-columns:repeat(2,1fr)}.feature{min-height:138px}.feature:nth-child(3n){border-right:1px solid #252728}.feature:nth-child(2n){border-right:0}
+  .feature-strip{grid-template-columns:1fr}.feature{min-height:132px;border-right:0;border-bottom:1px solid #252728}.feature:last-child{border-bottom:0}
   .about-copy{padding:50px 20px}.about-visual{min-height:430px}.tech-list{right:14px;top:18px;width:210px}.tech-list div{font-size:10px}
   .desktop-copy{padding:42px 20px}.platforms{grid-template-columns:1fr}.desktop-image{min-height:285px}
   .story-copy{padding:40px 20px 10px}.timeline{grid-template-columns:repeat(2,1fr);padding:26px 20px 40px}.timeline-item{min-height:112px}
@@ -228,19 +234,19 @@ img{max-width:100%;display:block}
 <main>
 <section class="hero anchor" id="home">
   <div class="hero-copy">
-    <div class="kicker">INDEPENDENT. OPEN. PROOF OF WORK.</div>
+    <div class="kicker" data-en="OPEN SOURCE · PEER-TO-PEER · PROOF OF WORK" data-ru="ОТКРЫТЫЙ КОД · PEER-TO-PEER · PROOF OF WORK">OPEN SOURCE · PEER-TO-PEER · PROOF OF WORK</div>
     <h1>VALDR</h1>
     <div class="hero-tagline">NOT A TOKEN.<br>A CHAIN.</div>
     <p class="hero-lead"
-      data-en="VALDR is an independent Proof-of-Work cryptocurrency running on its own blockchain. Not an Ethereum token. Not a BNB token. Not a Solana token."
-      data-ru="VALDR — независимая Proof-of-Work криптовалюта на собственном блокчейне. Не токен Ethereum, BNB Chain или Solana.">
-      VALDR is an independent Proof-of-Work cryptocurrency running on its own blockchain. Not an Ethereum token. Not a BNB token. Not a Solana token.
+      data-en="VALDR is an independent peer-to-peer cryptocurrency with its own Proof-of-Work blockchain and native coin VDR. Testnet is the current network stage; Mainnet is not launched."
+      data-ru="VALDR — независимая peer-to-peer криптовалюта с собственным Proof-of-Work блокчейном и native-монетой VDR. Текущий этап сети — Testnet; Mainnet ещё не запущен.">
+      VALDR is an independent peer-to-peer cryptocurrency with its own Proof-of-Work blockchain and native coin VDR. Testnet is the current network stage; Mainnet is not launched.
     </p>
     <div class="hero-actions">
-      <a class="btn primary" href="<?= h(route_url('/download',$lang)) ?>"><span>⇩</span><span class="btn-stack"><span data-en="Download VALDR" data-ru="Скачать VALDR">Download VALDR</span><small>TESTNET (Coming soon)</small></span></a>
-      <a class="btn" href="<?= h(route_url('/explorer',$lang)) ?>"><span>◇</span><span class="btn-stack"><span data-en="Explore Network" data-ru="Смотреть сеть">Explore Network</span><small>Testnet Explorer (soon)</small></span></a>
-      <a class="btn" href="<?= h(route_url('/story',$lang)) ?>"><span>▣</span><span data-en="Read the Story" data-ru="Читать историю">Read the Story</span></a>
-      <a class="btn" href="<?= h(VALDR_SOURCE_URL) ?>" target="_blank" rel="noopener"><span>◉</span><span data-en="View Source" data-ru="Исходный код">View Source</span></a>
+      <a class="btn primary" href="<?= h(route_url('/about',$lang)) ?>"><span>→</span><span data-en="Get started with VALDR" data-ru="Начать с VALDR">Get started with VALDR</span></a>
+      <a class="btn" href="<?= h(route_url('/wallet',$lang)) ?>"><span>▣</span><span data-en="VALDR Wallet" data-ru="Кошелёк VALDR">VALDR Wallet</span></a>
+      <a class="btn" href="<?= h(route_url('/explorer',$lang)) ?>"><span>◇</span><span class="btn-stack"><span data-en="Explore the network" data-ru="Смотреть сеть">Explore the network</span><small>TESTNET</small></span></a>
+      <a class="btn" href="<?= h(VALDR_SOURCE_URL) ?>" target="_blank" rel="noopener"><span>&lt;/&gt;</span><span data-en="Source code" data-ru="Исходный код">Source code</span></a>
     </div>
     <span class="sr-only">VALDR TESTNET — in development.</span>
   </div>
@@ -248,12 +254,22 @@ img{max-width:100%;display:block}
 </section>
 
 <section class="feature-strip" id="technology">
-  <article class="feature"><div class="feature-icon">◇</div><h3 data-en="Own Blockchain" data-ru="Свой блокчейн">Own Blockchain</h3><p data-en="Independent network and native coin VDR" data-ru="Независимая сеть и native-монета VDR">Independent network and native coin VDR</p></article>
-  <article class="feature anchor" id="mining"><div class="feature-icon">⚒</div><h3>Proof of Work</h3><p data-en="Mine, secure, participate" data-ru="Майнинг, безопасность, участие">Mine, secure, participate</p></article>
-  <article class="feature"><div class="feature-icon">&lt;/&gt;</div><h3>Open Source</h3><p data-en="Transparent development" data-ru="Прозрачная разработка">Transparent development</p></article>
-  <article class="feature anchor" id="node"><div class="feature-icon">⌘</div><h3>Full Node</h3><p data-en="Run on your PC or server" data-ru="Запускай на ПК или сервере">Run on your PC or server</p></article>
-  <article class="feature anchor" id="wallet"><div class="feature-icon">▣</div><h3 data-en="Encrypted Wallet" data-ru="Зашифрованный кошелёк">Encrypted Wallet</h3><p data-en="Your keys. Your control." data-ru="Твои ключи. Твой контроль.">Your keys. Your control.</p></article>
-  <article class="feature anchor" id="community"><div class="feature-icon">♙</div><h3 data-en="Community Driven" data-ru="Открытое сообщество">Community Driven</h3><p data-en="Built with people for the future" data-ru="Развивается вместе с сообществом">Built with people for the future</p></article>
+  <div class="overview-intro" data-en="Get a quick overview for" data-ru="Краткий обзор для">Get a quick overview for</div>
+  <a class="feature" href="<?= h(route_url('/wallet',$lang)) ?>">
+    <div class="feature-icon">▣</div>
+    <h3 data-en="Users" data-ru="Пользователям">Users</h3>
+    <p data-en="Wallet, addresses, sending and receiving VDR" data-ru="Кошелёк, адреса, отправка и получение VDR">Wallet, addresses, sending and receiving VDR</p>
+  </a>
+  <a class="feature" href="<?= h(route_url('/node',$lang)) ?>">
+    <div class="feature-icon">⌘</div>
+    <h3 data-en="Node operators" data-ru="Операторам нод">Node operators</h3>
+    <p data-en="Run a full node and independently verify the chain" data-ru="Запускайте full node и независимо проверяйте цепочку">Run a full node and independently verify the chain</p>
+  </a>
+  <a class="feature" href="<?= h(route_url('/docs',$lang)) ?>">
+    <div class="feature-icon">&lt;/&gt;</div>
+    <h3 data-en="Developers" data-ru="Разработчикам">Developers</h3>
+    <p data-en="Protocol, source code, RPC and technical documentation" data-ru="Протокол, исходный код, RPC и техническая документация">Protocol, source code, RPC and technical documentation</p>
+  </a>
 </section>
 
 <section class="section about anchor" id="about">
