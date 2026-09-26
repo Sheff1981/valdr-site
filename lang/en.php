@@ -8,6 +8,8 @@ return [
 ],
 'nav'=>[
   'home'=>'Home',
+  'getting_started'=>'Getting Started',
+  'using_valdr'=>'Using VALDR',
   'about'=>'About',
   'story'=>'Story',
   'technology'=>'Technology',
@@ -106,6 +108,113 @@ return [
   'meta_description'=>'VALDR is an independent Proof-of-Work cryptocurrency with its own blockchain, native VDR coin, node, wallet and miner.',
   'kicker'=>'Independent. Open. Proof of Work.',
   'lead'=>'VALDR is an independent Proof-of-Work cryptocurrency running on its own blockchain. Native VDR. Own node. Own wallet. Own network.'
+],
+'getting_started'=>[
+  'title'=>'Getting Started',
+  'meta_title'=>'Getting Started with VALDR Testnet',
+  'meta_description'=>'Start with VALDR Testnet safely: understand the Desktop, encrypted wallet, local node, synchronization, receiving, sending and verification.',
+  'kicker'=>'Start with the Testnet',
+  'lead'=>'VALDR is currently a Testnet. The normal user path is Desktop → encrypted wallet → local node → network synchronization → send or receive Testnet VDR.',
+  'notice'=>[
+    'type'=>'warning',
+    'title'=>'Testnet VDR is for testing',
+    'text'=>'The current public software line is Testnet2. Testnet VDR is used to test the network and software and carries no promise of monetary value.'
+  ],
+  'sections'=>[
+    [
+      'heading'=>'1. Verify the software before running it',
+      'paragraphs'=>[
+        'When a public release is available, start from the official Download page and verify the exact package with SHA-256 and GitHub/Sigstore provenance before launch.',
+        'Until a frozen public release exists, the website keeps executable download links disabled.'
+      ],
+      'bullets'=>[
+        'Confirm the release version and exact source commit',
+        'Match the package SHA-256 against canonical release metadata',
+        'Verify provenance against Sheff1981/valdr-core and the expected CI workflow',
+        'Do not run a package if any identity or checksum differs'
+      ]
+    ],
+    [
+      'heading'=>'2. Create or open an encrypted wallet',
+      'paragraphs'=>[
+        'VALDR Desktop keeps wallet secrets local. Wallet v2 encrypts the private-key payload at rest and requires the user passphrase to unlock signing.',
+        'Write down or securely preserve the wallet backup. The website cannot recover a lost private key or passphrase.'
+      ]
+    ],
+    [
+      'heading'=>'3. Let the local node synchronize',
+      'paragraphs'=>[
+        'Desktop manages a local outbound-only VALDR node for the ordinary-user path. The node validates chain data itself and resumes from persisted state after restart.',
+        'While synchronization is incomplete, balance, history and confirmation counts may also be incomplete.'
+      ]
+    ],
+    [
+      'heading'=>'4. Receive and send Testnet VDR',
+      'paragraphs'=>[
+        'To receive, share a public VDR address. To send, confirm the destination and amount before the wallet signs locally and the node broadcasts the transaction.',
+        'VALDR transactions are irreversible once accepted into the chain. There is no central operator who can reverse a valid confirmed payment.'
+      ]
+    ],
+    [
+      'heading'=>'5. Explore the network when needed',
+      'paragraphs'=>[
+        'Use the Network and transaction views in Desktop for local status, or a deployed read-only VALDR Explorer for public block, transaction and address inspection.',
+        'Mining is optional and explicit; Desktop must never start mining silently.'
+      ]
+    ]
+  ]
+],
+'using_valdr'=>[
+  'title'=>'Using VALDR',
+  'meta_title'=>'Using VALDR — Wallet, Node, Transactions and Mining',
+  'meta_description'=>'Understand the everyday VALDR roles: wallet, local node, miner, blockchain, P2P network and read-only Explorer.',
+  'kicker'=>'Know what each component does',
+  'lead'=>'VALDR separates responsibilities: the wallet holds spending authority, the node verifies the blockchain, the miner searches for Proof of Work, and the network relays public data between peers.',
+  'sections'=>[
+    [
+      'heading'=>'Wallet: controls spending authority',
+      'paragraphs'=>[
+        'The wallet manages addresses and encrypted private-key material. It creates and signs transactions locally. The website and the P2P network do not need your private key.'
+      ]
+    ],
+    [
+      'heading'=>'Node: verifies the blockchain',
+      'paragraphs'=>[
+        'A full node stores validated chain state, checks blocks and transactions, applies UTXO rules, selects the valid branch by cumulative chainwork and relays accepted public data.',
+        'For Desktop users, the managed node normally connects outbound to peers and does not require opening an inbound port.'
+      ]
+    ],
+    [
+      'heading'=>'Miner: proposes blocks',
+      'paragraphs'=>[
+        'The miner builds candidate blocks from current chain state and mempool transactions, searches for a header that satisfies Proof of Work, and submits a found block to the node.',
+        'The node remains the final validator. A miner cannot make an invalid block valid.'
+      ]
+    ],
+    [
+      'heading'=>'Blockchain and network are different things',
+      'cards'=>[
+        ['title'=>'Blockchain','text'=>'The ordered, validated history of blocks and UTXO state.'],
+        ['title'=>'P2P network','text'=>'The peer-to-peer transport layer that carries blocks, transactions, headers and peer-discovery data.'],
+        ['title'=>'Explorer','text'=>'A separate read-only view of public chain data. It does not control consensus or hold keys.'],
+        ['title'=>'Desktop','text'=>'The user interface that connects the wallet and local node experience without creating a second consensus implementation.']
+      ]
+    ],
+    [
+      'heading'=>'Self-custody and irreversible transactions',
+      'paragraphs'=>[
+        'Control of the private key means control of the funds authorized by that key. Keep backups and passphrases under your own control.',
+        'A correctly signed and confirmed transaction cannot be reversed by the website, a miner, a developer or a support operator.'
+      ]
+    ],
+    [
+      'heading'=>'Current network status',
+      'paragraphs'=>[
+        'The active development network is Testnet2 with Chain ID valdr-testnet-2. Mainnet is not available in the current build.',
+        'Current Testnet participation is for software, protocol and network testing.'
+      ]
+    ]
+  ]
 ],
 'about'=>[
   'title'=>'What is VALDR?',

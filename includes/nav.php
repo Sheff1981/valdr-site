@@ -1,6 +1,8 @@
 <?php
 $nav = [
     '/' => $t['nav']['home'],
+    '/getting-started' => $t['nav']['getting_started'],
+    '/using-valdr' => $t['nav']['using_valdr'],
     '/about' => $t['nav']['about'],
     '/download' => $t['nav']['download'],
     '/technology' => $t['nav']['technology'],

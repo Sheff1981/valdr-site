@@ -107,6 +107,113 @@ return [
   'kicker'=>'Independent. Open. Proof of Work.',
   'lead'=>'VALDR — независимая Proof-of-Work криптовалюта на собственном блокчейне. Native VDR. Своя нода. Свой wallet. Своя сеть.'
 ],
+'getting_started'=>[
+  'title'=>'Начало работы',
+  'meta_title'=>'Начало работы с VALDR Testnet',
+  'meta_description'=>'Безопасный старт с VALDR Testnet: Desktop, encrypted wallet, local node, синхронизация, получение, отправка и verification.',
+  'kicker'=>'Начни с Testnet',
+  'lead'=>'Сейчас VALDR работает как Testnet. Обычный путь пользователя: Desktop → encrypted wallet → local node → синхронизация сети → отправка или получение Testnet VDR.',
+  'notice'=>[
+    'type'=>'warning',
+    'title'=>'Testnet VDR предназначен для тестирования',
+    'text'=>'Текущая публичная software-линия — Testnet2. Testnet VDR нужен для проверки сети и программного обеспечения и не несёт обещания денежной ценности.'
+  ],
+  'sections'=>[
+    [
+      'heading'=>'1. Проверь software перед запуском',
+      'paragraphs'=>[
+        'Когда публичный release будет готов, начинай с официальной Download page и до запуска проверяй точный package через SHA-256 и GitHub/Sigstore provenance.',
+        'Пока frozen public release не существует, сайт держит executable download links выключенными.'
+      ],
+      'bullets'=>[
+        'Проверь release version и точный source commit',
+        'Сверь SHA-256 package с canonical release metadata',
+        'Проверь provenance против Sheff1981/valdr-core и ожидаемого CI workflow',
+        'Не запускай package, если identity или checksum не совпадает'
+      ]
+    ],
+    [
+      'heading'=>'2. Создай или открой encrypted wallet',
+      'paragraphs'=>[
+        'VALDR Desktop хранит wallet secrets локально. Wallet v2 шифрует private-key payload на диске и требует user passphrase для unlock и signing.',
+        'Сохрани wallet backup безопасно. Сайт не может восстановить потерянный private key или passphrase.'
+      ]
+    ],
+    [
+      'heading'=>'3. Дай local node синхронизироваться',
+      'paragraphs'=>[
+        'Desktop управляет локальной outbound-only VALDR node для обычного пользовательского режима. Нода сама проверяет chain data и после restart продолжает работу из сохранённого state.',
+        'Пока синхронизация не завершена, balance, history и confirmations также могут быть неполными.'
+      ]
+    ],
+    [
+      'heading'=>'4. Получай и отправляй Testnet VDR',
+      'paragraphs'=>[
+        'Для получения передай public VDR address. Для отправки проверь destination и amount до того, как wallet локально подпишет transaction, а node отправит её в сеть.',
+        'После подтверждения в chain VALDR transaction необратима. Центрального оператора, который может отменить корректный confirmed payment, нет.'
+      ]
+    ],
+    [
+      'heading'=>'5. При необходимости смотри состояние сети',
+      'paragraphs'=>[
+        'Используй Network и transaction views в Desktop для локального статуса или развёрнутый read-only VALDR Explorer для публичного просмотра blocks, transactions и addresses.',
+        'Mining необязателен и запускается только явно; Desktop не должен начинать mining скрытно.'
+      ]
+    ]
+  ]
+],
+'using_valdr'=>[
+  'title'=>'Как пользоваться VALDR',
+  'meta_title'=>'Как пользоваться VALDR — Wallet, Node, Transactions и Mining',
+  'meta_description'=>'Роли компонентов VALDR: wallet, local node, miner, blockchain, P2P network и read-only Explorer.',
+  'kicker'=>'Понимай роль каждого компонента',
+  'lead'=>'VALDR разделяет обязанности: wallet хранит право подписи, node проверяет blockchain, miner ищет Proof of Work, а P2P network передаёт публичные данные между peers.',
+  'sections'=>[
+    [
+      'heading'=>'Wallet: право распоряжаться средствами',
+      'paragraphs'=>[
+        'Wallet управляет addresses и encrypted private-key material. Он локально создаёт и подписывает transactions. Сайту и P2P network private key не нужен.'
+      ]
+    ],
+    [
+      'heading'=>'Node: проверяет blockchain',
+      'paragraphs'=>[
+        'Full node хранит validated chain state, проверяет blocks и transactions, применяет UTXO rules, выбирает valid branch по cumulative chainwork и relays принятые публичные данные.',
+        'Для Desktop user managed node обычно подключается к peers наружу и не требует открытия inbound port.'
+      ]
+    ],
+    [
+      'heading'=>'Miner: предлагает blocks',
+      'paragraphs'=>[
+        'Miner строит candidate block из текущего chain state и mempool transactions, ищет header с подходящим Proof of Work и отправляет найденный block node.',
+        'Финальную проверку всё равно выполняет node. Miner не может сделать invalid block действительным.'
+      ]
+    ],
+    [
+      'heading'=>'Blockchain и network — разные вещи',
+      'cards'=>[
+        ['title'=>'Blockchain','text'=>'Упорядоченная проверенная история blocks и UTXO state.'],
+        ['title'=>'P2P network','text'=>'Peer-to-peer транспорт для blocks, transactions, headers и peer-discovery data.'],
+        ['title'=>'Explorer','text'=>'Отдельный read-only просмотр public chain data. Он не управляет consensus и не хранит keys.'],
+        ['title'=>'Desktop','text'=>'User interface, который объединяет wallet и local node experience без второй consensus implementation.']
+      ]
+    ],
+    [
+      'heading'=>'Self-custody и необратимые transactions',
+      'paragraphs'=>[
+        'Контроль private key означает контроль средств, которыми этот key может распоряжаться. Backup и passphrase должны оставаться под твоим контролем.',
+        'Корректно подписанная и подтверждённая transaction не может быть отменена сайтом, miner, developer или support operator.'
+      ]
+    ],
+    [
+      'heading'=>'Текущий статус сети',
+      'paragraphs'=>[
+        'Активная development network — Testnet2 с Chain ID valdr-testnet-2. Mainnet в текущем build недоступен.',
+        'Участие в текущем Testnet предназначено для проверки software, protocol и network.'
+      ]
+    ]
+  ]
+],
 'about'=>[
   'title'=>'Что такое VALDR?',
   'meta_title'=>'Что такое VALDR (VDR)?',
