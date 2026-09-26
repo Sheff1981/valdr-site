@@ -13,7 +13,8 @@ $displayLine=$releaseReady
 $displayStatus=$releaseReady
   ?($lang==='ru'?'Опубликован Testnet release':'Published Testnet release')
   :(string)($rel['development']['ci_status']??'development');
-$displayNetwork=strtoupper((string)($current['network']??$rel['network_status']??'TESTNET'));
+$displayNetwork=strtoupper((string)($current['network']??$rel['network_profile']??$rel['network_status']??'TESTNET2'));
+$displayChainID=(string)($current['chain_id']??$rel['chain_id']??'valdr-testnet-2');
 
 $platforms=[
   'windows'=>['Windows','Windows 10/11'],
@@ -45,6 +46,7 @@ $formatBytes=static function(int $bytes):string{
   <div class="release-meta">
     <div><span><?= $releaseReady?($lang==='ru'?'Release':'Release'):($lang==='ru'?'Development line':'Development line') ?></span><b><?= h($displayLine) ?></b></div>
     <div><span><?= $lang==='ru'?'Сеть':'Network' ?></span><b><?= h($displayNetwork) ?></b></div>
+    <div><span>Chain ID</span><b class="mono"><?= h($displayChainID) ?></b></div>
     <div><span>Git commit</span><b class="mono"><?= h($displayCommit!==''?substr($displayCommit,0,12):'—') ?></b></div>
     <div><span><?= $releaseReady?'Status':'CI' ?></span><b><?= h($displayStatus) ?></b></div>
     <div><span><?= $lang==='ru'?'Проверка':'Verification' ?></span><b><?= h((string)($verification['method']??'SHA-256')) ?></b></div>

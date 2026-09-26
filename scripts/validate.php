@@ -17,6 +17,11 @@ if(!is_array($rel)){$errors[]='Release data must decode to an object';}else{
   $verification=$rel['verification']??[];
   foreach(['method','repository','signer_workflow','provenance'] as $k){if(empty($verification[$k]))$errors[]='Release verification missing '.$k;}
   if(($verification['repository']??'')!=='Sheff1981/valdr-core')$errors[]='Unexpected release provenance repository';
+  if(($rel['network_profile']??'')!=='testnet2')$errors[]='Active website release profile must be testnet2';
+  if(($rel['chain_id']??'')!=='valdr-testnet-2')$errors[]='Active website release Chain ID must be valdr-testnet-2';
+  if(($rel['network_status']??'')!=='TESTNET2')$errors[]='Active website network_status must be TESTNET2';
+  if(($verification['signer_workflow']??'')!=='Sheff1981/valdr-core/.github/workflows/valdr-v02-ci.yml')$errors[]='Unexpected release signer workflow';
+  if(preg_match('/testnet[-_ ]?1|valdr-testnet-1/i',(string)file_get_contents($root.'/download/index.php').(string)file_get_contents($root.'/verify/index.php').(string)file_get_contents($root.'/releases/index.php').json_encode($rel)))$errors[]='Stale Testnet1 identity found in active release surfaces';
   $current=$rel['current_release']??null; $artifacts=$rel['artifacts']??[];
   if($current===null){
     if(($verification['public_release_ready']??null)!==false)$errors[]='Public release readiness must be false without current_release';

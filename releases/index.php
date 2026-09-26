@@ -69,7 +69,7 @@ $gates=$isRu?[
 <section class="final-split dark">
  <div><span><?=h($c['manifest'])?></span><h2><?=h($c['manifest_t'])?></h2><p><?=h($c['manifest_p'])?></p></div>
  <div class="manifest-demo" aria-hidden="true">
-  <code>{</code><code>"version": "…",</code><code>"commit": "40-char…",</code><code>"network": "testnet",</code><code>"sha256": "64-char…",</code><code>"provenance": true</code><code>}</code>
+  <code>{</code><code>"version": "…",</code><code>"commit": "40-char…",</code><code>"network": "testnet2",</code><code>"chain_id": "valdr-testnet-2",</code><code>"sha256": "64-char…",</code><code>"provenance": true</code><code>}</code>
  </div>
 </section>
 

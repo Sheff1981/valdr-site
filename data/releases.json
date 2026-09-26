@@ -1,27 +1,28 @@
 {
   "schema": 1,
-  "network_status": "TESTNET",
+  "network_status": "TESTNET2",
   "current_release": null,
   "development": {
     "line": "VALDR v0.2 / Desktop development",
     "branch": "valdr-v0.2",
-    "commit": "ea74320f9950dad733e4f95c0d24e9b008e2d221",
-    "commit_date": "2026-09-25T20:01:00Z",
-    "ci_status": "success (run 36183171614)",
+    "commit": "2a2f5624fade9eff29c5261a9acfdffa2c0e104e",
+    "commit_date": "2026-09-26T17:10:47Z",
+    "ci_status": "success (run 36258140519 / #458)",
     "release_date": null,
-    "ci_run_id": 36183171614,
-    "verified_at": "2026-09-25T20:07:20Z",
+    "ci_run_id": 36258140519,
+    "verified_at": "2026-09-26T17:26:05Z",
+    "stage12b_status": "automated_exit_gate_pass",
     "stage12_manual_windows_qa": "pending_current_candidate",
-    "stage13_status": "pipeline_green_public_release_gated",
+    "stage13a_status": "development_evidence_gate_pass_public_release_gated",
     "package_matrix_verified": true,
     "provenance_verified": true,
     "windows_manual_qa_candidate": {
       "artifact_name": "valdr-stage13-windows-development",
-      "artifact_id": 10885735468,
+      "artifact_id": 10910748543,
       "version": "0.2.0-dev",
-      "source_commit": "ea74320f9950dad733e4f95c0d24e9b008e2d221",
-      "installer_sha256": "f20d90211ab5e4e19633ae7563652bcdbfb9f04851f53a18031e705a5a68c365",
-      "portable_sha256": "6cd8b93c14e4ecb3233161f20e581b1cf195ed8c7b3c5b9024d19b8c257cfdba"
+      "source_commit": "2a2f5624fade9eff29c5261a9acfdffa2c0e104e",
+      "installer_sha256": "195e7f4d7bfc616ef198fcc0ed8209f5841ba52bb42991e7e0002a8b6bd44bb7",
+      "portable_sha256": "a5ec2783a0fe4340cfa43c5679f2520ec37f616b1d27a62e0a2820517a68f762"
     }
   },
   "verification": {
@@ -34,5 +35,7 @@
     "public_release_ready": false
   },
   "artifacts": [],
-  "message": "Core CI #356 is green. The current Windows manual QA candidate is pinned and hash-verified; public Testnet downloads remain gated by Stage 12 manual Windows acceptance, an explicit frozen release candidate, executing website CI and final RC verification."
+  "message": "Core CI #458 is green on Testnet2. Stage 12B automated acceptance and Stage 13A development evidence are PASS. The current Windows manual-QA candidate is pinned and hash-verified; public downloads remain fail-closed until Stage 12C manual acceptance, an explicit non-development RC, green website CI, and final RC verification.",
+  "network_profile": "testnet2",
+  "chain_id": "valdr-testnet-2"
 }
