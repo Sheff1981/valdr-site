@@ -7,6 +7,20 @@ foreach($rii as $file){$path=$file->getPathname(); if(str_contains($path,DIRECTO
 foreach($php as $path){$out=[];$code=0;exec('php -l '.escapeshellarg($path).' 2>&1',$out,$code);if($code!==0)$errors[]='PHP syntax: '.$path.' '.implode(' ',$out);}
 foreach(['assets/css/site.css','assets/js/site.js','assets/img/valdr-mark.svg','assets/icons/favicon.svg','data/releases.json','data/roadmap.json','lang/en.php','lang/ru.php'] as $required){if(!is_file($root.'/'.$required))$errors[]='Missing required asset: '.$required;}
 foreach(['releases.json','roadmap.json'] as $json){json_decode((string)file_get_contents($root.'/data/'.$json),true);if(json_last_error()!==JSON_ERROR_NONE)$errors[]='Invalid JSON: '.$json;}
+$requiredRoutes=['about','getting-started','using-valdr','technology','wallet','node','mining','explorer','docs','security','community','story','faq','download','verify','releases','roadmap'];
+foreach($requiredRoutes as $route){if(!is_file($root.'/'.$route.'/index.php'))$errors[]='Stage 13C route missing: /'.$route;}
+foreach(['en','ru'] as $locale){
+  $copy=require $root.'/lang/'.$locale.'.php';
+  foreach(['home','getting_started','using_valdr','technology','wallet','node','mining','explorer','docs','security','community','story','faq','download','verify','releases','roadmap'] as $pageKey){
+    if(empty($copy['pages'][$pageKey]['title'])||empty($copy['pages'][$pageKey]['lead']))$errors[]='Stage 13C '.$locale.' copy missing page '.$pageKey;
+  }
+  foreach(['getting_started','using_valdr'] as $navKey){if(empty($copy['nav'][$navKey]))$errors[]='Stage 13C '.$locale.' navigation missing '.$navKey;}
+}
+$activeContent=(string)file_get_contents($root.'/technology/index.php').(string)file_get_contents($root.'/lang/en.php').(string)file_get_contents($root.'/lang/ru.php');
+foreach(['ACTIVE BASELINE: v0.2.8','planned VALDR Desktop','The planned VALDR Desktop','Планируемый VALDR Desktop','Devnet2 and Testnet','между Devnet2 и Testnet'] as $stale){
+  if(str_contains($activeContent,$stale))$errors[]='Stage 13C stale active content: '.$stale;
+}
+
 $danger=['BEGIN PRIVATE KEY','BEGIN OPENSSH PRIVATE KEY','AWS_SECRET_ACCESS_KEY','ghp_','github_pat_'];
 foreach($rii as $file){if(!$file->isFile()||$file->getSize()>1500000||$file->getPathname()===__FILE__)continue;$data=@file_get_contents($file->getPathname());if($data===false)continue;foreach($danger as $needle){if(str_contains($data,$needle))$errors[]='Potential secret marker '.$needle.' in '.$file->getPathname();}}
 $rel=json_decode((string)file_get_contents($root.'/data/releases.json'),true);
