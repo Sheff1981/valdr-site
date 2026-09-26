@@ -409,7 +409,7 @@ return [
     [
       'heading'=>'Desktop user',
       'paragraphs'=>[
-        'Планируемый VALDR Desktop строится вокруг локальной outbound-only node. Для обычной домашней сети это означает, что приложение само подключается наружу к peers и не требует от пользователя открывать inbound P2P port.'
+        'Текущий VALDR Desktop строится вокруг локальной outbound-only node. Для обычной домашней сети это означает, что приложение само подключается наружу к peers и не требует от пользователя открывать inbound P2P port.'
       ]
     ],
     [
@@ -597,7 +597,7 @@ return [
     ],
     [
       'heading'=>'Что такое VALDR Desktop?',
-      'paragraphs'=>['Это планируемый desktop interface, который объединяет local node и encrypted wallet experience для обычного пользователя и не дублирует consensus logic.']
+      'paragraphs'=>['Это desktop interface, который объединяет local node и encrypted wallet experience для обычного пользователя и не дублирует consensus logic.']
     ]
   ]
 ],
