@@ -76,7 +76,7 @@ return [
   ],
   'desktop_mock'=>'Local wallet · local node · network sync',
   'desktop_title'=>'Run your own node. Use VALDR Desktop.',
-  'desktop_text'=>'VALDR Desktop is the planned everyday interface for the network: create or open an encrypted wallet, run a local outbound-only node, synchronize, send and receive VDR, and inspect network status from one application.',
+  'desktop_text'=>'VALDR Desktop is the everyday interface for the current Testnet software: create or open an encrypted wallet, run a local outbound-only node, synchronize, send and receive VDR, and inspect network status from one application.',
   'release_preparing'=>'Testnet package in preparation',
   'all_releases'=>'View releases',
   'story_title'=>'From an idea to a blockchain.',
@@ -409,7 +409,7 @@ return [
     [
       'heading'=>'Desktop user',
       'paragraphs'=>[
-        'The planned VALDR Desktop experience is built around an outbound-only local node. That mode is intended for ordinary home networks: the application connects outward to peers and does not require the user to expose an inbound P2P port.'
+        'The current VALDR Desktop experience is built around an outbound-only local node. That mode is intended for ordinary home networks: the application connects outward to peers and does not require the user to expose an inbound P2P port.'
       ]
     ],
     [
@@ -597,7 +597,7 @@ return [
     ],
     [
       'heading'=>'What is VALDR Desktop?',
-      'paragraphs'=>['It is the planned desktop interface that combines the local node and encrypted wallet experience for ordinary users without duplicating consensus logic.']
+      'paragraphs'=>['It is the desktop interface that combines the local node and encrypted wallet experience for ordinary users without duplicating consensus logic.']
     ]
   ]
 ],
