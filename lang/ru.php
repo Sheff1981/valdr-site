@@ -8,6 +8,8 @@ return [
 ],
 'nav'=>[
   'home'=>'Главная',
+  'getting_started'=>'Начало работы',
+  'using_valdr'=>'Как пользоваться',
   'about'=>'О VALDR',
   'story'=>'История',
   'technology'=>'Технология',
