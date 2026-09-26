@@ -5,7 +5,7 @@ $rii=new RecursiveIteratorIterator(new RecursiveDirectoryIterator($root,Filesyst
 $php=[];
 foreach($rii as $file){$path=$file->getPathname(); if(str_contains($path,DIRECTORY_SEPARATOR.'.git'.DIRECTORY_SEPARATOR))continue; if($file->getExtension()==='php')$php[]=$path;}
 foreach($php as $path){$out=[];$code=0;exec('php -l '.escapeshellarg($path).' 2>&1',$out,$code);if($code!==0)$errors[]='PHP syntax: '.$path.' '.implode(' ',$out);}
-foreach(['assets/css/site.css','assets/js/site.js','assets/img/valdr-mark.svg','assets/icons/favicon.svg','data/releases.json','data/roadmap.json','lang/en.php','lang/ru.php'] as $required){if(!is_file($root.'/'.$required))$errors[]='Missing required asset: '.$required;}
+foreach(['assets/css/site.css','assets/js/site.js','assets/img/valdr-mark.svg','assets/img/valdr-desktop-current.webp','assets/icons/favicon.svg','data/releases.json','data/roadmap.json','lang/en.php','lang/ru.php'] as $required){if(!is_file($root.'/'.$required))$errors[]='Missing required asset: '.$required;}
 foreach(['releases.json','roadmap.json'] as $json){json_decode((string)file_get_contents($root.'/data/'.$json),true);if(json_last_error()!==JSON_ERROR_NONE)$errors[]='Invalid JSON: '.$json;}
 $requiredRoutes=['about','getting-started','using-valdr','technology','wallet','node','mining','explorer','docs','security','community','story','faq','download','verify','releases','roadmap'];
 foreach($requiredRoutes as $route){if(!is_file($root.'/'.$route.'/index.php'))$errors[]='Stage 13C route missing: /'.$route;}
@@ -17,6 +17,7 @@ foreach(['en','ru'] as $locale){
   foreach(['getting_started','using_valdr'] as $navKey){if(empty($copy['nav'][$navKey]))$errors[]='Stage 13C '.$locale.' navigation missing '.$navKey;}
 }
 $activeContent=(string)file_get_contents($root.'/technology/index.php').(string)file_get_contents($root.'/lang/en.php').(string)file_get_contents($root.'/lang/ru.php');
+if(!str_contains((string)file_get_contents($root.'/index.php'),'valdr-desktop-current.webp'))$errors[]='Stage 13C real Desktop screenshot is not referenced on Home';
 foreach(['ACTIVE BASELINE: v0.2.8','planned VALDR Desktop','The planned VALDR Desktop','Планируемый VALDR Desktop','Devnet2 and Testnet','между Devnet2 и Testnet'] as $stale){
   if(str_contains($activeContent,$stale))$errors[]='Stage 13C stale active content: '.$stale;
 }

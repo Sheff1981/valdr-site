@@ -298,7 +298,10 @@ img{max-width:100%;display:block}
 </section>
 
 <section class="section desktop anchor" id="download">
-  <div class="desktop-image" aria-label="VALDR Desktop interface preview"></div>
+  <figure class="desktop-image" aria-label="Current validated VALDR Desktop screenshot" style="margin:0;position:relative;overflow:hidden;background:#07090b">
+    <img src="/assets/img/valdr-desktop-current.webp" alt="VALDR Desktop Testnet first-run interface captured from Core CI #463" width="1180" height="760" style="width:100%;height:100%;object-fit:cover;display:block">
+    <figcaption style="position:absolute;left:14px;bottom:12px;padding:6px 9px;background:rgba(5,8,10,.86);color:#d6b06b;font-size:9px;letter-spacing:.08em">REAL DESKTOP · CORE 71934ef8e36d · CI #463</figcaption>
+  </figure>
   <div class="desktop-copy">
     <div class="eyebrow">VALDR DESKTOP</div>
     <h2 class="section-title" data-en="Run your own node. Use VALDR Desktop." data-ru="Запускай свою ноду. Используй VALDR Desktop.">Run your own node.<br>Use VALDR Desktop.</h2>
