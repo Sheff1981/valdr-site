@@ -33,14 +33,13 @@ jobs:
             echo 'Named third-party cryptocurrency reference found in public site.' >&2
             exit 1
           fi
-      - name: Generated content check
+      - name: Generated route check
         run: |
-          test -f _site/index.html
-          grep -Rqs 'VALDR' _site
-          grep -Rqs 'Getting started' _site
-          grep -Rqs 'Начало работы' _site
-          grep -Rqs 'Proof of Work' _site
-          test "$(find _site -type f -name '*.html' | wc -l)" -ge 20
+          for file in             _site/index.html             _site/getting-started/index.html             _site/how-it-works/index.html             _site/wallet/index.html             _site/node/index.html             _site/mining/index.html             _site/explorer/index.html             _site/about/index.html             _site/origin/index.html             _site/ru/index.html             _site/ru/getting-started/index.html             _site/ru/how-it-works/index.html             _site/ru/wallet/index.html             _site/ru/node/index.html             _site/ru/mining/index.html             _site/ru/explorer/index.html             _site/ru/about/index.html             _site/ru/origin/index.html; do
+              test -f "$file" || { echo "Missing generated route: $file"; exit 1; }
+          done
+          grep -q 'VALDR Explorer' _site/explorer/index.html
+          grep -q 'VALDR Explorer' _site/ru/explorer/index.html
       - name: HTTP smoke
         run: |
           python3 -m http.server 8080 --directory _site >/tmp/valdr-site.log 2>&1 &
@@ -48,3 +47,6 @@ jobs:
           trap 'kill $server_pid 2>/dev/null || true' EXIT
           sleep 1
           curl --fail --silent --show-error http://127.0.0.1:8080/ >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:8080/ru/ >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:8080/explorer/ >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:8080/ru/explorer/ >/dev/null
