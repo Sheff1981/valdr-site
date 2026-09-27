@@ -27,10 +27,16 @@ jobs:
           if grep -RIE --include='*.md' --include='*.html' --include='*.yml'             'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec'             _site _includes _layouts assets ru *.md _config.yml README.md 2>/dev/null; then
             exit 1
           fi
-      - name: Route smoke
+      - name: Generated route check
+        run: |
+          for file in             _site/index.html             _site/getting-started/index.html             _site/how-it-works/index.html             _site/wallet/index.html             _site/node/index.html             _site/mining/index.html             _site/explorer/index.html             _site/download/index.html             _site/security/index.html             _site/roadmap/index.html             _site/faq/index.html             _site/ru/index.html             _site/ru/getting-started/index.html             _site/ru/how-it-works/index.html             _site/ru/wallet/index.html             _site/ru/node/index.html             _site/ru/mining/index.html             _site/ru/explorer/index.html             _site/ru/download/index.html             _site/ru/security/index.html             _site/ru/roadmap/index.html             _site/ru/faq/index.html; do
+              test -f "$file" || { echo "Missing generated route: $file"; exit 1; }
+          done
+      - name: HTTP smoke
         run: |
           python3 -m http.server 8080 --directory _site >/tmp/valdr-site.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid 2>/dev/null || true' EXIT
           sleep 1
-          for path in / /getting-started/ /how-it-works/ /wallet/ /node/ /mining/ /explorer/ /download/ /security/ /roadmap/ /faq/ /ru/ /ru/getting-started/ /ru/how-it-works/ /ru/wallet/ /ru/node/ /ru/mining/ /ru/explorer/ /ru/download/ /ru/security/ /ru/roadmap/ /ru/faq/; do
-            curl --fail --silent --show-error "http://127.0.0.1:8080$path" >/dev/null
-          done
+          curl --fail --silent --show-error http://127.0.0.1:8080/ >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:8080/ru/ >/dev/null
