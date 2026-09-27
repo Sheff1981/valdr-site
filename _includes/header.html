@@ -1,0 +1,9 @@
+<header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="{% if page.lang == 'ru' %}/ru/{% else %}/{% endif %}"><img src="/assets/img/valdr-mark.svg" alt="" width="34" height="34"><span>VALDR</span></a>
+<nav class="main-nav">{% if page.lang == 'ru' %}
+<a href="/ru/getting-started/">Начало работы</a><a href="/ru/how-it-works/">Как это работает</a><a href="/ru/wallet/">Кошелёк</a><a href="/ru/node/">Нода</a><a href="/ru/mining/">Майнинг</a><a href="/ru/download/">Скачать</a>
+{% else %}
+<a href="/getting-started/">Getting started</a><a href="/how-it-works/">How it works</a><a href="/wallet/">Wallet</a><a href="/node/">Node</a><a href="/mining/">Mining</a><a href="/download/">Download</a>
+{% endif %}</nav>
+<a class="lang-link" href="{{ page.alt_url | default: '/ru/' }}">{% if page.lang == 'ru' %}EN{% else %}RU{% endif %}</a>
+</div></header>

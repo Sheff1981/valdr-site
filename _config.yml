@@ -1,0 +1,33 @@
+title: VALDR
+description: Independent open-source peer-to-peer digital money.
+url: ""
+baseurl: ""
+markdown: kramdown
+permalink: pretty
+strict_front_matter: true
+exclude:
+  - README.md
+  - Gemfile.lock
+  - index.php
+  - includes
+  - lang
+  - scripts
+  - data
+  - about
+  - community
+  - docs
+  - download
+  - explorer
+  - faq
+  - getting-started
+  - mining
+  - node
+  - releases
+  - roadmap
+  - security
+  - story
+  - technology
+  - using-valdr
+  - verify
+  - wallet
+  - .htaccess

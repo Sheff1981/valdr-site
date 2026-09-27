@@ -1,7 +1,5 @@
 name: VALDR Site CI
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 permissions:
   contents: read
 jobs:
@@ -9,30 +7,28 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: shivammathur/setup-php@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          php-version: '8.1'
-      - name: PHP and static validation
-        run: php scripts/validate.php
-      - name: JavaScript syntax
-        run: node --check assets/js/site.js
-      - name: Start PHP server
-        run: php -S 127.0.0.1:8080 -t . > /tmp/valdr-site.log 2>&1 &
-      - name: Route, asset, language and header smoke
-        run: php scripts/http-smoke.php http://127.0.0.1:8080
-      - name: Guard against fake download artifacts
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --trace
+      - name: Reject PHP in generated site
         run: |
-          if grep -RIE --include='*.php' --include='*.html' 'href="[^"]+\.(exe|msi|dmg)(\?[^"]*)?"' .; then
-            echo 'Executable link found before verified release data gate.' >&2
+          if find _site -type f -name '*.php' | grep -q .; then
+            find _site -type f -name '*.php'
             exit 1
           fi
-      - name: Print server log on failure
-        if: failure()
-        run: cat /tmp/valdr-site.log || true
-
+      - name: Guard fake executable downloads
+        run: |
+          if grep -RIE --include='*.html' 'href="[^"]+\.(exe|msi|dmg)(\?[^"]*)?"' _site; then exit 1; fi
       - name: Guard private specification references
         run: |
-          if grep -RIE --exclude-dir=.git --include='*.php' --include='*.html' --include='*.md' --include='*.json' 'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec' .; then
-            echo 'Private specification reference found in website repository.' >&2
-            exit 1
-          fi
+          if grep -RIE --exclude-dir=.git --exclude-dir=_site --include='*.md' --include='*.html' --include='*.yml' 'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec' .; then exit 1; fi
+      - name: Route smoke
+        run: |
+          python3 -m http.server 8080 --directory _site >/tmp/valdr-site.log 2>&1 &
+          sleep 1
+          for path in / /getting-started/ /how-it-works/ /wallet/ /node/ /mining/ /explorer/ /download/ /security/ /roadmap/ /faq/ /ru/ /ru/getting-started/ /ru/how-it-works/ /ru/wallet/ /ru/node/ /ru/mining/ /ru/explorer/ /ru/download/ /ru/security/ /ru/roadmap/ /ru/faq/; do
+            curl --fail --silent --show-error "http://127.0.0.1:8080$path" >/dev/null
+          done
