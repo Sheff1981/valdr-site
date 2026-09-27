@@ -6,7 +6,7 @@ description: VALDR is an independent Proof-of-Work network with its own blockcha
 permalink: /
 alt_url: /ru/
 ---
-<section class="hero"><div class="wrap"><p class="eyebrow">Independent blockchain · Proof of Work</p><h1>VALDR. Its own network. Its own currency.</h1><p class="lead">An independent blockchain with VDR as its native currency. Not a token issued on Ethereum, BNB Chain or another external network.</p><div class="actions"><a class="button" href="/getting-started/">Get started</a><a class="button secondary" href="/how-it-works/">How VALDR works</a></div></div></section>
+<section class="hero"><div class="wrap"><p class="eyebrow">Independent blockchain · Proof of Work</p><h1>VALDR. Its own network. Its own currency.</h1><p class="lead">An independent blockchain with VDR as its native currency, its own consensus rules, network protocol and chain state.</p><div class="actions"><a class="button" href="/getting-started/">Get started</a><a class="button secondary" href="/how-it-works/">How VALDR works</a></div></div></section>
 <section class="section"><div class="wrap grid-3">
 <div class="card"><h3>Use VALDR</h3><p>Wallets, receiving, sending and verification explained as practical steps.</p><a href="/using-valdr/">Use VALDR →</a></div>
 <div class="card"><h3>Run the network</h3><p>Operate a node, synchronize chain state and validate blocks independently.</p><a href="/node/">Run a node →</a></div>

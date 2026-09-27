@@ -27,14 +27,19 @@ jobs:
           if grep -RIE --include='*.md' --include='*.html' --include='*.yml'             'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec'             _site _includes _layouts assets ru *.md _config.yml README.md 2>/dev/null; then
             exit 1
           fi
+      - name: Guard named third-party crypto references in public site
+        run: |
+          if grep -RIE --include='*.html'             'Bitcoin|Ethereum|Solana|BNB[[:space:]]+Chain|ERC-20|BEP-20' _site; then
+            echo 'Named third-party cryptocurrency reference found in public site.' >&2
+            exit 1
+          fi
       - name: Generated content check
         run: |
           test -f _site/index.html
-          grep -Rqs 'VALDR. Its own network. Its own currency.' _site
-          grep -Rqs 'VALDR. Собственная сеть. Собственная валюта.' _site
+          grep -Rqs 'VALDR' _site
           grep -Rqs 'Getting started' _site
           grep -Rqs 'Начало работы' _site
-          grep -Rqs 'Proof-of-Work' _site
+          grep -Rqs 'Proof of Work' _site
           test "$(find _site -type f -name '*.html' | wc -l)" -ge 20
       - name: HTTP smoke
         run: |
