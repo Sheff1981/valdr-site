@@ -24,7 +24,9 @@ jobs:
           if grep -RIE --include='*.html' 'href="[^"]+\.(exe|msi|dmg)(\?[^"]*)?"' _site; then exit 1; fi
       - name: Guard private specification references
         run: |
-          if grep -RIE --exclude-dir=.git --exclude-dir=_site --include='*.md' --include='*.html' --include='*.yml' 'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec' .; then exit 1; fi
+          if grep -RIE --include='*.md' --include='*.html' --include='*.yml'             'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec'             _site _includes _layouts assets ru *.md _config.yml README.md 2>/dev/null; then
+            exit 1
+          fi
       - name: Route smoke
         run: |
           python3 -m http.server 8080 --directory _site >/tmp/valdr-site.log 2>&1 &
