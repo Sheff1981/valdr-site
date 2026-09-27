@@ -1,4 +1,10 @@
 <footer class="site-footer"><div class="wrap footer-grid">
-<div><strong>VALDR</strong><p>{% if page.lang == 'ru' %}Открытая P2P-сеть и собственная цифровая валюта VDR.{% else %}Open peer-to-peer network and native digital currency VDR.{% endif %}</p></div>
-<div><a href="{% if page.lang == 'ru' %}/ru/security/{% else %}/security/{% endif %}">{% if page.lang == 'ru' %}Безопасность{% else %}Security{% endif %}</a><a href="{% if page.lang == 'ru' %}/ru/roadmap/{% else %}/roadmap/{% endif %}">{% if page.lang == 'ru' %}План развития{% else %}Roadmap{% endif %}</a><a href="{% if page.lang == 'ru' %}/ru/faq/{% else %}/faq/{% endif %}">FAQ</a></div>
+<div><strong>VALDR</strong><p>{% if page.lang == 'ru' %}Независимая P2P-сеть и собственная цифровая валюта VDR.{% else %}Independent peer-to-peer network and native digital currency VDR.{% endif %}</p></div>
+<div>
+{% if page.lang == 'ru' %}
+<a href="/ru/security/">Безопасность</a><a href="/ru/roadmap/">План развития</a><a href="/ru/faq/">FAQ</a>
+{% else %}
+<a href="/about/">About</a><a href="/community/">Community</a><a href="/verify/">Verify</a><a href="/releases/">Releases</a><a href="/security/">Security</a><a href="/roadmap/">Roadmap</a><a href="/faq/">FAQ</a>
+{% endif %}
+</div>
 </div></footer>
