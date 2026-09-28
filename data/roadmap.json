@@ -1,11 +1,11 @@
 {
   "schema": 2,
   "source_core_branch": "valdr-v0.2",
-  "source_core_commit": "ea74320f9950dad733e4f95c0d24e9b008e2d221",
-  "source_core_commit_date": "2026-09-25T20:01:00Z",
-  "source_ci_run_id": 36183171614,
+  "source_core_commit": "b2704ad26659e6e6de8377013dcc33c8aa8d8ee0",
+  "source_core_commit_date": "2026-09-27T17:19:40Z",
+  "source_ci_run_id": 36336520832,
   "source_ci_status": "success",
-  "verified_at": "2026-09-25T20:07:20Z",
+  "verified_at": "2026-09-27T17:37:58Z",
   "stages": [
     {
       "id": 0,
@@ -295,32 +295,22 @@
       "id": 12,
       "en_name": "VALDR Desktop",
       "ru_name": "VALDR Desktop",
-      "status": "in_development",
-      "en_status_label": "Implementation present / manual Windows acceptance pending",
-      "ru_status_label": "Реализация есть / ручная Windows-приёмка pending",
-      "en_note": "Desktop implementation and cross-platform CI are present. The current Windows manual QA candidate is pinned to CI #356 and hash-verified; Stage 12 remains open until the required human-visible Windows acceptance is completed.",
-      "ru_note": "Desktop-реализация и cross-platform CI уже есть. Текущий Windows manual QA candidate зафиксирован на CI #356 и проверен по hash; Stage 12 остаётся открытым до обязательной ручной Windows-приёмки.",
+      "status": "implemented",
+      "en_status_label": "Automated PASS / manual Windows waived",
+      "ru_status_label": "Автотесты PASS / ручная Windows-проверка снята как блокер",
+      "en_note": "Desktop implementation and the cross-platform automated matrix are green. The owner waived Stage 12C as a v0.2 blocking gate; it is waived, not manually passed.",
+      "ru_note": "Desktop и кроссплатформенная автоматическая матрица зелёные. Владелец снял Stage 12C как блокирующий gate для v0.2; проверка снята, но не считается ручным PASS.",
       "en_details": [
-        "Wails v2 application shell and original VALDR visual system",
-        "Managed canonical valdrd backend with outbound-only P2P mode",
-        "Cross-platform data paths and graceful managed shutdown",
-        "Encrypted wallet bridge, balance, Send and Receive flows",
-        "Fee preview and fee-aware Testnet send",
-        "Encrypted wallet backup and restore",
-        "Pending / confirmed reorg-safe transaction history",
-        "Read-only sync progress from peer heights",
-        "Blocking first-run Testnet wallet setup flow"
+        "Wails v2 Desktop with managed canonical valdrd backend",
+        "Encrypted wallet, Send/Receive, history, backup/restore and diagnostics",
+        "Stage 12B.1–12B.7 implemented and CI-verified",
+        "Stage 12C manual Windows click-through remains optional and not manually verified"
       ],
       "ru_details": [
-        "Wails v2 application shell и собственная VALDR visual system",
-        "Managed canonical valdrd backend с outbound-only P2P mode",
-        "Cross-platform data paths и graceful managed shutdown",
-        "Encrypted wallet bridge, balance, Send и Receive",
-        "Fee preview и fee-aware Testnet send",
-        "Encrypted wallet backup и restore",
-        "Pending / confirmed reorg-safe transaction history",
-        "Read-only sync progress по peer heights",
-        "Blocking first-run Testnet wallet setup flow"
+        "Wails v2 Desktop с управляемым каноническим valdrd",
+        "Зашифрованный кошелёк, Send/Receive, история, backup/restore и diagnostics",
+        "Stage 12B.1–12B.7 реализованы и проверены CI",
+        "Ручной Windows click-through Stage 12C остаётся опциональным и вручную не пройден"
       ]
     },
     {
@@ -328,49 +318,45 @@
       "en_name": "Cross-platform installers + release pipeline",
       "ru_name": "Cross-platform installers + release pipeline",
       "status": "in_development",
-      "en_status_label": "Pipeline green / public release still gated",
-      "ru_status_label": "Pipeline green / публичный release ещё закрыт gate",
-      "en_note": "Cross-platform development packages, canonical SHA-256 metadata, clean provenance verification and exact-run non-public handoff are CI-green on run #356. Public Testnet publication remains blocked until Stage 12 acceptance is green and a release candidate is deliberately frozen.",
-      "ru_note": "Cross-platform development packages, canonical SHA-256 metadata, clean provenance verification и exact-run non-public handoff проходят CI #356. Публичная публикация Testnet остаётся закрыта до завершения Stage 12 и явной заморозки release candidate.",
+      "en_status_label": "Development pipeline green / public RC gated",
+      "ru_status_label": "Development pipeline зелёный / public RC закрыт",
+      "en_note": "Cross-platform development packages, SHA-256 manifest, clean provenance verification and website integration are green on the accepted Testnet2 development line. Public RC freeze comes after Stage 14A.",
+      "ru_note": "Кроссплатформенные development packages, SHA-256 manifest, clean provenance verification и интеграция сайта зелёные на принятой линии Testnet2. Публичный RC фиксируется после Stage 14A.",
       "en_details": [
-        "Windows installer and portable package built and clean-tested",
-        "macOS ARM64 and Intel DMGs built and clean-launched",
-        "Linux AppImage and .deb built and clean-tested",
-        "Canonical SHA-256 release manifest bound to exact source commit",
-        "GitHub/Sigstore keyless provenance, clean verification and exact-run non-public handoff are CI-verified",
-        "Public release candidate, download publication and manual Windows acceptance still pending"
+        "Windows installer + portable ZIP, Linux AppImage + deb, macOS ARM64 + Intel DMG",
+        "Canonical SHA-256 manifest bound to an exact source commit",
+        "GitHub/Sigstore keyless provenance and clean verification",
+        "Website download path is fail-closed until the post-Stage14A non-development RC"
       ],
       "ru_details": [
-        "Windows installer и portable package собраны и clean-tested",
-        "macOS ARM64 и Intel DMG собраны и clean-launched",
-        "Linux AppImage и .deb собраны и clean-tested",
-        "Canonical SHA-256 release manifest привязан к точному source commit",
-        "GitHub/Sigstore keyless provenance, clean verification и exact-run non-public handoff проходят CI",
-        "Public release candidate, публикация downloads и ручная Windows-приёмка ещё pending"
+        "Windows installer + portable ZIP, Linux AppImage + deb, macOS ARM64 + Intel DMG",
+        "Канонический SHA-256 manifest привязан к точному source commit",
+        "GitHub/Sigstore keyless provenance и clean verification",
+        "Сайт не откроет загрузку до non-development RC после Stage 14A"
       ]
     },
     {
       "id": 14,
       "en_name": "Distributed user-run Testnet",
       "ru_name": "Распределённый пользовательский Testnet",
-      "status": "planned",
-      "en_status_label": "Planned",
-      "ru_status_label": "Запланировано",
-      "en_note": "Roll out Testnet through independently operated user nodes after Desktop and release gates are green; no project-owned paid server is mandatory.",
-      "ru_note": "После закрытия Desktop и release gates развернуть Testnet через независимо запущенные пользовательские nodes; обязательный платный сервер проекта не требуется.",
+      "status": "in_development",
+      "en_status_label": "Active next gate",
+      "ru_status_label": "Активный следующий gate",
+      "en_note": "Run the final independent Testnet2 validation on real machines before freezing the public Testnet RC.",
+      "ru_note": "Провести финальную независимую проверку Testnet2 на реальных машинах до заморозки публичного Testnet RC.",
       "en_details": [
-        "At least 3 independently operated Testnet nodes/clients on the same chain",
-        "At least one real reachable bootstrap path for a cold client",
-        "Learned peer cache and peer exchange reduce dependence on any single bootstrap source",
-        "Minimum 24-hour multi-user/private soak before wider rollout",
-        "At least 7 days without consensus split or manual database repair"
+        "3 genuinely independent nodes/clients in every session",
+        "3 separate session groups, approximately 2–3 hours each",
+        "Real reachable bootstrap route, peer learning/cache and bootstrap-loss recovery",
+        "Mining, transactions, restart/DB recovery and common-chain convergence",
+        "No unresolved consensus split, critical blocker or normal-recovery DB repair"
       ],
       "ru_details": [
-        "Минимум 3 независимо запущенных Testnet nodes/clients на одной chain",
-        "Минимум один реальный reachable bootstrap path для cold client",
-        "Learned peer cache и peer exchange уменьшают зависимость от одного bootstrap source",
-        "Минимум 24 часа multi-user/private soak перед более широким rollout",
-        "Минимум 7 дней без consensus split и ручного ремонта database"
+        "3 действительно независимые ноды/клиента в каждой сессии",
+        "3 отдельные группы сессий примерно по 2–3 часа каждая",
+        "Реальный reachable bootstrap, обучение/cache peers и восстановление после потери bootstrap",
+        "Майнинг, транзакции, restart/DB recovery и схождение на одной цепочке",
+        "Без нерешённого consensus split, критического blocker или ручного ремонта DB при нормальном recovery"
       ]
     },
     {
@@ -393,6 +379,77 @@
         "Финальный Mainnet network profile и Genesis",
         "Финальные monetary и launch parameters",
         "Запуск только после собственных verification gates"
+      ]
+    }
+  ],
+  "network_evolution": [
+    {
+      "id": "testnet1",
+      "en_name": "Testnet 1",
+      "ru_name": "Testnet 1",
+      "status": "historical",
+      "en_status_label": "Historical / superseded",
+      "ru_status_label": "Исторический / заменён",
+      "chain_id": "valdr-testnet-1",
+      "en_note": "The first VALDR public test-network line used to prove the basic standalone blockchain stack before the Testnet2 reset.",
+      "ru_note": "Первая тестовая сеть VALDR, на которой проверили базовый собственный блокчейн до перехода на Testnet2.",
+      "en_details": [
+        "Own chain and Genesis, P2P, Proof of Work and mining",
+        "UTXO transactions, fees, mempool, chainwork and reorganization",
+        "Encrypted wallet, Explorer, restart/persistence and multi-node CI",
+        "Preserved as historical evidence; it is not the active network"
+      ],
+      "ru_details": [
+        "Собственная цепочка и Genesis, P2P, Proof of Work и майнинг",
+        "UTXO-транзакции, комиссии, mempool, chainwork и reorg",
+        "Зашифрованный кошелёк, Explorer, перезапуск/хранение и многоузловые CI-тесты",
+        "Сохранён как историческое доказательство; активной сетью больше не является"
+      ]
+    },
+    {
+      "id": "testnet2",
+      "en_name": "Testnet 2",
+      "ru_name": "Testnet 2",
+      "status": "active",
+      "en_status_label": "Active validation",
+      "ru_status_label": "Активная проверка",
+      "chain_id": "valdr-testnet-2",
+      "en_note": "The current hardened Testnet line. Automated Core, Desktop, packaging, provenance and website gates are green; independent multi-machine Stage 14A remains the active gate.",
+      "ru_note": "Текущая усиленная тестовая сеть. Core, Desktop, упаковка, provenance и сайт прошли автоматические проверки; активный следующий gate — реальный Stage 14A на независимых машинах.",
+      "en_details": [
+        "60-second Testnet blocks, 1 Testnet VDR subsidy, 10-block retarget",
+        "Hardened P2P/reorg/storage/RPC/wallet and cross-platform packages",
+        "Stage 14A requires 3 machines in each of 3 separate 2–3 hour sessions",
+        "Public Testnet RC remains fail-closed until Stage 14A passes"
+      ],
+      "ru_details": [
+        "60 секунд на Testnet-блок, награда 1 Testnet VDR, retarget каждые 10 блоков",
+        "Усилены P2P/reorg/storage/RPC/wallet и сборки под Windows/macOS/Linux",
+        "Stage 14A: 3 машины в каждой из 3 отдельных сессий по 2–3 часа",
+        "Публичный Testnet RC закрыт до успешного Stage 14A"
+      ]
+    },
+    {
+      "id": "mainnet",
+      "en_name": "Mainnet",
+      "ru_name": "Mainnet",
+      "status": "future",
+      "en_status_label": "Future / not launched",
+      "ru_status_label": "Будущее / не запущен",
+      "chain_id": null,
+      "en_note": "The production VALDR network is a separate future network. Its Genesis, network identity, mining model and final economics are not live yet.",
+      "ru_note": "Рабочая сеть VALDR будет отдельной будущей сетью. Её Genesis, идентичность сети, модель майнинга и финальная экономика ещё не запущены.",
+      "en_details": [
+        "Separate Mainnet specification after Testnet2 evidence",
+        "Independent Mainnet Genesis and network identity",
+        "Consensus/economics and mining architecture frozen before launch",
+        "Mainnet must never reuse Testnet balances or identity"
+      ],
+      "ru_details": [
+        "Отдельное Mainnet-ТЗ после получения доказательств Testnet2",
+        "Собственный Mainnet Genesis и отдельная идентичность сети",
+        "Consensus/экономика и архитектура майнинга фиксируются до запуска",
+        "Mainnet не наследует балансы или идентичность Testnet"
       ]
     }
   ]

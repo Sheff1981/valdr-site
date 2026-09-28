@@ -28,6 +28,26 @@ $pageKey='roadmap'; $pagePath='/roadmap'; require dirname(__DIR__).'/includes/bo
 </section>
 
 <section class="section narrow">
+  <div class="section-heading">
+    <span><?= $lang==='ru'?'ЭВОЛЮЦИЯ СЕТИ':'NETWORK EVOLUTION' ?></span>
+    <h2><?= $lang==='ru'?'Testnet 1 → Testnet 2 → Mainnet':'Testnet 1 → Testnet 2 → Mainnet' ?></h2>
+  </div>
+  <div class="final-grid three">
+    <?php foreach($roadmap['network_evolution']??[] as $network): ?>
+      <article>
+        <small><?= h($network[$lang.'_status_label']??$network['en_status_label']??'') ?></small>
+        <h3><?= h($network[$lang.'_name']??$network['en_name']??'') ?></h3>
+        <?php if(!empty($network['chain_id'])): ?><p class="mono"><?= h((string)$network['chain_id']) ?></p><?php endif; ?>
+        <p><?= h($network[$lang.'_note']??$network['en_note']??'') ?></p>
+        <?php $networkDetails=$network[$lang.'_details']??$network['en_details']??[]; if($networkDetails): ?>
+          <ul class="stage-details"><?php foreach($networkDetails as $detail): ?><li><?= h($detail) ?></li><?php endforeach; ?></ul>
+        <?php endif; ?>
+      </article>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+<section class="section narrow">
   <div class="legend">
     <span><i class="status-dot implemented"></i><?= $lang==='ru'?'Реализовано + проверено':'Implemented + verified' ?></span>
     <span><i class="status-dot in_development"></i><?= $lang==='ru'?'В разработке':'In development' ?></span>
@@ -55,10 +75,10 @@ $pageKey='roadmap'; $pagePath='/roadmap'; require dirname(__DIR__).'/includes/bo
 
   <div class="current-work">
     <span><?= $lang==='ru'?'ТЕКУЩАЯ РАБОТА':'CURRENT WORK' ?></span>
-    <h2>Stages 12–13 — Desktop + release acceptance</h2>
+    <h2>Stage 14A — independent Testnet2 validation</h2>
     <p><?= $lang==='ru'
-      ?'Desktop implementation и cross-platform development packaging уже есть. Core CI подтверждает package assembly, SHA-256/provenance clean verification и exact-run non-public handoff. Открыты manual Windows acceptance, frozen release candidate, исполняющийся website CI и финальная RC verification.'
-      :'Desktop implementation and cross-platform development packaging are present. Core CI confirms package assembly, SHA-256/provenance clean verification and the exact-run non-public handoff. Manual Windows acceptance, a frozen release candidate, executing website CI and final RC verification remain open.' ?></p>
+      ?'Автоматическая разработка Testnet2, Desktop, cross-platform packages, SHA-256/provenance и website CI уже зелёные. Текущий обязательный gate — три реальные распределённые сессии по 2–3 часа на трёх независимых машинах; public RC фиксируется только после их PASS.'
+      :'Automated Testnet2 Core, Desktop, cross-platform packages, SHA-256/provenance and website CI are green. The current mandatory gate is three real distributed 2–3 hour sessions on three independent machines; the public RC is frozen only after they pass.' ?></p>
   </div>
 
   <p class="source-note"><?= $lang==='ru'

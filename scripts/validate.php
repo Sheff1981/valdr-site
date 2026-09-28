@@ -7,6 +7,17 @@ foreach($rii as $file){$path=$file->getPathname(); if(str_contains($path,DIRECTO
 foreach($php as $path){$out=[];$code=0;exec('php -l '.escapeshellarg($path).' 2>&1',$out,$code);if($code!==0)$errors[]='PHP syntax: '.$path.' '.implode(' ',$out);}
 foreach(['assets/css/site.css','assets/js/site.js','assets/img/valdr-mark.svg','assets/img/valdr-desktop-current.webp','assets/icons/favicon.svg','data/releases.json','data/roadmap.json','lang/en.php','lang/ru.php'] as $required){if(!is_file($root.'/'.$required))$errors[]='Missing required asset: '.$required;}
 foreach(['releases.json','roadmap.json'] as $json){json_decode((string)file_get_contents($root.'/data/'.$json),true);if(json_last_error()!==JSON_ERROR_NONE)$errors[]='Invalid JSON: '.$json;}
+$roadmap=json_decode((string)file_get_contents($root.'/data/roadmap.json'),true);
+if(!is_array($roadmap)){$errors[]='Roadmap data must decode to an object';}else{
+  if(!preg_match('/^[0-9a-f]{40}$/',(string)($roadmap['source_core_commit']??'')))$errors[]='Roadmap requires exact Core commit';
+  $evolution=$roadmap['network_evolution']??[];
+  $byId=[]; if(is_array($evolution)){foreach($evolution as $n){if(is_array($n)&&isset($n['id']))$byId[(string)$n['id']]=$n;}}
+  foreach(['testnet1','testnet2','mainnet'] as $id){if(!isset($byId[$id]))$errors[]='Roadmap network evolution missing '.$id;}
+  if(($byId['testnet2']['chain_id']??'')!=='valdr-testnet-2')$errors[]='Roadmap active Testnet2 Chain ID mismatch';
+  if(($byId['mainnet']['status']??'')!=='future')$errors[]='Roadmap Mainnet must remain future until launch';
+  $rawRoadmap=(string)file_get_contents($root.'/data/roadmap.json');
+  foreach(['Minimum 24-hour','At least 7 days','Минимум 24 часа','Минимум 7 дней'] as $staleRoadmap){if(str_contains($rawRoadmap,$staleRoadmap))$errors[]='Roadmap contains obsolete Stage 14 duration rule: '.$staleRoadmap;}
+}
 $requiredRoutes=['about','getting-started','using-valdr','technology','wallet','node','mining','explorer','docs','security','community','story','faq','download','verify','releases','roadmap'];
 foreach($requiredRoutes as $route){if(!is_file($root.'/'.$route.'/index.php'))$errors[]='Stage 13C route missing: /'.$route;}
 foreach(['en','ru'] as $locale){
