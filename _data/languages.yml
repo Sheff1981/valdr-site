@@ -1,0 +1,24 @@
+default: en
+available:
+  - code: en
+    name: English
+    native_name: English
+    prefix: /
+    status: complete-first
+  - code: ru
+    name: Russian
+    native_name: Русский
+    prefix: /ru/
+    status: translation-in-progress
+planned:
+  - de
+  - fr
+  - es
+  - pt
+  - it
+  - pl
+  - tr
+  - uk
+  - zh
+  - ja
+  - ko

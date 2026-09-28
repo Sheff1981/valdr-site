@@ -1,7 +1,5 @@
 name: VALDR Site CI
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 permissions:
   contents: read
 jobs:
@@ -9,30 +7,46 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: shivammathur/setup-php@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          php-version: '8.1'
-      - name: PHP and static validation
-        run: php scripts/validate.php
-      - name: JavaScript syntax
-        run: node --check assets/js/site.js
-      - name: Start PHP server
-        run: php -S 127.0.0.1:8080 -t . > /tmp/valdr-site.log 2>&1 &
-      - name: Route, asset, language and header smoke
-        run: php scripts/http-smoke.php http://127.0.0.1:8080
-      - name: Guard against fake download artifacts
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --trace
+      - name: Reject PHP in generated site
         run: |
-          if grep -RIE --include='*.php' --include='*.html' 'href="[^"]+\.(exe|msi|dmg)(\?[^"]*)?"' .; then
-            echo 'Executable link found before verified release data gate.' >&2
+          if find _site -type f -name '*.php' | grep -q .; then
+            find _site -type f -name '*.php'
             exit 1
           fi
-      - name: Print server log on failure
-        if: failure()
-        run: cat /tmp/valdr-site.log || true
-
+      - name: Guard fake executable downloads
+        run: |
+          if grep -RIE --include='*.html' 'href="[^"]+\.(exe|msi|dmg)(\?[^"]*)?"' _site; then exit 1; fi
       - name: Guard private specification references
         run: |
-          if grep -RIE --exclude-dir=.git --include='*.php' --include='*.html' --include='*.md' --include='*.json' 'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec' .; then
-            echo 'Private specification reference found in website repository.' >&2
+          if grep -RIE --include='*.md' --include='*.html' --include='*.yml'             'VALDR_Master_TZ|Master[[:space:]]+TZ|Master[[:space:]]+Specification|source_master_spec|master_spec'             _site _includes _layouts assets ru *.md _config.yml README.md 2>/dev/null; then
             exit 1
           fi
+      - name: Guard named third-party crypto references in public site
+        run: |
+          if grep -RIE --include='*.html'             'Bitcoin|Ethereum|Solana|BNB[[:space:]]+Chain|ERC-20|BEP-20' _site; then
+            echo 'Named third-party cryptocurrency reference found in public site.' >&2
+            exit 1
+          fi
+      - name: Generated route check
+        run: |
+          for file in             _site/index.html             _site/getting-started/index.html             _site/how-it-works/index.html             _site/wallet/index.html             _site/node/index.html             _site/mining/index.html             _site/explorer/index.html             _site/about/index.html             _site/origin/index.html             _site/ru/index.html             _site/ru/getting-started/index.html             _site/ru/how-it-works/index.html             _site/ru/wallet/index.html             _site/ru/node/index.html             _site/ru/mining/index.html             _site/ru/explorer/index.html             _site/ru/about/index.html             _site/ru/origin/index.html; do
+              test -f "$file" || { echo "Missing generated route: $file"; exit 1; }
+          done
+          grep -q 'VALDR Explorer' _site/explorer/index.html
+          grep -q 'VALDR Explorer' _site/ru/explorer/index.html
+      - name: HTTP smoke
+        run: |
+          python3 -m http.server 8080 --directory _site >/tmp/valdr-site.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid 2>/dev/null || true' EXIT
+          sleep 1
+          curl --fail --silent --show-error http://127.0.0.1:8080/ >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:8080/ru/ >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:8080/explorer/ >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:8080/ru/explorer/ >/dev/null
